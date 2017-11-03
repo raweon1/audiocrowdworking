@@ -1,0 +1,48 @@
+<div id="container_acr_{{ index }}" class="container-acr" data-is-checked="false">
+    <script>
+        $(document).ready(function () {
+           $(".acr-radio[name='{{ stimuli.name }}'").click(function () {
+               if($("#container_acr_{{ index }}").attr("data-is-checked") == "false"){
+                   $("#container_acr_{{ index }}").attr("data-is-checked", "true");
+                   $(document).trigger("acr_attr_changed");
+               }
+           });
+        });
+    </script>
+    <div>
+        <div class="container-inline">
+            Quality of the speech
+        </div>
+        <span>Score</span>
+    </div>
+    <div>
+        <div class="container-inline">
+            <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="5"> Excellent
+        </div>
+        <span>5</span>
+    </div>
+    <div>
+        <div class="container-inline">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="4"> Good
+        </div>
+        <span>4</span>
+    </div>
+    <div>
+        <div class="container-inline">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="3"> Fair
+        </div>
+        <span>3</span>
+    </div>
+    <div>
+        <div class="container-inline">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="2"> Poor
+        </div>
+        <span>2</span>
+    </div>
+    <div>
+        <div class="container-inline">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="1"> Bad
+        </div>
+        <span>1</span>
+    </div>
+</div>

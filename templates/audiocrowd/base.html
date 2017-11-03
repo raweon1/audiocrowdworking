@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static "audiocrowd_style.css" %}">
+    <script src="{% static "jquery.js" %}"></script>
+</head>
+<body>
+    <div class="container-base">
+        <div class="panel-heading">Evaluation of Audiosamples</div>
+        <div class="panel-body">
+            {% block task %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+Ubunut 16.04
+1.	Apache2
+	1.	Install Apache2 
+		sudo apt-get install apache2
+	2.	Install mod_wsgi for Python3
+		sudo apt-get install libapache2-mod-wsgi-py3
+	3.	Activate mod_wsgi
+		sudo a2enmod wsgi
+2.	VirtualEnv for Python3 and Django in Apache2 Document-root
+	1.	Apache2 Document-root is "/var/www/"
+	2.	Install VirtualEnv
+		sudo apt-get install virtualenv
+	3.	Create VirtualEnv venv with Python3 in "/var/www/"
+		sudo virtualenv /var/www/venv -p python3.5
+	4.	Change owner of www - we cannot use pip and collectstatic otherwise
+		sudo chown -R [USER]:[USER] "/var/www"
+	5.	Activate VirtualEnv
+		source /var/www/venv/bin/activate
+	6.	Assert Python version - must be 3.x
+		python -V
+	7.	Install Django
+		pip install Django
+	8.	Assert Django Version - must be 1.11
+		django-admin version
+3.	Install Django-Project
+	1.	Install git
+		sudo apt-get install git
+	2.	Download Project
+		sudo git clone git://github.com/raweon1/audiocrowdworking_ /var/www/audiocrowdworking
+	3.	Prepare Django-Static-Files
+		python /var/www/audiocrowdworking/manage.py collectstatic
+	4.	Deactivate VirtualEnv and change owner "var/www" - apache2 cannot write to db otherwise
+		deactivate
+		sudo chown -R www-data:www-data /var/www
+4.	Configure Apache2 / mod_wsgi
+	1. sudo nano /etc/apache2/sites-availiable/000-default.conf
+	add
+	
+	Alias /static /var/www/static
+	<Directory /var/www/static>
+		Require all granted
+	</Directory>
+
+	<Directory /var/www/audiocrowdworking/audiocrowdworking>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+
+	WSGIDaemonProcess audiocrowd python-home=/var/www/venv python-path=/var/www/audiocrowdworking
+	WSGIProcessGroup audiocrowd
+	WSGIScriptAlias / /var/www/audiocrowdworking/audiocrowdworking/wsgi.py
+	
+	remove
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/html
+	2.	Restart Apache2
+		sudo service apache2 restart

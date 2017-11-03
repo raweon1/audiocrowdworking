@@ -1,0 +1,65 @@
+{% extends "audiocrowd/base.html" %}
+
+{% load custom_tags %}
+
+{% block task %}
+    <script>
+        $(document).ready(function () {
+            $("#acr_rate_1").siblings(".acr-rate-wrapper").hide();
+
+            var current = 1;
+            $(".acr-left-button").click(function () {
+                if(current > 1){
+                    $("#acr_rate_" + current).hide();
+                    $("#acr_rate_" + --current).show();
+                }
+                return false;
+            });
+            $(".acr-right-button").click(function () {
+                if(current < {{ to_rate|length }}){
+                    $("#acr_rate_" + current).hide();
+                    $("#acr_rate_" + ++current).show();
+                }
+                return false;
+            });
+
+            $(document).on("acr_attr_changed", function () {
+                if($(".container-acr[data-is-checked='false']").length == 0){
+                    $("#acr_submit").prop("disabled", false)
+                }
+            });
+
+            $(document).on("volume_changed", function () {
+                $("#volume_changed").val("True")
+            });
+        });
+    </script>
+    <form method="post">
+        {% csrf_token %}
+        <input id="volume_changed" type="hidden" name="volume_changed" value="False">
+        {% for index, stimuli in to_rate %}
+            <div id="acr_rate_{{ index }}" class="acr-rate-wrapper">
+                <div class="panel-heading">
+                    Sample {{ index }} / {{ to_rate|length }} : {{ stimuli.name }}
+                </div>
+                <div class="panel-body">
+                    <div class="align-center">
+                        {% display_stimulus stimuli index volume %}
+                    </div>
+                    {% acr_scale index stimuli %}
+                    <div class="align-right">
+                        <button class="acr-button acr-left-button">
+                            Previous
+                        </button>
+                        <button class="acr-button acr-right-button">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="align-right">
+            <input id="acr_submit" type="submit" value="Submit" disabled>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "audiocrowd/base.html" %}
+
+{% load custom_tags %}
+
+{% block task %}
+    <div class="panel-heading">Introduction</div>
+    <div class="panel-body">
+        <div>
+            {{ introduction_1 }}
+        </div>
+        <br>
+        {% acr_scale %}
+        <br>
+        <div>
+            {{ introduction_2 }}
+        </div>
+    </div>
+    <div class="panel-heading">Procedure</div>
+    <div class="panel-body">
+        {{ procedure_1 }}
+        <ul>
+        {% for foo in foobar %}
+            <li>{{ foo }}</li>
+        {% endfor %}
+        </ul>
+        {{ procedure_2 }}
+    </div>
+    <div class="align-right">
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Next">
+        </form>
+    </div>
+{% endblock %}

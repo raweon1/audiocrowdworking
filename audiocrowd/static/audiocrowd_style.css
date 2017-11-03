@@ -1,0 +1,79 @@
+.panel-heading {
+    border-top: 1px solid royalblue;
+    border-radius: 5px 5px 0px 0px;
+    background-color: royalblue;
+    color: white;
+    font-size: 2em;
+    padding: 5px 20px;
+    margin: 5px 0px 0px 0px;
+}
+
+.panel-body {
+    border-radius: 0px 0px 5px 5px;
+    border-left: 2px solid royalblue;
+    border-right: 2px solid royalblue;
+    border-bottom: 2px solid royalblue;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    margin: 0px 0px 10px 0px;
+}
+
+.container-acr {
+    max-width: 250px;
+    margin: auto;
+}
+
+.container-inline {
+    width: 80%;
+    display: inline-block;
+}
+
+.container-base {
+    max-width: 1000px;
+    margin: auto;
+    overflow: auto;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+input[type=submit] {
+    border: 1px;
+    border-radius: 5px;
+    background-color: #439C3E;
+    color: white;
+    font-size: 1.2em;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 20%;
+    height: 50px;
+}
+
+input[type=submit]:disabled {
+    background: grey;
+}
+
+.acr-button {
+    background-color: #439C3E;
+    border: 1px;
+    border-radius: 5px;
+    color: white;
+    width: 10%;
+    height: 30px;
+}
+
+.stimulus-img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.stimulus-text {
+    font-size: 1.5em;
+    display: inline-block;
+    word-wrap: break-word;
+}

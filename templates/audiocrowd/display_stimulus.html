@@ -1,0 +1,51 @@
+{% load static %}
+{% if stimulus.type == "img" %}
+    <img class="stimulus-img" src="{% static stimulus.path %}" alt="{{ stimulus.name }}-{{ stimulus.type }}">
+{% elif stimulus.type == "txt" %}
+    <div class="stimulus-text">
+        {{ stimulus.name }}
+    </div>
+{% elif stimulus.type == "aud" %}
+    <audio id="{{ stimulus.name }}" class="stimulus-aud" controls>
+        <source src="" type="audio/wav">
+        Your browser does not support the audio tag
+    </audio>
+    <input id="{{ stimulus.name }}_input_volume" type="hidden" name="{{ stimulus.name }}_volume" value="{{ volume }}">
+    <script>
+        $(document).ready(function () {
+            $("#{{ stimulus.name }}").prop("volume", "{{ volume }}");
+            $("#{{ stimulus.name }}").prop("preload", "auto");
+
+            $("#{{ stimulus.name }}").on("volumechange", function () {
+                $("#{{ stimulus.name }}_input_volume").val($({{ stimulus.name }}).prop("volume"));
+                $(document).trigger("volume_changed");
+            });
+            var aud_time = 0;
+            $("#{{ stimulus.name }}").on("seeking", function () {
+                aud_time = $("#{{ stimulus.name }}").prop("currentTime");
+            });
+            $("#{{ stimulus.name }}").on("seeked", function () {
+                if ($("#{{ stimulus.name }}").prop("currentTime") - aud_time > 0) {
+                    alert("Do not skip forward!")
+                }
+                $("#{{ stimulus.name }}").prop("currentTime", aud_time);
+            });
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '{% static stimulus.path %}', true);
+            xhr.responseType = 'blob'; //important
+            xhr.onload = function(e) {
+                if (this.status == 200) {
+                    var blob = this.response;
+                    var audio = document.getElementById('{{ stimulus.name }}');
+                    audio.oncanplaythrough = function() {
+                        URL.revokeObjectURL(this.src);
+                    };
+                audio.src = URL.createObjectURL(blob);
+                audio.load();
+                }
+            };
+            xhr.send();
+        });
+    </script>
+{% endif %}

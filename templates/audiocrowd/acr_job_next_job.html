@@ -1,0 +1,22 @@
+{% extends "audiocrowd/base.html" %}
+
+{% block task %}
+    <div class="panel-heading">Payment</div>
+    <div class="panel-body">
+        some payment stuff?
+    </div>
+    <div class="panel-heading">Continue</div>
+    <div class="panel-body">
+        <div>
+            You can continue to rate by clicking the "continue" button or stop this job by clicking the "done" button
+        </div>
+        <div class="align-right">
+            <form method="post">
+                {% csrf_token %}
+                <input id="hidden_continue" type="hidden" name="continue" value="false">
+                <input type="submit" value="Continue" onclick="$('#hidden_continue').val('true')">
+                <input type="submit" value="Done">
+            </form>
+        </div>
+    </div>
+{% endblock %}

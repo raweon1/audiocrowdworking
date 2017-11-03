@@ -1,0 +1,28 @@
+{% load static %}
+
+<div>
+    <div>
+        Please modify the listening volume of your device to a comfortable level when hearing the following audio file.
+    </div>
+    <br>
+    <div class="align-center">
+        <audio id="calibrate_audio" class="stimulus-aud" onvolumechange="volume_changed()" controls>
+            <source src="{% static file.path %}" type="audio.mpeg">
+            Your browser does not support the audio tag
+        </audio>
+        <input id="calibrate_volume" type="hidden" name="calibrate" value="1">
+        <script>
+            $(document).ready(function () {
+                volume_changed();
+            });
+
+            function volume_changed() {
+                $("#calibrate_volume").val($("#calibrate_audio").prop("volume"));
+            }
+        </script>
+    </div>
+    <br>
+    <div>
+        IMPORTANT: After that, you are not allowed to change the volume anymore. If you do, your responses will be discarded!
+    </div>
+</div>
