@@ -1,48 +1,53 @@
 <div id="container_acr_{{ index }}" class="container-acr" data-is-checked="false">
     <script>
         $(document).ready(function () {
-           $(".acr-radio[name='{{ stimuli.name }}'").click(function () {
-               if($("#container_acr_{{ index }}").attr("data-is-checked") == "false"){
-                   $("#container_acr_{{ index }}").attr("data-is-checked", "true");
-                   $(document).trigger("acr_attr_changed");
-               }
+            $(".acr-radio[name='{{ stimuli.name }}'").click(function () {
+                if("{{ stimuli.type }}" != "aud" || $("#{{ stimuli.name }}").attr("data-has-ended") == "true") {
+                    if ($("#container_acr_{{ index }}").attr("data-is-checked") == "false") {
+                        $("#container_acr_{{ index }}").attr("data-is-checked", "true");
+                        $(document).trigger("acr_attr_changed");
+                    }
+                } else {
+                    $(".acr-radio[name='{{ stimuli.name }}'").prop("checked", false);
+                }
            });
         });
     </script>
     <div>
-        <div class="container-inline">
-            Quality of the speech
+        <div class="container-inline-left">
+            {{ acr_scale.0 }}
         </div>
-        <span>Score</span>
+        <div class="container-inline-right">
+            {{ acr_scale.1 }}</div>
+        </div>
+    <div>
+        <div class="container-inline-left">
+            <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="5"> {{ acr_scale.2 }}
+        </div>
+        <div class="container-inline-right">5</div>
     </div>
     <div>
-        <div class="container-inline">
-            <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="5"> Excellent
+        <div class="container-inline-left">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="4"> {{ acr_scale.3 }}
         </div>
-        <span>5</span>
+        <div class="container-inline-right">4</div>
     </div>
     <div>
-        <div class="container-inline">
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="4"> Good
+        <div class="container-inline-left">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="3"> {{ acr_scale.4 }}
         </div>
-        <span>4</span>
+        <div class="container-inline-right">3</div>
     </div>
     <div>
-        <div class="container-inline">
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="3"> Fair
+        <div class="container-inline-left">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="2"> {{ acr_scale.5 }}
         </div>
-        <span>3</span>
+        <div class="container-inline-right">2</div>
     </div>
     <div>
-        <div class="container-inline">
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="2"> Poor
+        <div class="container-inline-left">
+             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="1"> {{ acr_scale.6 }}
         </div>
-        <span>2</span>
-    </div>
-    <div>
-        <div class="container-inline">
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="1"> Bad
-        </div>
-        <span>1</span>
+        <div class="container-inline-right">1</div>
     </div>
 </div>

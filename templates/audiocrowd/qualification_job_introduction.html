@@ -3,32 +3,28 @@
 {% load custom_tags %}
 
 {% block task %}
-    <div class="panel-heading">Introduction</div>
+    <div class="panel-heading">{{ qualification_job_introduction.0 }}</div>
     <div class="panel-body">
-        <div>
-            {{ introduction_1 }}
-        </div>
+        <div>{{ qualification_job_introduction.1 }}</div>
         <br>
         {% acr_scale %}
         <br>
-        <div>
-            {{ introduction_2 }}
-        </div>
+        <div>{{ qualification_job_introduction.2 }}</div>
     </div>
-    <div class="panel-heading">Procedure</div>
+    <div class="panel-heading">{{ qualification_job_introduction.3 }}</div>
     <div class="panel-body">
-        {{ procedure_1 }}
+        {{ qualification_job_introduction.4 }}
         <ul>
-        {% for foo in foobar %}
-            <li>{{ foo }}</li>
-        {% endfor %}
+            <li>{{ qualification_job_introduction.5 }}</li>
+            <li>{{ qualification_job_introduction.6 }}</li>
+            <li>{{ qualification_job_introduction.7 }}</li>
         </ul>
-        {{ procedure_2 }}
+        {{ qualification_job_introduction.8 }}
     </div>
     <div class="align-right">
         <form method="post">
             {% csrf_token %}
-            <input type="submit" value="Next">
+            <input type="submit" value="{{ qualification_job_introduction.9 }}">
         </form>
     </div>
 {% endblock %}

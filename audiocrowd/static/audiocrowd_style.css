@@ -19,13 +19,20 @@
 }
 
 .container-acr {
-    max-width: 250px;
+    max-width: 300px;
     margin: auto;
 }
 
-.container-inline {
-    width: 80%;
+.container-inline-left {
     display: inline-block;
+    width: 55%;
+    padding-right: 2%;
+}
+
+.container-inline-right {
+    display: inline-block;
+    width: 35%;
+    padding-left: 2%;
 }
 
 .container-base {
@@ -54,7 +61,7 @@ input[type=submit] {
     height: 50px;
 }
 
-input[type=submit]:disabled {
+input:disabled {
     background: grey;
 }
 
@@ -65,6 +72,10 @@ input[type=submit]:disabled {
     color: white;
     width: 10%;
     height: 30px;
+}
+
+.acr-button:disabled {
+    background: grey;
 }
 
 .stimulus-img {

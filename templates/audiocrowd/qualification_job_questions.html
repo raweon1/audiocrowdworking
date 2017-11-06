@@ -1,15 +1,15 @@
 {% extends "audiocrowd/base.html" %}
 
 {% block task %}
-    <div class="panel-heading">General Questions</div>
+    <div class="panel-heading">{{ qualification_job_questions.0 }}</div>
     <form method="post">
         {% csrf_token %}
         <div class="panel-body">
-            <p>Please answer the following Questions carefully:</p>
+            <p>{{ qualification_job_questions.1 }}</p>
             {{ form.as_p }}
         </div>
         <div class="align-right">
-            <input type="submit" value="Submit">
+            <input type="submit" value="{{ qualification_job_questions.8 }}">
         </div>
     </form>
 {% endblock %}

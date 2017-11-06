@@ -6,9 +6,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.utils.timezone import now
 
 from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, Campaign
-from .language import get_text
+from .language import get_context_language
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 from random import randint
 
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
@@ -32,7 +32,6 @@ link_list = {
 
 
 # TODO allgemein was mir gerade einfällt
-# javascript code in display stimulus um zu gewährleisten das man nicht nach vorne skippen kann (needs testing)
 # qualification general questions evaluation
 # training job
 # payment auf acr_next
@@ -139,17 +138,18 @@ class GeneralQuestionsForm(ModelForm):
     class Meta:
         model = Worker
         fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected")
-        labels = {
-            "gender": get_text("general_questions_gender"),
-            "birth_year": get_text("general_questions_birth_year"),
-            "hearing_loss": get_text("general_questions_hearing_loss"),
-            "subjective_test": get_text("general_questions_subjective_test"),
-            "speech_test": get_text("general_questions_speech_test"),
-            "connected": get_text("general_questions_connected"),
-        }
         widgets = {
             "birth_year": SelectDateWidget(years=[y for y in range(1930, 2050)])
         }
+
+    def __init__(self, labels, *args, **kwargs):
+        super(GeneralQuestionsForm, self).__init__(*args, **kwargs)
+        self.fields["gender"].label = labels[2]
+        self.fields["birth_year"].label = labels[3]
+        self.fields["hearing_loss"].label = labels[4]
+        self.fields["subjective_test"].label = labels[5]
+        self.fields["speech_test"].label = labels[6]
+        self.fields["connected"].label = labels[7]
 
 
 def qualification_job_view(request):
@@ -161,19 +161,14 @@ def qualification_job_view(request):
         if request.method == "POST":
             return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['questions'])
         else:
-            introduction_1 = "We are looking for workers who are willing to participate in a speech quality assessment experiment. During the test you will be listening to short groups of sentences (4-6) seconds via your listening device and giving your opinion of the speech you hear. In each task you will listen to X audio files and give your opinion for each on the following scale:"
-            introduction_2 = "Each task can be completed in Y minutes.\nThere will be a total of Z tasks availiable for each worker. It results to A euros payout including bonuses"
-            procedure_1 = "The procedure is as following:"
-            foo_1 = "To get access to the quality assessment job, you should first complete this qualification job."
-            foo_2 = "Selected group of workers will be invited to perform the training job (B minutes) in which you will listen to C sample audio files"
-            foo_3 = "Then, they get access to the quality assessment job and can perform up to D tasks"
-            procedure_2 = "It is expected that you perform the task in a quiet environment!"
-            return render(request, "audiocrowd/qualification_job_introduction.html",
-                          {"introduction_1": introduction_1, "introduction_2": introduction_2,
-                           "procedure_1": procedure_1, "procedure_2": procedure_2, "foobar": [foo_1, foo_2, foo_3]})
+            context = dict(list(get_context_language(campaign.language, "base").items()) +
+                           list(get_context_language(campaign.language, "qualification_job_introduction").items()) +
+                           list(get_context_language(campaign.language, "acr_scale").items()))
+            return render(request, "audiocrowd/qualification_job_introduction.html", context)
     elif task == task_list[job_list['qualification']]['questions']:
         if request.method == "POST":
-            form = GeneralQuestionsForm(request.POST, instance=worker)
+            labels = get_context_language(campaign.language, "qualification_job_questions")["qualification_job_questions"]
+            form = GeneralQuestionsForm(labels, data=request.POST, instance=worker)
             if form.is_valid():
                 form.save()
                 worker.qualification_done = True
@@ -186,8 +181,11 @@ def qualification_job_view(request):
                 # Die Form ist immer valid!
                 return HttpResponse("Form is invalid")
         else:
-            form = GeneralQuestionsForm(instance=worker)
-            return render(request, "audiocrowd/qualification_job_questions.html", {"form": form})
+            context = dict(list(get_context_language(campaign.language, "base").items()) +
+                           list(get_context_language(campaign.language, "qualification_job_questions").items()))
+            form = GeneralQuestionsForm(context["qualification_job_questions"], instance=worker)
+            context["form"] = form
+            return render(request, "audiocrowd/qualification_job_questions.html", context)
 
 
 def training_job_view(request):
@@ -195,9 +193,7 @@ def training_job_view(request):
     if error:
         return http
 
-    if not require_training(worker):
-        return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['setup'])
-    else:
+    if require_training(worker):
         # TODO training
         worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
         worker.save()
@@ -317,7 +313,11 @@ def acr_job_view(request):
                                        set_nr=set_nr, calibrated_volume=calibrated_volume)
             rating_set.save()
             return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['rate'])
-        return render(request, "audiocrowd/acr_job_setup.html", {})
+        context = dict(list(get_context_language(campaign.language, "base").items()) +
+                       list(get_context_language(campaign.language, "acr_job_setup").items()) +
+                       list(get_context_language(campaign.language, "calibrate").items()))
+        return render(request, "audiocrowd/acr_job_setup.html", context)
+
     elif task == task_list[job_list['acr']]['rate']:
         if request.method == "POST":
             other, stimuli, gold_standard = parse_rating_form(request.POST.dict())
@@ -348,9 +348,13 @@ def acr_job_view(request):
             set_to_rate = get_or_create_session_set_to_rate(request, worker, campaign)
             if set_to_rate.__len__() == 0:
                 return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['done'])
-            return render(request, "audiocrowd/acr_job_rate.html",
-                          {"to_rate": get_set_to_rate_context(set_to_rate),
-                           "volume": RatingSet.objects.get(worker=worker, finished=False).calibrated_volume})
+            context = dict(list(get_context_language(campaign.language, "base").items()) +
+                           list(get_context_language(campaign.language, "acr_job_rate").items()) +
+                           list(get_context_language(campaign.language, "acr_scale").items()))
+            context["to_rate"] = get_set_to_rate_context(set_to_rate)
+            context["volume"] = RatingSet.objects.get(worker=worker, finished=False).calibrated_volume
+            return render(request, "audiocrowd/acr_job_rate.html", context)
+
     elif task == task_list[job_list['acr']]['next']:
         if request.method == "POST":
             if request.POST.dict()['continue'] == "true":
@@ -364,6 +368,7 @@ def acr_job_view(request):
             if set_to_rate.__len__() == 0:
                 return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['done'])
             return render(request, "audiocrowd/acr_job_next_job.html", {})
+
     elif task == task_list[job_list['acr']]['done']:
         request.session.flush()
         return render(request, "audiocrowd/acr_job_done.html", {})

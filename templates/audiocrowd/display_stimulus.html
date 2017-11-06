@@ -6,10 +6,12 @@
         {{ stimulus.name }}
     </div>
 {% elif stimulus.type == "aud" %}
-    <audio id="{{ stimulus.name }}" class="stimulus-aud" controls>
-        <source src="" type="audio/wav">
+    <audio id="{{ stimulus.name }}" class="stimulus-aud" data-has-ended="false">
+        <source src="{% static stimulus.path %}" type="audio/wav">
         Your browser does not support the audio tag
     </audio>
+    <button id="{{ stimulus.name }}_play" class="acr-button">Play/Reset</button>
+    <button id="{{ stimulus.name }}_pause" class="acr-button">Pause</button>
     <input id="{{ stimulus.name }}_input_volume" type="hidden" name="{{ stimulus.name }}_volume" value="{{ volume }}">
     <script>
         $(document).ready(function () {
@@ -20,32 +22,28 @@
                 $("#{{ stimulus.name }}_input_volume").val($({{ stimulus.name }}).prop("volume"));
                 $(document).trigger("volume_changed");
             });
-            var aud_time = 0;
-            $("#{{ stimulus.name }}").on("seeking", function () {
-                aud_time = $("#{{ stimulus.name }}").prop("currentTime");
-            });
-            $("#{{ stimulus.name }}").on("seeked", function () {
-                if ($("#{{ stimulus.name }}").prop("currentTime") - aud_time > 0) {
-                    alert("Do not skip forward!")
-                }
-                $("#{{ stimulus.name }}").prop("currentTime", aud_time);
+            $("#{{ stimulus.name }}").on("ended", function () {
+                $("#{{ stimulus.name }}").attr("data-has-ended", "true");
+                $(".acr-left-button").prop("disabled", false);
+                $(".acr-right-button").prop("disabled", false);
             });
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '{% static stimulus.path %}', true);
-            xhr.responseType = 'blob'; //important
-            xhr.onload = function(e) {
-                if (this.status == 200) {
-                    var blob = this.response;
-                    var audio = document.getElementById('{{ stimulus.name }}');
-                    audio.oncanplaythrough = function() {
-                        URL.revokeObjectURL(this.src);
-                    };
-                audio.src = URL.createObjectURL(blob);
-                audio.load();
-                }
-            };
-            xhr.send();
+            $("#{{ stimulus.name }}_play").click(function () {
+                var audio = document.getElementById("{{ stimulus.name }}");
+                audio.currentTime = 0;
+                audio.play();
+                $(".acr-left-button").prop("disabled", true);
+                $(".acr-right-button").prop("disabled", true);
+                return false;
+            });
+            $("#{{ stimulus.name }}_pause").click(function () {
+                var audio = document.getElementById("{{ stimulus.name }}");
+                audio.currentTime = 0;
+                audio.pause();
+                $(".acr-left-button").prop("disabled", false);
+                $(".acr-right-button").prop("disabled", false);
+                return false;
+            });
         });
     </script>
 {% endif %}

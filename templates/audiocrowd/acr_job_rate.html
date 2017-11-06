@@ -40,7 +40,7 @@
         {% for index, stimuli in to_rate %}
             <div id="acr_rate_{{ index }}" class="acr-rate-wrapper">
                 <div class="panel-heading">
-                    Sample {{ index }} / {{ to_rate|length }} : {{ stimuli.name }}
+                    {{ acr_job_rate.0 }} {{ index }} / {{ to_rate|length }} : {{ stimuli.name }}
                 </div>
                 <div class="panel-body">
                     <div class="align-center">
@@ -49,17 +49,17 @@
                     {% acr_scale index stimuli %}
                     <div class="align-right">
                         <button class="acr-button acr-left-button">
-                            Previous
+                            {{ acr_job_rate.1 }}
                         </button>
                         <button class="acr-button acr-right-button">
-                            Next
+                            {{ acr_job_rate.2 }}
                         </button>
                     </div>
                 </div>
             </div>
         {% endfor %}
         <div class="align-right">
-            <input id="acr_submit" type="submit" value="Submit" disabled>
+            <input id="acr_submit" type="submit" value="{{ acr_job_rate.3 }}" disabled>
         </div>
     </form>
 {% endblock %}

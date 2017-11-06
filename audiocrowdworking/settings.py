@@ -25,7 +25,8 @@ SECRET_KEY = 'o)h=_ot(y$*ioqe-*!oy1uncfphq0&&1^1dv=px*#u8zz_8bk4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["crowdsourcing.mas.uni-due.de", "localhost"]
+USE_X_FORWARDED_HOST = True
 
 
 # Application definition
