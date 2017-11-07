@@ -58,6 +58,7 @@ class Campaign(models.Model):
     stimuli = models.ManyToManyField(Stimuli, related_name="stimuli")
     gold_standard_questions = models.ManyToManyField(GoldStandardQuestions)
     training_stimuli = models.ManyToManyField(Stimuli, related_name="training_stimuli")
+    calibrate_stimulus = models.ForeignKey(Stimuli)
 
     def __str__(self):
         return "Campaign : " + str(self.platform) + "-" + str(self.campaign_id)

@@ -11,7 +11,7 @@
         <div>{{ acr_job_setup.5 }}</div>
         <form method="post">
             {% csrf_token %}
-            {% calibrate_volume "" %}
+            {% calibrate_volume calibrate_stimulus %}
             <div class="align-right">
                 <input type="submit" value="{{ acr_job_setup.6 }}">
             </div>

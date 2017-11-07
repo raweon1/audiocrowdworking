@@ -189,14 +189,15 @@ def require_training(worker):
 
 def get_training_stimuli_to_rate_context(campaign):
     available_stimuli = campaign.training_stimuli.all()
-    count = available_stimuli.__len__()
+    count = available_stimuli.__len__() + 1
     stimuli_to_rate = []
-    for i in range(0, count):
+    for i in range(1, count):
         if available_stimuli.__len__() == 0:
             break
         rnd = randint(0, available_stimuli.__len__() - 1)
         stimuli_to_rate.append((i, available_stimuli[rnd]))
         available_stimuli = available_stimuli.exclude(name=available_stimuli[rnd].name)
+    print(stimuli_to_rate)
     return stimuli_to_rate
 
 
@@ -214,6 +215,7 @@ def training_job_view(request):
                 context = dict(list(get_context_language(campaign.language, "base").items()) +
                                list(get_context_language(campaign.language, "training_job_setup").items()) +
                                list(get_context_language(campaign.language, "calibrate").items()))
+                context["calibrate_stimulus"] = campaign.calibrate_stimulus
                 return render(request, "audiocrowd/training_setup.html", context)
         elif task == task_list[job_list['training']]["samples"]:
             if request.method == "POST":
@@ -344,6 +346,7 @@ def acr_job_view(request):
         context = dict(list(get_context_language(campaign.language, "base").items()) +
                        list(get_context_language(campaign.language, "acr_job_setup").items()) +
                        list(get_context_language(campaign.language, "calibrate").items()))
+        context["calibrate_stimulus"] = campaign.calibrate_stimulus
         return render(request, "audiocrowd/acr_job_setup.html", context)
 
     elif task == task_list[job_list['acr']]['rate']:
