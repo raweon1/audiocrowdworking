@@ -14,7 +14,7 @@ from random import randint
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
 
 qualification_job_tasks = dict(introduction="introduction", questions="general_questions")
-training_job_tasks = dict(setup="setup", sample="sample")
+training_job_tasks = dict(setup="setup", samples="samples")
 acr_job_tasks = dict(setup="setup", rate="rate", next="next", done="done")
 
 task_list = {
@@ -33,7 +33,6 @@ link_list = {
 
 # TODO allgemein was mir gerade einfällt
 # qualification general questions evaluation
-# training job
 # payment auf acr_next
 
 
@@ -96,10 +95,6 @@ def redirect_to(request, job, task):
     request.session["job"] = job
     request.session["task"] = task
     return HttpResponseRedirect(link_list[job])
-
-
-def require_training(worker):
-    return now() < worker.access_acr
 
 
 # localhost:8000/audio/register?workerid=1337&campaignid=hallo
@@ -176,7 +171,7 @@ def qualification_job_view(request):
                 # TODO evaluation! wenn Zugang gewährt wird muss worker.access_training auf True gesetzt werden
                 worker.access_training = True
                 worker.save()
-                return redirect_to(request, job_list['training'], "tmp")
+                return redirect_to(request, job_list['training'], task_list[job_list['training']]["setup"])
             else:
                 # Die Form ist immer valid!
                 return HttpResponse("Form is invalid")
@@ -188,15 +183,50 @@ def qualification_job_view(request):
             return render(request, "audiocrowd/qualification_job_questions.html", context)
 
 
+def require_training(worker):
+    return now() > worker.access_acr
+
+
+def get_training_stimuli_to_rate_context(campaign):
+    available_stimuli = campaign.training_stimuli.all()
+    count = available_stimuli.__len__()
+    stimuli_to_rate = []
+    for i in range(0, count):
+        if available_stimuli.__len__() == 0:
+            break
+        rnd = randint(0, available_stimuli.__len__() - 1)
+        stimuli_to_rate.append((i, available_stimuli[rnd]))
+        available_stimuli = available_stimuli.exclude(name=available_stimuli[rnd].name)
+    return stimuli_to_rate
+
+
 def training_job_view(request):
     error, http, worker, campaign, task = stuff(request, job_list['training'])
     if error:
         return http
 
     if require_training(worker):
-        # TODO training
-        worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
-        worker.save()
+        if task == task_list[job_list['training']]["setup"]:
+            if request.method == "POST":
+                request.session["calibrate"] = request.POST.dict()["calibrate"]
+                return redirect_to(request, job_list["training"], task_list[job_list['training']]["samples"])
+            else:
+                context = dict(list(get_context_language(campaign.language, "base").items()) +
+                               list(get_context_language(campaign.language, "training_job_setup").items()) +
+                               list(get_context_language(campaign.language, "calibrate").items()))
+                return render(request, "audiocrowd/training_setup.html", context)
+        elif task == task_list[job_list['training']]["samples"]:
+            if request.method == "POST":
+                worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
+                worker.save()
+                return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['setup'])
+            else:
+                context = dict(list(get_context_language(campaign.language, "base").items()) +
+                               list(get_context_language(campaign.language, "acr_job_rate").items()) +
+                               list(get_context_language(campaign.language, "acr_scale").items()))
+                context["to_rate"] = get_training_stimuli_to_rate_context(campaign)
+                context["volume"] = request.session["calibrate"]
+                return render(request, "audiocrowd/acr_job_rate.html", context)
     return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['setup'])
 
 
@@ -206,7 +236,6 @@ def training_job_view(request):
 # @return: gibt eine Liste von Stimuli zurück, die von <worker> bisher nicht bearbeitet wurden. Die Reihenfolge ist zufällig. Stimuli stehen in Verbindung mit campaign.
 # @return: Liste kann leer sein, wenn keine Stimuli mehr zu bewerten sind.
 def get_stimuli_to_rate(count, worker, campaign):
-    #available_stimuli = Stimuli.objects.exclude(rating__rating_set__worker=worker)
     available_stimuli = campaign.stimuli.all().exclude(rating__rating_set__worker=worker)
     stimuli_to_rate = []
     for i in range(0, count):
@@ -225,12 +254,11 @@ def get_set_to_rate(count, worker, campaign):
     set_to_rate = get_stimuli_to_rate(count, worker, campaign)
     if set_to_rate.__len__() == 0:
         return set_to_rate
-    #available_gold_standard_questions = GoldStandardQuestions.objects.exclude(goldstandardanswers__rating_set__worker=worker)
-    available_gold_standard_questions = campaign.gold_standard_questions.all().exclude(
-        goldstandardanswers__rating_set__worker=worker)
+    available_gold_standard_questions = campaign.gold_standard_questions.all()
     if available_gold_standard_questions.__len__() == 0:
         return []
-    set_to_rate.insert(randint(0, set_to_rate.__len__() - 1),
+    for i in range(0, campaign.gold_standard_per_job):
+        set_to_rate.insert(randint(0, set_to_rate.__len__() - 1),
                        available_gold_standard_questions[randint(0, available_gold_standard_questions.__len__() - 1)])
     return set_to_rate
 
@@ -243,10 +271,10 @@ def get_or_create_session_set_to_rate(request, worker, campaign):
             set_to_rate.append(obj.object)
         # nach del request.session["set_to_rate"] ist set_to_rate leer, jedoch wird kein KeyError erzeugt
         if set_to_rate.__len__() == 0:
-            set_to_rate = get_set_to_rate(Configuration.load().stimuli_per_job, worker, campaign)
+            set_to_rate = get_set_to_rate(campaign.stimuli_per_job, worker, campaign)
             request.session["set_to_rate"] = serializers.serialize("xml", set_to_rate)
     except KeyError:
-        set_to_rate = get_set_to_rate(Configuration.load().stimuli_per_job, worker, campaign)
+        set_to_rate = get_set_to_rate(campaign.stimuli_per_job, worker, campaign)
         request.session["set_to_rate"] = serializers.serialize("xml", set_to_rate)
     return set_to_rate
 

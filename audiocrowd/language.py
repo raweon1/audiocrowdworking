@@ -1,5 +1,5 @@
 label_en = {
-    "base:": ["Evaluation of audio-samples"],
+    "base": ["Evaluation of audio-samples"],
     "qualification_job_introduction": ["Introduction",
                                        "We are looking for workers who are willing to participate in a speech quality "
                                        "assessment experiment. During the test you will be listening to short groups "
@@ -28,6 +28,11 @@ label_en = {
                                     "Have you ever been directly involved in work connected with assessment of the "
                                     "performance of telephone circuits, or related work such as speech coding? ",
                                     "Submit"],
+    "training_job_setup": ["Training",
+                           "Placeholder",
+                           "Setup",
+                           "Please perform this task in a quiet environment!",
+                           "Ready"],
     "acr_job_rate": ["Sample",
                      "previous",
                      "next",
@@ -78,6 +83,12 @@ label_de = {
                                     "Wann haben sie das letzte mal an einem Sprachqualitätstest teilgenommen?",
                                     "Haben sie jemals im Bereich speech coding oder Ähnlichem gearbeitet?",
                                     "Abgeben"],
+    "training_job_setup": ["Training",
+                           "Im folgenden werden sie einige Audiodateien zur Bewertung bekommen. Diese dienen nur zur "
+                           "Übung und werden nicht gespeichert. Es gibt keine falschen Antworten!",
+                           "Setup",
+                           "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung!",
+                           "Bereit"],
     "acr_job_rate": ["Aufgabe",
                      "vorher",
                      "nächstes",
@@ -96,9 +107,9 @@ label_de = {
                   "Ergebnis",
                   "Ausgezeichnet",
                   "Gut",
-                  "Fair",
+                  "Ausreichend",
                   "Schlecht",
-                  "Mies"],
+                  "Ungenügend"],
     "calibrate": ["Bitte stellen sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level ein.",
                   "WICHTIG: Ändern sie die Lautstärke NICHT mehr, sonst werden ihre Antworten verworfen!"]
 }

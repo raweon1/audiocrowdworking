@@ -21,7 +21,6 @@ class SingletonModel(models.Model):
 
 
 class Configuration(SingletonModel):
-    stimuli_per_job = models.IntegerField(default=10)
     access_window = models.IntegerField(default=60)
 
     def __str__(self):
@@ -54,8 +53,11 @@ class Campaign(models.Model):
     campaign_id = models.CharField(max_length=50)
     platform = models.CharField(max_length=3, choices=[("mw", "Microworkers")])
     language = models.CharField(max_length=3, choices=[("de", "Deutsch"), ("en", "English")])
-    stimuli = models.ManyToManyField(Stimuli)
+    stimuli_per_job = models.IntegerField(default=10)
+    gold_standard_per_job = models.IntegerField(default=1)
+    stimuli = models.ManyToManyField(Stimuli, related_name="stimuli")
     gold_standard_questions = models.ManyToManyField(GoldStandardQuestions)
+    training_stimuli = models.ManyToManyField(Stimuli, related_name="training_stimuli")
 
     def __str__(self):
         return "Campaign : " + str(self.platform) + "-" + str(self.campaign_id)
