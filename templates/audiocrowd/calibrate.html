@@ -11,6 +11,7 @@
         <input id="calibrate_volume" type="hidden" name="calibrate" value="1">
         <script>
             $(document).ready(function () {
+                $("#calibrate_audio").prop("volume", "{{ volume }}")
                 volume_changed();
             });
 

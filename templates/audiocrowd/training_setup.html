@@ -9,7 +9,7 @@
         <div>{{ training_job_setup.3 }}</div>
         <form method="post">
             {% csrf_token %}
-            {% calibrate_volume calibrate_stimulus %}
+            {% calibrate_volume calibrate_stimulus volume %}
             <div class="align-right">
                 <input type="submit" value="{{ training_job_setup.4 }}">
             </div>

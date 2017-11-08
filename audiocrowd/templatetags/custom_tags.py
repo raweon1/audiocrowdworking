@@ -14,5 +14,5 @@ def display_stimulus(stimulus, index=0, volume=0):
 
 
 @register.inclusion_tag("audiocrowd/calibrate.html", takes_context=True)
-def calibrate_volume(context, audiofile):
-    return {"file": audiofile, "pre_msg": context["calibrate"][0], "post_msg": context["calibrate"][1]}
+def calibrate_volume(context, audiofile, volume):
+    return {"file": audiofile, "pre_msg": context["calibrate"][0], "post_msg": context["calibrate"][1], "volume": volume}

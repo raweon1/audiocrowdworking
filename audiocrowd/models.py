@@ -69,7 +69,7 @@ class Worker(models.Model):
 
     gender = models.CharField(max_length=6, choices=[("male", "Male"), ("female", "Female"), ("other", "Other")],
                               default="male")
-    birth_year = models.DateField(default="1930-01-01")
+    birth_year = models.DateField(default="1945-01-01")
     hearing_loss = models.BooleanField(default=False)
     subjective_test = models.IntegerField(
         choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"), (5, "1 year or more")], default=1)

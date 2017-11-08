@@ -134,17 +134,28 @@ class GeneralQuestionsForm(ModelForm):
         model = Worker
         fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected")
         widgets = {
-            "birth_year": SelectDateWidget(years=[y for y in range(1930, 2050)])
+            "birth_year": SelectDateWidget(years=[y for y in range(1930, 2020)])
         }
 
-    def __init__(self, labels, *args, **kwargs):
+    def __init__(self, language, *args, **kwargs):
         super(GeneralQuestionsForm, self).__init__(*args, **kwargs)
-        self.fields["gender"].label = labels[2]
-        self.fields["birth_year"].label = labels[3]
-        self.fields["hearing_loss"].label = labels[4]
-        self.fields["subjective_test"].label = labels[5]
-        self.fields["speech_test"].label = labels[6]
-        self.fields["connected"].label = labels[7]
+        tmp = get_context_language(language, "qualification_job_questions")["qualification_job_questions"]
+        self.fields["gender"].label = tmp[2]
+        self.fields["birth_year"].label = tmp[3]
+        self.fields["hearing_loss"].label = tmp[4]
+        self.fields["subjective_test"].label = tmp[5]
+        self.fields["speech_test"].label = tmp[6]
+        self.fields["connected"].label = tmp[7]
+        if language != "en":
+            self.fields["gender"].widget.choices = [("male", tmp[9][0]), ("female", tmp[9][1]), ("other", tmp[9][2])]
+            self.fields["birth_year"].widget.months = {"01": tmp[10][0], "02": tmp[10][1], "03": tmp[10][2],
+                                                       "04": tmp[10][3], "05": tmp[10][4], "06": tmp[10][5],
+                                                       "07": tmp[10][6], "08": tmp[10][7], "09": tmp[10][8],
+                                                       "10": tmp[10][9], "11": tmp[10][10], "12": tmp[10][11]}
+            self.fields["subjective_test"].widget.choices = [(0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
+                                                             (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+            self.fields["speech_test"].widget.choices = [(0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
+                                                         (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
 
 
 def qualification_job_view(request):
@@ -162,8 +173,7 @@ def qualification_job_view(request):
             return render(request, "audiocrowd/qualification_job_introduction.html", context)
     elif task == task_list[job_list['qualification']]['questions']:
         if request.method == "POST":
-            labels = get_context_language(campaign.language, "qualification_job_questions")["qualification_job_questions"]
-            form = GeneralQuestionsForm(labels, data=request.POST, instance=worker)
+            form = GeneralQuestionsForm(campaign.language, data=request.POST, instance=worker)
             if form.is_valid():
                 form.save()
                 worker.qualification_done = True
@@ -178,7 +188,7 @@ def qualification_job_view(request):
         else:
             context = dict(list(get_context_language(campaign.language, "base").items()) +
                            list(get_context_language(campaign.language, "qualification_job_questions").items()))
-            form = GeneralQuestionsForm(context["qualification_job_questions"], instance=worker)
+            form = GeneralQuestionsForm(campaign.language, instance=worker)
             context["form"] = form
             return render(request, "audiocrowd/qualification_job_questions.html", context)
 
@@ -216,6 +226,7 @@ def training_job_view(request):
                                list(get_context_language(campaign.language, "training_job_setup").items()) +
                                list(get_context_language(campaign.language, "calibrate").items()))
                 context["calibrate_stimulus"] = campaign.calibrate_stimulus
+                context["volume"] = 0.5
                 return render(request, "audiocrowd/training_setup.html", context)
         elif task == task_list[job_list['training']]["samples"]:
             if request.method == "POST":
@@ -341,6 +352,7 @@ def acr_job_view(request):
     if task == task_list[job_list['acr']]['setup']:
         if request.method == "POST":
             # nach dem Setup wird ein RatingSet erstellt, in dem die Kalibrierung abgespeichert wird
+            request.session["calibrate"] = request.POST.dict()["calibrate"]
             try:
                 rating_set = RatingSet.objects.get(worker=worker, finished=False)
                 rating_set.calibrated_volume = request.POST.dict()["calibrate"]
@@ -356,6 +368,7 @@ def acr_job_view(request):
                        list(get_context_language(campaign.language, "acr_job_setup").items()) +
                        list(get_context_language(campaign.language, "calibrate").items()))
         context["calibrate_stimulus"] = campaign.calibrate_stimulus
+        context["volume"] = request.session["calibrate"]
         return render(request, "audiocrowd/acr_job_setup.html", context)
 
     elif task == task_list[job_list['acr']]['rate']:
@@ -394,7 +407,7 @@ def acr_job_view(request):
                            list(get_context_language(campaign.language, "acr_job_rate").items()) +
                            list(get_context_language(campaign.language, "acr_scale").items()))
             context["to_rate"] = get_set_to_rate_context(set_to_rate)
-            context["volume"] = RatingSet.objects.get(worker=worker, finished=False).calibrated_volume
+            context["volume"] = request.session["calibrate"]
             return render(request, "audiocrowd/acr_job_rate.html", context)
 
     elif task == task_list[job_list['acr']]['next']:
