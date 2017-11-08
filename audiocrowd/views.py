@@ -148,10 +148,7 @@ class GeneralQuestionsForm(ModelForm):
         self.fields["connected"].label = tmp[7]
         if language != "en":
             self.fields["gender"].widget.choices = [("male", tmp[9][0]), ("female", tmp[9][1]), ("other", tmp[9][2])]
-            self.fields["birth_year"].widget.months = {"01": tmp[10][0], "02": tmp[10][1], "03": tmp[10][2],
-                                                       "04": tmp[10][3], "05": tmp[10][4], "06": tmp[10][5],
-                                                       "07": tmp[10][6], "08": tmp[10][7], "09": tmp[10][8],
-                                                       "10": tmp[10][9], "11": tmp[10][10], "12": tmp[10][11]}
+            self.fields["birth_year"].widget.months = {1: tmp[10][0], 2: tmp[10][1], 3: tmp[10][2], 4: tmp[10][3], 5: tmp[10][4], 6: tmp[10][5], 7: tmp[10][6], 8: tmp[10][7], 9: tmp[10][8], 10: tmp[10][9], 11: tmp[10][10], 12: tmp[10][11]}
             self.fields["subjective_test"].widget.choices = [(0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
                                                              (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
             self.fields["speech_test"].widget.choices = [(0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
@@ -207,7 +204,6 @@ def get_training_stimuli_to_rate_context(campaign):
         rnd = randint(0, available_stimuli.__len__() - 1)
         stimuli_to_rate.append((i, available_stimuli[rnd]))
         available_stimuli = available_stimuli.exclude(name=available_stimuli[rnd].name)
-    print(stimuli_to_rate)
     return stimuli_to_rate
 
 
@@ -386,7 +382,7 @@ def acr_job_view(request):
             for gold_standard_question in gold_standard:
                 gold_dict = gold_standard[gold_standard_question]
                 answer = GoldStandardAnswers(rating_set=rating_set, question=gold_dict["object"], answer=gold_dict["rating"])
-                if answer.answer != answer.question.expected_answer:
+                if str(answer.answer) != str(answer.question.expected_answer):
                     rating_set.invalid_set = True
                 try:
                     answer.volume = gold_dict["volume"]
