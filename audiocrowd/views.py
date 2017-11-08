@@ -260,8 +260,10 @@ def get_set_to_rate(count, worker, campaign):
     if available_gold_standard_questions.__len__() == 0:
         return []
     for i in range(0, campaign.gold_standard_per_job):
-        set_to_rate.insert(randint(0, set_to_rate.__len__() - 1),
-                       available_gold_standard_questions[randint(0, available_gold_standard_questions.__len__() - 1)])
+        rnd = randint(0, available_gold_standard_questions.__len__() - 1)
+        set_to_rate.insert(randint(0, set_to_rate.__len__() - 1), available_gold_standard_questions[rnd])
+        available_gold_standard_questions = available_gold_standard_questions.exclude(
+            name=available_gold_standard_questions[rnd].name)
     return set_to_rate
 
 
@@ -290,12 +292,18 @@ def get_set_to_rate_context(set_to_rate):
     return context_set
 
 
+# Funktion soll den Namen eines Stimulus von einem Key key aus dem Dict von acr_job_rate.html geben. Falls key != stimulus.name ist, muss diese Funktion
+# für parse_name_from_key(key) == stimulus.name sorgen
+def parse_name_from_key(key):
+    return key
+
+
 def parse_rating_form(form_dict):
     stimuli = {}
     gold_standard = {}
     for key in list(form_dict.keys()):
         try:
-            stimulus = Stimuli.objects.get(name=key)
+            stimulus = Stimuli.objects.get(name=parse_name_from_key(key))
             stimuli[key] = {
                     "object": stimulus,
                     "rating": form_dict[key]
@@ -303,7 +311,7 @@ def parse_rating_form(form_dict):
             del form_dict[key]
         except ObjectDoesNotExist:
             try:
-                gold_standard_question = GoldStandardQuestions.objects.get(name=key)
+                gold_standard_question = GoldStandardQuestions.objects.get(name=parse_name_from_key())
                 gold_standard[key] = {
                     "object": gold_standard_question,
                     "rating": form_dict[key]
@@ -311,16 +319,6 @@ def parse_rating_form(form_dict):
                 del form_dict[key]
             except ObjectDoesNotExist:
                 pass
-    for stimulus in stimuli:
-        for key in list(form_dict.keys()):
-            if stimulus in key:
-                stimuli[stimulus][key.replace(stimulus + "_", "")] = form_dict[key]
-                del form_dict[key]
-    for gold_standard_question in gold_standard:
-        for key in list(form_dict.keys()):
-            if gold_standard_question in key:
-                gold_standard[gold_standard_question][key.replace(gold_standard_question + "_", "")] = form_dict[key]
-                del form_dict[key]
     return form_dict, stimuli, gold_standard
 
 
@@ -364,6 +362,8 @@ def acr_job_view(request):
             for gold_standard_question in gold_standard:
                 gold_dict = gold_standard[gold_standard_question]
                 answer = GoldStandardAnswers(rating_set=rating_set, question=gold_dict["object"], answer=gold_dict["rating"])
+                if answer.answer != answer.question.expected_answer:
+                    rating_set.invalid_set = True
                 try:
                     answer.volume = gold_dict["volume"]
                 except KeyError:
