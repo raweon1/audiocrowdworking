@@ -19,8 +19,10 @@
             $("#{{ stimulus.name }}").prop("preload", "auto");
 
             $("#{{ stimulus.name }}").on("volumechange", function () {
-                $("#{{ stimulus.name }}_input_volume").val($({{ stimulus.name }}).prop("volume"));
-                $(document).trigger("volume_changed");
+                if($({{ stimulus.name }}).prop("volume") != {{ volume }}){
+                    $("#{{ stimulus.name }}_input_volume").val($({{ stimulus.name }}).prop("volume"));
+                    $(document).trigger("volume_changed");
+                }
             });
             $("#{{ stimulus.name }}").on("ended", function () {
                 $("#{{ stimulus.name }}").attr("data-has-ended", "true");
