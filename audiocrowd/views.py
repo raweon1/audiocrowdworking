@@ -311,7 +311,7 @@ def parse_rating_form(form_dict):
             del form_dict[key]
         except ObjectDoesNotExist:
             try:
-                gold_standard_question = GoldStandardQuestions.objects.get(name=parse_name_from_key())
+                gold_standard_question = GoldStandardQuestions.objects.get(name=parse_name_from_key(key))
                 gold_standard[key] = {
                     "object": gold_standard_question,
                     "rating": form_dict[key]
@@ -319,6 +319,17 @@ def parse_rating_form(form_dict):
                 del form_dict[key]
             except ObjectDoesNotExist:
                 pass
+    # find more values like "{{stimuli.name}}_volume"
+    for stimulus in stimuli:
+        for key in list(form_dict.keys()):
+            if stimulus in key:
+                stimuli[stimulus][key.replace(stimulus + "_", "")] = form_dict[key]
+                del form_dict[key]
+    for gold_standard_question in gold_standard:
+        for key in list(form_dict.keys()):
+            if gold_standard_question in key:
+                gold_standard[gold_standard_question][key.replace(gold_standard_question + "_", "")] = form_dict[key]
+                del form_dict[key]
     return form_dict, stimuli, gold_standard
 
 
