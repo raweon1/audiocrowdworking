@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
     </list>
@@ -33,8 +32,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-274">
-              <caret line="384" column="65" lean-forward="false" selection-start-line="384" selection-start-column="65" selection-end-line="384" selection-end-column="65" />
+            <state relative-caret-position="-1753">
+              <caret line="245" column="62" lean-forward="true" selection-start-line="245" selection-start-column="62" selection-end-line="245" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -146,6 +145,7 @@
       <find>list(get_context_language(campaign.language, &quot;calibrate&quot;).items()</find>
       <find>setup</find>
       <find>print</find>
+      <find>context[&quot;volume&quot;]</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -468,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510153117939</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed a bug with invalid_set">
+      <created>1510154496460</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1510154496460</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -530,7 +537,8 @@
     <MESSAGE value="Calibrate" />
     <MESSAGE value="Bugfixes" />
     <MESSAGE value="Bugfixes &amp; calibrated volume &amp; Sprache" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfixes &amp; calibrated volume &amp; Sprache" />
+    <MESSAGE value="Fixed a bug with invalid_set" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug with invalid_set" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -920,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-274">
-          <caret line="384" column="65" lean-forward="false" selection-start-line="384" selection-start-column="65" selection-end-line="384" selection-end-column="65" />
+        <state relative-caret-position="-1753">
+          <caret line="245" column="62" lean-forward="true" selection-start-line="245" selection-start-column="62" selection-end-line="245" selection-end-column="62" />
           <folding />
         </state>
       </provider>

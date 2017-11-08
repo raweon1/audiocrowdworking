@@ -364,7 +364,10 @@ def acr_job_view(request):
                        list(get_context_language(campaign.language, "acr_job_setup").items()) +
                        list(get_context_language(campaign.language, "calibrate").items()))
         context["calibrate_stimulus"] = campaign.calibrate_stimulus
-        context["volume"] = request.session["calibrate"]
+        try:
+            context["volume"] = request.session["calibrate"]
+        except KeyError:
+            context["volume"] = 0.5
         return render(request, "audiocrowd/acr_job_setup.html", context)
 
     elif task == task_list[job_list['acr']]['rate']:
