@@ -64,19 +64,19 @@ label_de = {
                                        "mitmachen. Während des Tests werden Sie kurze Sätze (5-10 Sekunden) mit ihrem "
                                        "Lautsprecher anhören und anschließend diese bewerten. Sie werden ca. 10 Sätze "
                                        "auf der folgenden Skala bewerten:",
-                                       "Diese Aufgabe können sie in ca. 2-3 Minuten beenden.",
+                                       "Diese Aufgabe können Sie in ca. 2-3 Minuten beenden.",
                                        "Prozedur",
                                        "Der Ablauf ist wie folgt:",
                                        "Sie müssen die nachfolgende Qualifikation absolvieren.",
-                                       "Danach müssen sie ein kleines Training durchführen bei dem sie 4 Audiodateien "
+                                       "Danach müssen Sie ein kleines Training durchführen bei dem Sie 4 Audiodateien "
                                        "zur Übung anhören",
-                                       "Nach dem Training haben sie 60 Minuten Zeit um Audiodateien zu bewerten. "
+                                       "Nach dem Training haben Sie 60 Minuten Zeit um Audiodateien zu bewerten. "
                                        "Sie können diese Campaign öfters aufrufen um neue Sätze zu bewerten.",
-                                       "Wir erwarten das sie diese Aufgabe in einer ruhigen Umgebung ausführen!",
+                                       "Wir erwarten, dass Sie diese Aufgabe in einer ruhigen Umgebung ausführen!",
                                        "Weiter"],
     "qualification_job_questions": ["Allgemeine Fragen",
                                     "Bitte beantworten Sie die nachfolgenden Fragen:",
-                                    "Was ist dein Geschlecht?",
+                                    "Was ist Ihr Geschlecht?",
                                     "Wann wurden Sie geboren?",
                                     "Haben Sie eine Hörschädigung?",
                                     "Wann haben Sie das letzte mal an einem Subjektiven Test teilgenommen?",
@@ -87,10 +87,10 @@ label_de = {
                                     ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
                                     ["Niemals", "1 Monat", "3 Monat", "6 Monat", "9 Monat", "1 Jahr oder länger"]],
     "training_job_setup": ["Training",
-                           "Im folgenden werden sie einige Audiodateien zur Bewertung bekommen. Diese dienen nur zur "
+                           "Im folgenden werden Sie einige Audiodateien zur Bewertung bekommen. Diese dienen nur zur "
                            "Übung und werden nicht gespeichert. Es gibt keine falschen Antworten! "
                            "Die Audiodateien können sich in unterschiedlichen Kategorien unterscheiden wie "
-                           "Lautstärke, Störgeräusche, Sprachqualität und Lags.",
+                           "Lautstärke, Störgeräusche, Sprachqualität und Aussetzern.",
                            "Setup",
                            "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung!",
                            "Bereit"],
@@ -99,9 +99,9 @@ label_de = {
                      "nächstes",
                      "Abgeben"],
     "acr_job_setup": ["Willkommen",
-                      "Nachdem sie dieses Setup beendet haben können Sie die Audiodateien bewerten. "
+                      "Nachdem Sie dieses Setup beendet haben können Sie die Audiodateien bewerten. "
                       "Sie müssen jede Audiodatei vollständig und am Stück abgespielt haben um diese bewerten zu können. "
-                      "Nachdem sie jede Audiodatei bewertet haben können Sie mittels des Abgabe-Buttons ihr Bewertungen "
+                      "Nachdem Sie jede Audiodatei bewertet haben können Sie mittels des Abgabe-Buttons ihr Bewertungen "
                       "abgeben und die Aufgabe abschließen.",
                       "Bezahlung",
                       "Sie erhalten x€",
@@ -115,8 +115,8 @@ label_de = {
                   "Ausreichend",
                   "Schlecht",
                   "Ungenügend"],
-    "calibrate": ["Bitte stellen sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level ein.",
-                  "WICHTIG: Ändern sie die Lautstärke NICHT mehr, sonst werden ihre Antworten verworfen!"]
+    "calibrate": ["Bitte stellen Sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level ein.",
+                  "WICHTIG: Ändern Sie die Lautstärke NICHT mehr, sonst werden ihre Antworten verworfen!"]
 }
 
 

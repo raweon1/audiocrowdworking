@@ -8,11 +8,27 @@
             $("#acr_rate_1").siblings(".acr-rate-wrapper").hide();
 
             var current = 1;
+            a();
+
+            function a() {
+                if(current == 1){
+                    $(".acr-left-button").prop("disabled", true)
+                } else {
+                    $(".acr-left-button").prop("disabled", false)
+                }
+                if(current == {{ to_rate|length }}){
+                    $(".acr-right-button").prop("disabled", true)
+                } else {
+                    $(".acr-right-button").prop("disabled", false)
+                }
+            }
+
             $(".acr-left-button").click(function () {
                 if(current > 1){
                     $("#acr_rate_" + current).hide();
                     $("#acr_rate_" + --current).show();
                 }
+                a();
                 return false;
             });
             $(".acr-right-button").click(function () {
@@ -20,6 +36,7 @@
                     $("#acr_rate_" + current).hide();
                     $("#acr_rate_" + ++current).show();
                 }
+                a();
                 return false;
             });
 
