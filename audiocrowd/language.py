@@ -71,7 +71,7 @@ label_de = {
                                        "Danach müssen Sie ein kleines Training durchführen bei dem Sie 4 Audiodateien "
                                        "zur Übung anhören",
                                        "Nach dem Training haben Sie 60 Minuten Zeit um Audiodateien zu bewerten. "
-                                       "Sie können diese Campaign öfters aufrufen um neue Sätze zu bewerten.",
+                                       "Sie können diese Kampagne öfters aufrufen um neue Sätze zu bewerten.",
                                        "Wir erwarten, dass Sie diese Aufgabe in einer ruhigen Umgebung ausführen!",
                                        "Weiter"],
     "qualification_job_questions": ["Allgemeine Fragen",
