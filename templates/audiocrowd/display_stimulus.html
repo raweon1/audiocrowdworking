@@ -6,7 +6,7 @@
         {{ stimulus.name }}
     </div>
 {% elif stimulus.type == "aud" %}
-    <audio id="{{ stimulus.name }}" class="stimulus-aud" data-has-ended="false">
+    <audio id="{{ stimulus.name }}" class="stimulus-aud">
         <source src="{% static stimulus.path %}" type="audio/wav">
         Your browser does not support the audio tag
     </audio>
@@ -17,7 +17,6 @@
         $(document).ready(function () {
             $("#{{ stimulus.name }}").prop("volume", "{{ volume }}");
             $("#{{ stimulus.name }}").prop("preload", "auto");
-
             $("#{{ stimulus.name }}").on("volumechange", function () {
                 if($({{ stimulus.name }}).prop("volume") != {{ volume }}){
                     $("#{{ stimulus.name }}_input_volume").val($({{ stimulus.name }}).prop("volume"));
@@ -25,11 +24,10 @@
                 }
             });
             $("#{{ stimulus.name }}").on("ended", function () {
-                $("#{{ stimulus.name }}").attr("data-has-ended", "true");
+                $(document).trigger("{{ stimulus.name }}_ended");
                 $(".acr-left-button").prop("disabled", false);
                 $(".acr-right-button").prop("disabled", false);
             });
-
             $("#{{ stimulus.name }}_play").click(function () {
                 var audio = document.getElementById("{{ stimulus.name }}");
                 audio.currentTime = 0;

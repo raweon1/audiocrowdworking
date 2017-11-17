@@ -1,14 +1,16 @@
 <div id="container_acr_{{ index }}" class="container-acr" data-is-checked="false">
     <script>
         $(document).ready(function () {
+            if("{{ stimuli.name }}" != "noname" && "{{ stimuli.type }}" == "aud"){
+                $(".acr-radio[name='{{ stimuli.name }}'").prop("disabled", true);
+            }
+            $(".acr-radio[name='{{ stimuli.name }}'").on("{{ stimulus.name }}_ended", function () {
+                $(".acr-radio[name='{{ stimuli.name }}'").prop("disabled", false);
+            });
             $(".acr-radio[name='{{ stimuli.name }}'").click(function () {
-                if("{{ stimuli.type }}" != "aud" || $("#{{ stimuli.name }}").attr("data-has-ended") == "true") {
-                    if ($("#container_acr_{{ index }}").attr("data-is-checked") == "false") {
-                        $("#container_acr_{{ index }}").attr("data-is-checked", "true");
-                        $(document).trigger("acr_attr_changed");
-                    }
-                } else {
-                    $(".acr-radio[name='{{ stimuli.name }}'").prop("checked", false);
+                if ($("#container_acr_{{ index }}").attr("data-is-checked") == "false") {
+                    $("#container_acr_{{ index }}").attr("data-is-checked", "true");
+                    $(document).trigger("acr_attr_changed");
                 }
            });
         });

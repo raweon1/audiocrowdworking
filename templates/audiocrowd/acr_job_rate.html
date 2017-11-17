@@ -6,10 +6,8 @@
     <script>
         $(document).ready(function () {
             $("#acr_rate_1").siblings(".acr-rate-wrapper").hide();
-
             var current = 1;
             a();
-
             function a() {
                 if(current == 1){
                     $(".acr-left-button").prop("disabled", true)
@@ -22,7 +20,6 @@
                     $(".acr-right-button").prop("disabled", false)
                 }
             }
-
             $(".acr-left-button").click(function () {
                 if(current > 1){
                     $("#acr_rate_" + current).hide();
@@ -39,9 +36,9 @@
                 a();
                 return false;
             });
-
             $(document).on("acr_attr_changed", function () {
-                if($(".container-acr[data-is-checked='false']").length == 0){
+                $(".tmp").html("{{ acr_job_rate.1 }} " + $(".container-acr[data-is-checked=true]").length + " / {{ to_rate|length }}");
+                if($(".container-acr[data-is-checked=false]").length == 0){
                     $("#acr_submit").prop("disabled", false)
                 }
             });
@@ -57,7 +54,12 @@
         {% for index, stimuli in to_rate %}
             <div id="acr_rate_{{ index }}" class="acr-rate-wrapper">
                 <div class="panel-heading">
-                    {{ acr_job_rate.0 }} {{ index }} / {{ to_rate|length }}
+                    <div style="display: inline-block; text-align: left; width: 48%;">
+                        {{ acr_job_rate.0 }} {{ index }} / {{ to_rate|length }}
+                    </div>
+                    <div class="tmp" style="display: inline-block; text-align: right; width: 48%;">
+                        {{ acr_job_rate.1 }} 0 / {{ to_rate|length }}
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div class="align-center">
@@ -66,17 +68,17 @@
                     {% acr_scale index stimuli %}
                     <div class="align-right">
                         <button class="acr-button acr-left-button">
-                            {{ acr_job_rate.1 }}
+                            {{ acr_job_rate.2 }}
                         </button>
                         <button class="acr-button acr-right-button">
-                            {{ acr_job_rate.2 }}
+                            {{ acr_job_rate.3 }}
                         </button>
                     </div>
                 </div>
             </div>
         {% endfor %}
         <div class="align-right">
-            <input id="acr_submit" type="submit" value="{{ acr_job_rate.3 }}" disabled>
+            <input id="acr_submit" type="submit" value="{{ acr_job_rate.4 }}" disabled>
         </div>
     </form>
 {% endblock %}
