@@ -4,7 +4,7 @@
             if("{{ stimuli.name }}" != "noname" && "{{ stimuli.type }}" == "aud"){
                 $(".acr-radio[name='{{ stimuli.name }}'").prop("disabled", true);
             }
-            $(document).on("{{ stimulus.name }}_ended", function () {
+            $(document).on("{{ stimuli.name }}_ended", function () {
                 $(".acr-radio[name='{{ stimuli.name }}'").prop("disabled", false);
             });
             $(".acr-radio[name='{{ stimuli.name }}'").click(function () {
