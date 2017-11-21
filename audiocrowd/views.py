@@ -87,9 +87,9 @@ def stuff(request, called_job):
         correct_job(request, called_job)
         task = get_task(request)
     except NotRegisteredException:
-        return True, HttpResponseBadRequest("You are not registered"), None, None, None
+        return True, HttpResponseBadRequest("You are not registered"), None, None, None, None
     except WrongJobException:
-        return True, HttpResponseRedirect(link_list[get_job(request)]), None, None, None
+        return True, HttpResponseRedirect(link_list[get_job(request)]), None, None, None, None
     return False, None, worker, campaign, sub_campaign, task
 
 
