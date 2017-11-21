@@ -24,8 +24,7 @@
             $("#{{ stimulus.name }}").prop("preload", "auto");
             $("#{{ stimulus.name }}").on("ended", function () {
                 $(document).trigger("{{ stimulus.name }}_ended");
-                $(".acr-left-button").prop("disabled", false);
-                $(".acr-right-button").prop("disabled", false);
+                $(document).trigger("stimulus_ended");
                 $("#{{ stimulus.name }}_text_red").hide();
                 $("#{{ stimulus.name }}_text_green").show();
             });

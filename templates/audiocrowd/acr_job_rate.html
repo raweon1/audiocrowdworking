@@ -37,6 +37,9 @@
                 a();
                 return false;
             });
+            $(document).on("stimulus_ended", function () {
+                a();
+            });
             $(document).on("acr_attr_changed", function () {
                 max = $(".container-acr[data-is-checked=true]").length + 1;
                 a();
