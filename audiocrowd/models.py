@@ -51,7 +51,10 @@ class GoldStandardQuestions(models.Model):
 
 class Campaign(models.Model):
     campaign_id = models.CharField(max_length=50)
+
     platform = models.CharField(max_length=3, choices=[("mw", "Microworkers")])
+    vcode_key = models.CharField(max_length=50, default="No key")
+
     language = models.CharField(max_length=3, choices=[("de", "Deutsch"), ("en", "English")])
     stimuli_per_job = models.IntegerField(default=10)
     gold_standard_per_job = models.IntegerField(default=1)
@@ -68,14 +71,16 @@ class Worker(models.Model):
     name = models.CharField(max_length=50)
 
     gender = models.CharField(max_length=6, choices=[("male", "Male"), ("female", "Female"), ("other", "Other")],
-                              default="male")
-    birth_year = models.DateField(default="1945-01-01")
-    hearing_loss = models.BooleanField(default=False)
+                              null=True)
+    birth_year = models.DateField(null=True)
+    hearing_loss = models.IntegerField(choices=[(1, "Yes"), (0, "No")], null=True)
     subjective_test = models.IntegerField(
-        choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"), (5, "1 year or more")], default=1)
+        choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"),
+                 (5, "1 year or more")], null=True)
     speech_test = models.IntegerField(
-        choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"), (5, "1 year or more")], default=1)
-    connected = models.BooleanField(default=False)
+        choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"),
+                 (5, "1 year or more")], null=True)
+    connected = models.IntegerField(choices=[(1, "Yes"), (0, "No")], null=True)
 
     # hat der Worker die qualification abgeschlossen?
     qualification_done = models.BooleanField(default=False)
@@ -88,14 +93,25 @@ class Worker(models.Model):
         return "Worker: " + str(self.name)
 
 
+class SubCampaign(models.Model):
+    parent_campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE)
+    sub_campaign_id = models.CharField(max_length=50)
+    tracker_window = models.IntegerField(default=60)
+    max_worker_count = models.IntegerField()
+
+
+class SubCampaignTracker(models.Model):
+    sub_campaign = models.ForeignKey(SubCampaign, on_delete=models.CASCADE)
+    worker = models.ForeignKey(Worker)
+    time = models.DateTimeField(default=now)
+
+
 class RatingSet(models.Model):
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
-    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE)
+    sub_campaign = models.ForeignKey(SubCampaign, on_delete=models.CASCADE)
     set_nr = models.IntegerField()
     finished = models.BooleanField(default=False)
     invalid_set = models.BooleanField(default=False)
-
-    calibrated_volume = models.FloatField()
 
     def __str__(self):
         return str(self.worker) + " / set: " + str(self.set_nr)
@@ -107,8 +123,6 @@ class Rating(models.Model):
     rating = models.IntegerField(
         choices=[(1, "1 Bad"), (2, "2 Poor"), (3, "3 Fair"), (4, "4 Good"), (5, "5 Excellent")])
 
-    volume = models.FloatField(default=0)
-
     def __str__(self):
         return str(self.rating_set) + " / " + str(self.stimulus) + " / rating : " + str(self.rating)
 
@@ -118,8 +132,6 @@ class GoldStandardAnswers(models.Model):
     question = models.ForeignKey(GoldStandardQuestions, on_delete=models.CASCADE)
     answer = models.IntegerField(
         choices=[(1, "1 Bad"), (2, "2 Poor"), (3, "3 Fair"), (4, "4 Good"), (5, "5 Excellent")])
-
-    volume = models.FloatField(default=0)
 
     def __str__(self):
         return str(self.rating_set) + " / " + str(self.question) + " / answer : " + str(self.answer)

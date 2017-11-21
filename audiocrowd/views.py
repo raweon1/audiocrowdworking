@@ -5,17 +5,18 @@ from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.timezone import now
 
-from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, Campaign
+from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, Campaign, SubCampaign, SubCampaignTracker
 from .language import get_context_language
 
 from datetime import timedelta
 from random import randint
+from hashlib import sha256
 
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
 
 qualification_job_tasks = dict(introduction="introduction", questions="general_questions")
 training_job_tasks = dict(setup="setup", samples="samples")
-acr_job_tasks = dict(setup="setup", rate="rate", next="next", done="done")
+acr_job_tasks = dict(setup="setup", rate="rate", next="next", done="done", end="end", welcome_back="welcome_back")
 
 task_list = {
     job_list['qualification']: qualification_job_tasks,
@@ -66,11 +67,12 @@ def is_registered(request):
     try:
         campaign = Campaign.objects.get(campaign_id=request.session["campaign"])
         worker = Worker.objects.get(name=request.session["worker"])
+        sub_campaing = SubCampaign.objects.get(sub_campaign_id=request.session["sub_campaign"])
     except KeyError:
         raise NotRegisteredException()
     except ObjectDoesNotExist:
         raise NotRegisteredException()
-    return worker, campaign
+    return worker, campaign, sub_campaing
 
 
 def correct_job(request, job):
@@ -81,14 +83,14 @@ def correct_job(request, job):
 
 def stuff(request, called_job):
     try:
-        worker, campaign = is_registered(request)
+        worker, campaign, sub_campaign = is_registered(request)
         correct_job(request, called_job)
         task = get_task(request)
     except NotRegisteredException:
         return True, HttpResponseBadRequest("You are not registered"), None, None, None
     except WrongJobException:
         return True, HttpResponseRedirect(link_list[get_job(request)]), None, None, None
-    return False, None, worker, campaign, task
+    return False, None, worker, campaign, sub_campaign, task
 
 
 def redirect_to(request, job, task):
@@ -99,34 +101,48 @@ def redirect_to(request, job, task):
 
 # localhost:8000/audio/register?workerid=1337&campaignid=hallo
 def register(request):
-    campaign_id = request.GET.get("campaignid")
+    sub_campaign_id = request.GET.get("campaignid")
     worker_id = request.GET.get("workerid")
-    if not (campaign_id and worker_id):
+    if not (sub_campaign_id and worker_id):
         error = '<div align="center">BadRequest 400<br>'
-        if not campaign_id:
+        if not sub_campaign_id:
             error = error + 'Expected argument "campaignid"<br>'
         if not worker_id:
             error = error + 'Expected argument "workerid"<br>'
         error = error + "</div>"
         return HttpResponseBadRequest(error)
-    request.session["campaign"] = campaign_id
-    request.session["worker"] = worker_id
     try:
-        Campaign.objects.get(campaign_id=campaign_id)
+        sub_campaign = SubCampaign.objects.get(sub_campaign_id=sub_campaign_id)
     except ObjectDoesNotExist:
         request.session.flush()
-        return HttpResponseBadRequest("Campaign " + campaign_id + " does not exist")
+        return HttpResponseBadRequest("Campaign " + sub_campaign_id + " does not exist")
     # session wird beendet wenn der browser geschlossen wird
     request.session.set_expiry(0)
+    request.session["sub_campaign"] = sub_campaign_id
+    request.session["campaign"] = sub_campaign.parent_campaign.campaign_id
+    request.session["worker"] = worker_id
+    request.session["calibrate"] = 0.5
     worker, created = Worker.objects.get_or_create(name=worker_id)
-    if created:
-        return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['introduction'])
+
+    tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
+    for entry in tmp:
+        if entry.time + timedelta(minutes=sub_campaign.tracker_window) < now():
+            entry.delete()
+    tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
+    if tmp.__len__() < sub_campaign.max_worker_count - RatingSet.objects.filter(sub_campaign=sub_campaign, finished=True).__len__():
+        track = SubCampaignTracker(sub_campaign=sub_campaign, worker=worker)
+        track.save()
     else:
-        if not worker.qualification_done:
-            return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['introduction'])
-        elif not worker.access_training:
-            return HttpResponse("You are not qualified to participate")
-        return redirect_to(request, job_list['training'], task_list[job_list['training']]['setup'])
+        context = dict(list(get_context_language(sub_campaign.parent_campaign.language, "base").items()) +
+                       list(get_context_language(sub_campaign.parent_campaign.language, "campaign_is_full").items()))
+        request.session.flush()
+        return render(request, "audiocrowd/campaign_is_full.html", context)
+
+    if not worker.qualification_done:
+        return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['introduction'])
+    elif not worker.access_training:
+        return HttpResponse("You are not qualified to participate")
+    return redirect_to(request, job_list['training'], task_list[job_list['training']]['setup'])
 
 
 class GeneralQuestionsForm(ModelForm):
@@ -134,7 +150,7 @@ class GeneralQuestionsForm(ModelForm):
         model = Worker
         fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected")
         widgets = {
-            "birth_year": SelectDateWidget(years=[y for y in range(1930, 2020)])
+            "birth_year": SelectDateWidget(years=[y for y in range(1950, 2007)])
         }
 
     def __init__(self, language, *args, **kwargs):
@@ -147,16 +163,25 @@ class GeneralQuestionsForm(ModelForm):
         self.fields["speech_test"].label = tmp[6]
         self.fields["connected"].label = tmp[7]
         if language != "en":
-            self.fields["gender"].widget.choices = [("male", tmp[9][0]), ("female", tmp[9][1]), ("other", tmp[9][2])]
-            self.fields["birth_year"].widget.months = {1: tmp[10][0], 2: tmp[10][1], 3: tmp[10][2], 4: tmp[10][3], 5: tmp[10][4], 6: tmp[10][5], 7: tmp[10][6], 8: tmp[10][7], 9: tmp[10][8], 10: tmp[10][9], 11: tmp[10][10], 12: tmp[10][11]}
-            self.fields["subjective_test"].widget.choices = [(0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
-                                                             (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
-            self.fields["speech_test"].widget.choices = [(0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
-                                                         (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+            self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[12][0]), (0, tmp[12][1])]
+            self.fields["connected"].choices = [("", "---------"), (1, tmp[12][0]), (0, tmp[12][1])]
+            self.fields["gender"].choices = [("", "---------"),
+                                             ("male", tmp[9][0]), ("female", tmp[9][1]), ("other", tmp[9][2])]
+            self.fields["birth_year"].widget.months = {"": "---------",
+                                                       1: tmp[10][0], 2: tmp[10][1], 3: tmp[10][2], 4: tmp[10][3],
+                                                       5: tmp[10][4], 6: tmp[10][5], 7: tmp[10][6], 8: tmp[10][7],
+                                                       9: tmp[10][8], 10: tmp[10][9], 11: tmp[10][10], 12: tmp[10][11]}
+            self.fields["subjective_test"].choices = [("", "---------"),
+                                                      (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
+                                                      (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+            self.fields["speech_test"].choices = [("", "---------"),
+                                                  (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
+                                                  (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+
 
 
 def qualification_job_view(request):
-    error, http, worker, campaign, task = stuff(request, job_list['qualification'])
+    error, http, worker, campaign, sub_campaign, task = stuff(request, job_list['qualification'])
     if error:
         return http
 
@@ -180,7 +205,7 @@ def qualification_job_view(request):
                 worker.save()
                 return redirect_to(request, job_list['training'], task_list[job_list['training']]["setup"])
             else:
-                # Die Form ist immer valid!
+                # Die Form ist sollte immer valid sein
                 return HttpResponse("Form is invalid")
         else:
             context = dict(list(get_context_language(campaign.language, "base").items()) +
@@ -208,7 +233,7 @@ def get_training_stimuli_to_rate_context(campaign):
 
 
 def training_job_view(request):
-    error, http, worker, campaign, task = stuff(request, job_list['training'])
+    error, http, worker, campaign, sub_campaign, task = stuff(request, job_list['training'])
     if error:
         return http
 
@@ -232,11 +257,14 @@ def training_job_view(request):
             else:
                 context = dict(list(get_context_language(campaign.language, "base").items()) +
                                list(get_context_language(campaign.language, "acr_job_rate").items()) +
-                               list(get_context_language(campaign.language, "acr_scale").items()))
+                               list(get_context_language(campaign.language, "acr_scale").items()) +
+                               list(get_context_language(campaign.language, "display_stimulus").items()))
+                context["acr_job_rate"][4] = get_context_language(
+                    campaign.language, "training_job_rate")["training_job_rate"][0]
                 context["to_rate"] = get_training_stimuli_to_rate_context(campaign)
                 context["volume"] = request.session["calibrate"]
                 return render(request, "audiocrowd/acr_job_rate.html", context)
-    return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['setup'])
+    return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['welcome_back'])
 
 
 # @param: count = max. Anzahl von zu bearbeitenden Stimuli
@@ -340,8 +368,13 @@ def parse_rating_form(form_dict):
     return form_dict, stimuli, gold_standard
 
 
+def get_mw_vcode(sub_campaign_id, worker_id, vcode_key):
+    tmp = sub_campaign_id + worker_id + vcode_key
+    return "mw-" + sha256(tmp.encode("utf-8")).hexdigest()
+
+
 def acr_job_view(request):
-    error, http, worker, campaign, task = stuff(request, job_list['acr'])
+    error, http, worker, campaign, sub_campaign, task = stuff(request, job_list['acr'])
     if error:
         return http
 
@@ -351,23 +384,18 @@ def acr_job_view(request):
             request.session["calibrate"] = request.POST.dict()["calibrate"]
             try:
                 rating_set = RatingSet.objects.get(worker=worker, finished=False)
-                rating_set.calibrated_volume = request.POST.dict()["calibrate"]
-                rating_set.campaign = campaign
+                rating_set.sub_campaign = sub_campaign
             except ObjectDoesNotExist:
                 set_nr = RatingSet.objects.filter(worker=worker, finished=True).__len__() + 1
-                calibrated_volume = request.POST.dict()["calibrate"]
-                rating_set = RatingSet(worker=worker, campaign=campaign,
-                                       set_nr=set_nr, calibrated_volume=calibrated_volume)
+                rating_set = RatingSet(worker=worker, sub_campaign=sub_campaign,
+                                       set_nr=set_nr)
             rating_set.save()
             return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['rate'])
         context = dict(list(get_context_language(campaign.language, "base").items()) +
                        list(get_context_language(campaign.language, "acr_job_setup").items()) +
                        list(get_context_language(campaign.language, "calibrate").items()))
         context["calibrate_stimulus"] = campaign.calibrate_stimulus
-        try:
-            context["volume"] = request.session["calibrate"]
-        except KeyError:
-            context["volume"] = 0.5
+        context["volume"] = request.session["calibrate"]
         return render(request, "audiocrowd/acr_job_setup.html", context)
 
     elif task == task_list[job_list['acr']]['rate']:
@@ -377,34 +405,25 @@ def acr_job_view(request):
             for stimulus in stimuli:
                 stim_dict = stimuli[stimulus]
                 rating = Rating(rating_set=rating_set, stimulus=stim_dict["object"], rating=stim_dict["rating"])
-                try:
-                    rating.volume = stim_dict["volume"]
-                except KeyError:
-                    pass
                 rating.save()
             for gold_standard_question in gold_standard:
                 gold_dict = gold_standard[gold_standard_question]
                 answer = GoldStandardAnswers(rating_set=rating_set, question=gold_dict["object"], answer=gold_dict["rating"])
+                answer.save()
                 if str(answer.answer) != str(answer.question.expected_answer):
                     rating_set.invalid_set = True
-                try:
-                    answer.volume = gold_dict["volume"]
-                except KeyError:
-                    pass
-                answer.save()
             rating_set.finished = True
-            if other["volume_changed"] == "True":
-                rating_set.invalid_set = True
             rating_set.save()
             del request.session["set_to_rate"]
-            return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['next'])
+            return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['end'])
         else:
             set_to_rate = get_or_create_session_set_to_rate(request, worker, campaign)
             if set_to_rate.__len__() == 0:
                 return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['done'])
             context = dict(list(get_context_language(campaign.language, "base").items()) +
                            list(get_context_language(campaign.language, "acr_job_rate").items()) +
-                           list(get_context_language(campaign.language, "acr_scale").items()))
+                           list(get_context_language(campaign.language, "acr_scale").items()) +
+                           list(get_context_language(campaign.language, "display_stimulus").items()))
             context["to_rate"] = get_set_to_rate_context(set_to_rate)
             context["volume"] = request.session["calibrate"]
             return render(request, "audiocrowd/acr_job_rate.html", context)
@@ -426,4 +445,21 @@ def acr_job_view(request):
     elif task == task_list[job_list['acr']]['done']:
         request.session.flush()
         return render(request, "audiocrowd/acr_job_done.html", {})
-    return Http404()
+
+    elif task == task_list[job_list['acr']]['welcome_back']:
+        if request.method == "POST":
+            return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['setup'])
+        else:
+            context = dict(list(get_context_language(campaign.language, "base").items()) +
+                           list(get_context_language(campaign.language, "acr_job_welcome_back").items()))
+            return render(request, "audiocrowd/acr_welcome_back.html", context)
+
+    elif task == task_list[job_list['acr']]['end']:
+        #damit man nach x Kampagnen nicht wieder Training machen muss
+        worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
+        worker.save()
+        context = dict(list(get_context_language(campaign.language, "base").items()) +
+                       list(get_context_language(campaign.language, "acr_job_end").items()))
+        context["vcode"] = get_mw_vcode(sub_campaign.sub_campaign_id, worker.name, campaign.vcode_key)
+        return render(request, "audiocrowd/acr_job_end.html", context)
+    raise Http404()

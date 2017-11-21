@@ -7,6 +7,7 @@
         $(document).ready(function () {
             $("#acr_rate_1").siblings(".acr-rate-wrapper").hide();
             var current = 1;
+            var max = 1;
             a();
             function a() {
                 if(current == 1){
@@ -14,7 +15,7 @@
                 } else {
                     $(".acr-left-button").prop("disabled", false)
                 }
-                if(current == {{ to_rate|length }}){
+                if(current == max || current == {{ to_rate|length }}){
                     $(".acr-right-button").prop("disabled", true)
                 } else {
                     $(".acr-right-button").prop("disabled", false)
@@ -37,35 +38,28 @@
                 return false;
             });
             $(document).on("acr_attr_changed", function () {
-                $(".tmp").html("{{ acr_job_rate.1 }} " + $(".container-acr[data-is-checked=true]").length + " / {{ to_rate|length }}");
+                max = $(".container-acr[data-is-checked=true]").length + 1;
+                a();
                 if($(".container-acr[data-is-checked=false]").length == 0){
                     $("#acr_submit").prop("disabled", false)
                 }
-            });
-
-            $(document).on("volume_changed", function () {
-                $("#volume_changed").val("True")
             });
         });
     </script>
     <form method="post">
         {% csrf_token %}
-        <input id="volume_changed" type="hidden" name="volume_changed" value="False">
         {% for index, stimuli in to_rate %}
             <div id="acr_rate_{{ index }}" class="acr-rate-wrapper">
                 <div class="panel-heading">
-                    <div style="display: inline-block; text-align: left; width: 48%;">
-                        {{ acr_job_rate.0 }} {{ index }} / {{ to_rate|length }}
-                    </div>
-                    <div class="tmp" style="display: inline-block; text-align: right; width: 48%;">
-                        {{ acr_job_rate.1 }} 0 / {{ to_rate|length }}
-                    </div>
+                    {{ acr_job_rate.0 }} {{ index }} / {{ to_rate|length }}
                 </div>
                 <div class="panel-body">
-                    <div class="align-center">
+                    <div style="text-align: center; padding: 0px">
                         {% display_stimulus stimuli index volume %}
                     </div>
+                    <br>
                     {% acr_scale index stimuli %}
+                    <br>
                     <div class="align-right">
                         <button class="acr-button acr-left-button">
                             {{ acr_job_rate.2 }}

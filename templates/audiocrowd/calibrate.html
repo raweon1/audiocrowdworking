@@ -4,19 +4,29 @@
     <div>{{ pre_msg }}</div>
     <br>
     <div class="align-center">
-        <audio id="calibrate_audio" class="stimulus-aud" onvolumechange="volume_changed()" controls>
+        <audio id="calibrate_audio" class="stimulus-aud">
             <source src="{% static file.path %}" type="audio/wav">
             Your browser does not support the audio tag
         </audio>
+        <button id="calibrate_audio_button" class="acr-button" onclick="play_audio()">Play/Reset</button>
+        <input id="calibrate_audio_range" type="range" min="0" max="1" step="0.01" oninput="volume_changed()">
         <input id="calibrate_volume" type="hidden" name="calibrate" value="1">
         <script>
             $(document).ready(function () {
-                $("#calibrate_audio").prop("volume", "{{ volume }}")
+                $("#calibrate_audio_range").prop("value", "{{ volume }}");
                 volume_changed();
             });
 
+            function play_audio() {
+                var audio = document.getElementById("calibrate_audio_button");
+                audio.currentTime = 0;
+                audio.play();
+                return false;
+            }
+
             function volume_changed() {
-                $("#calibrate_volume").val($("#calibrate_audio").prop("volume"));
+                $("#calibrate_audio").prop("volume", $("#calibrate_audio_range").prop("value"));
+                $("#calibrate_volume").val($("#calibrate_audio_range").prop("value"));
             }
         </script>
     </div>

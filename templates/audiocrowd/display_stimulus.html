@@ -6,27 +6,28 @@
         {{ stimulus.name }}
     </div>
 {% elif stimulus.type == "aud" %}
+    <div id="{{ stimulus.name }}_text_red" style="color: red">
+        {{ display_stimulus.0 }}
+    </div>
+    <div id="{{ stimulus.name }}_text_green" style="color: green;" hidden>
+        {{ display_stimulus.1 }}
+    </div>
     <audio id="{{ stimulus.name }}" class="stimulus-aud">
         <source src="{% static stimulus.path %}" type="audio/wav">
         Your browser does not support the audio tag
     </audio>
+    <br>
     <button id="{{ stimulus.name }}_play" class="acr-button">Play/Reset</button>
-    <button id="{{ stimulus.name }}_pause" class="acr-button">Pause</button>
-    <input id="{{ stimulus.name }}_input_volume" type="hidden" name="{{ stimulus.name }}_volume" value="{{ volume }}">
     <script>
         $(document).ready(function () {
             $("#{{ stimulus.name }}").prop("volume", "{{ volume }}");
             $("#{{ stimulus.name }}").prop("preload", "auto");
-            $("#{{ stimulus.name }}").on("volumechange", function () {
-                if($({{ stimulus.name }}).prop("volume") != {{ volume }}){
-                    $("#{{ stimulus.name }}_input_volume").val($({{ stimulus.name }}).prop("volume"));
-                    $(document).trigger("volume_changed");
-                }
-            });
             $("#{{ stimulus.name }}").on("ended", function () {
                 $(document).trigger("{{ stimulus.name }}_ended");
                 $(".acr-left-button").prop("disabled", false);
                 $(".acr-right-button").prop("disabled", false);
+                $("#{{ stimulus.name }}_text_red").hide();
+                $("#{{ stimulus.name }}_text_green").show();
             });
             $("#{{ stimulus.name }}_play").click(function () {
                 var audio = document.getElementById("{{ stimulus.name }}");
@@ -34,14 +35,6 @@
                 audio.play();
                 $(".acr-left-button").prop("disabled", true);
                 $(".acr-right-button").prop("disabled", true);
-                return false;
-            });
-            $("#{{ stimulus.name }}_pause").click(function () {
-                var audio = document.getElementById("{{ stimulus.name }}");
-                audio.currentTime = 0;
-                audio.pause();
-                $(".acr-left-button").prop("disabled", false);
-                $(".acr-right-button").prop("disabled", false);
                 return false;
             });
         });

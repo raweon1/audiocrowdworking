@@ -8,9 +8,9 @@ def acr_scale(context, index=0, stimulus={"name": "noname"}):
     return {"stimuli": stimulus, "index": index, "acr_scale": context["acr_scale"]}
 
 
-@register.inclusion_tag("audiocrowd/display_stimulus.html")
-def display_stimulus(stimulus, index=0, volume=0):
-    return {"stimulus": stimulus, "index": index, "volume": volume}
+@register.inclusion_tag("audiocrowd/display_stimulus.html", takes_context=True)
+def display_stimulus(context, stimulus, index=0, volume=0):
+    return {"stimulus": stimulus, "index": index, "volume": volume, "display_stimulus": context["display_stimulus"]}
 
 
 @register.inclusion_tag("audiocrowd/calibrate.html", takes_context=True)

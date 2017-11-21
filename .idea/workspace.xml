@@ -2,8 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0021_auto_20171121_1152.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0022_auto_20171121_1157.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0023_auto_20171121_1509.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0024_subcampaign_sub_campaign_id.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0025_auto_20171121_1527.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0026_auto_20171121_1545.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0027_subcampaign_max_worker_count.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0028_auto_20171121_1651.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_job_end.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_welcome_back.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/audiocrowd/campaign_is_full.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/admin.py" afterPath="$PROJECT_DIR$/audiocrowd/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/language.py" afterPath="$PROJECT_DIR$/audiocrowd/language.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/models.py" afterPath="$PROJECT_DIR$/audiocrowd/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" afterPath="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" afterPath="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/base.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/calibrate.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/calibrate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_introduction.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_introduction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/training_setup.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/training_setup.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -11,6 +37,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/audiocrowdworking$vcodetest.coverage" NAME="vcodetest Coverage Results" MODIFIED="1511271946055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audiocrowd" />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -20,20 +49,42 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+            <state relative-caret-position="612">
+              <caret line="103" column="48" lean-forward="false" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiocrowd/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="316" column="17" lean-forward="false" selection-start-line="316" selection-start-column="17" selection-end-line="316" selection-end-column="17" />
+            <state relative-caret-position="204">
+              <caret line="129" column="26" lean-forward="true" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="campaign_is_full.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/campaign_is_full.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -42,61 +93,28 @@
       <file leaf-file-name="audiocrowd_style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+            <state relative-caret-position="-520">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display_stimulus.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="acr_scale.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="acr_job_rate.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-              <folding>
-                <element signature="e#2144#2204#0#HTML" expanded="true" />
-                <element signature="e#2350#2411#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calibrate.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/calibrate.html">
+      <file leaf-file-name="acr_job_end.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_end.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" column="68" lean-forward="false" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
+              <caret line="13" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom_tags.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py">
+      <file leaf-file-name="acr_welcome_back.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_welcome_back.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="120" lean-forward="false" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
+            <state relative-caret-position="221">
+              <caret line="13" column="74" lean-forward="true" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -105,8 +123,18 @@
       <file leaf-file-name="language.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="36" column="26" lean-forward="false" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+            <state relative-caret-position="330">
+              <caret line="134" column="21" lean-forward="false" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="training_setup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/training_setup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -115,8 +143,8 @@
       <file leaf-file-name="acr_job_setup.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+            <state relative-caret-position="204">
+              <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -139,9 +167,7 @@
       <find>link</find>
       <find>return</find>
       <find>tmp</find>
-      <find>campa</find>
       <find>campaign=</find>
-      <find>rating_set</find>
       <find>Config</find>
       <find>gold</find>
       <find>calibrate</find>
@@ -150,6 +176,14 @@
       <find>print</find>
       <find>context[&quot;volume&quot;]</find>
       <find>sie</find>
+      <find>training</find>
+      <find>campa</find>
+      <find>stuff</find>
+      <find>rating_set</find>
+      <find>volume</find>
+      <find>404</find>
+      <find>access_acr</find>
+      <find>delta</find>
     </findStrings>
     <replaceStrings>
       <replace>Sie</replace>
@@ -168,22 +202,26 @@
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_done.html" />
         <option value="$PROJECT_DIR$/audiocrowd/urls.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_next_job.html" />
-        <option value="$PROJECT_DIR$/audiocrowd/admin.py" />
         <option value="$PROJECT_DIR$/audiocrowdworking/settings.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/base.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_introduction.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
-        <option value="$PROJECT_DIR$/audiocrowd/models.py" />
-        <option value="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" />
-        <option value="$PROJECT_DIR$/templates/audiocrowd/calibrate.html" />
-        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/training_setup.html" />
-        <option value="$PROJECT_DIR$/audiocrowd/views.py" />
-        <option value="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" />
-        <option value="$PROJECT_DIR$/audiocrowd/language.py" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/calibrate.html" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
+        <option value="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/vcodetest.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html" />
-        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
+        <option value="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_end.html" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_welcome_back.html" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" />
+        <option value="$PROJECT_DIR$/audiocrowd/models.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/admin.py" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/campaign_is_full.html" />
+        <option value="$PROJECT_DIR$/audiocrowd/language.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/views.py" />
       </list>
     </option>
   </component>
@@ -201,8 +239,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-201" />
-    <option name="y" value="-16" />
+    <option name="x" value="2174" />
+    <option name="y" value="-9" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -304,7 +342,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.audiocrowdworking">
+  <component name="RunManager" selected="Python.vcodetest">
     <configuration name="audiocrowdworking" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -327,6 +365,33 @@
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
     </configuration>
+    <configuration name="vcodetest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/audiocrowd" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="audiocrowdworking" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/audiocrowd/vcodetest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Django server.audiocrowdworking" />
+      <item index="1" class="java.lang.String" itemvalue="Python.vcodetest" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.vcodetest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -524,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510926881847</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="bugfix">
+      <created>1510926993605</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1510926993605</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -537,15 +609,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32873806" sideWeight="0.5375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32873806" sideWeight="0.4625" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32873806" sideWeight="0.54583335" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32873806" sideWeight="0.45416668" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32873806" sideWeight="0.49375" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19479166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -596,42 +668,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/audiocrowd/admin.py</url>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -678,7 +725,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -687,7 +736,7 @@
         <state relative-caret-position="510">
           <caret line="30" column="47" lean-forward="true" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -731,7 +780,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="79" lean-forward="true" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
-          <folding />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -761,7 +812,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -770,7 +823,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -801,7 +854,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -810,7 +865,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -857,32 +912,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowdworking/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="59" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_introduction.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="72" lean-forward="false" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -896,101 +930,163 @@
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/training_setup.html">
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="60" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+        <state relative-caret-position="238">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_introduction.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/calibrate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="68" lean-forward="false" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
+        <state relative-caret-position="425">
+          <caret line="28" column="86" lean-forward="false" selection-start-line="28" selection-start-column="86" selection-end-line="28" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="120" lean-forward="false" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
+        <state relative-caret-position="204">
+          <caret line="12" column="113" lean-forward="false" selection-start-line="12" selection-start-column="113" selection-end-line="12" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/vcodetest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="89" lean-forward="true" selection-start-line="10" selection-start-column="89" selection-end-line="10" selection-end-column="89" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+          <folding>
+            <element signature="e#2077#2117#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding>
+            <element signature="e#342#360#0#HTML" expanded="true" />
+            <element signature="e#451#472#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-520">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_welcome_back.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="74" lean-forward="true" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/training_setup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+        <state relative-caret-position="204">
+          <caret line="12" column="67" lean-forward="true" selection-start-line="12" selection-start-column="67" selection-end-line="12" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_end.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="316" column="17" lean-forward="false" selection-start-line="316" selection-start-column="17" selection-end-line="316" selection-end-column="17" />
+        <state relative-caret-position="221">
+          <caret line="13" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="103" column="48" lean-forward="false" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/campaign_is_full.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="36" column="26" lean-forward="false" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+        <state relative-caret-position="330">
+          <caret line="134" column="21" lean-forward="false" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html">
+    <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+        <state relative-caret-position="204">
+          <caret line="129" column="26" lean-forward="true" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
           <folding>
-            <element signature="e#2144#2204#0#HTML" expanded="true" />
-            <element signature="e#2350#2411#0#HTML" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>

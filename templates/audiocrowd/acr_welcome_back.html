@@ -1,17 +1,19 @@
 {% extends "audiocrowd/base.html" %}
+
 {% load custom_tags %}
 
 {% block task %}
-    <div class="panel-heading">{{ acr_job_setup.0 }}</div>
+    <div class="panel-heading">
+        {{ acr_job_welcome_back.0 }}
+    </div>
     <div class="panel-body">
-        <p>{{ acr_job_setup.1 }}</p>
-        <p>{{ acr_job_setup.2 }}</p>
+        <p>{{ acr_job_welcome_back.1 }}</p>
         <form method="post">
             {% csrf_token %}
-            {% calibrate_volume calibrate_stimulus volume %}
             <div class="align-right">
-                <input type="submit" value="{{ acr_job_setup.3 }}">
+                <input type="submit" value="{{ acr_job_welcome_back.2 }}">
             </div>
         </form>
     </div>
+
 {% endblock %}

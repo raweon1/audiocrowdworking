@@ -1,0 +1,16 @@
+{% extends "audiocrowd/base.html" %}
+
+{% load custom_tags %}
+
+{% block task %}
+    <div class="panel-heading">
+        {{ acr_job_end.0 }}
+    </div>
+    <div class="panel-body">
+        <div>
+            <p>{{ acr_job_end.1 }}</p>
+            <p>{{ vcode }}</p>
+        </div>
+    </div>
+
+{% endblock %}

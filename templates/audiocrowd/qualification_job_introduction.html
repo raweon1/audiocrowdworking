@@ -10,21 +10,20 @@
         {% acr_scale %}
         <br>
         <div>{{ qualification_job_introduction.2 }}</div>
-    </div>
-    <div class="panel-heading">{{ qualification_job_introduction.3 }}</div>
-    <div class="panel-body">
-        {{ qualification_job_introduction.4 }}
-        <ul>
+        {{ qualification_job_introduction.3 }}
+        <ol>
+            <li>{{ qualification_job_introduction.4 }}</li>
             <li>{{ qualification_job_introduction.5 }}</li>
             <li>{{ qualification_job_introduction.6 }}</li>
-            <li>{{ qualification_job_introduction.7 }}</li>
-        </ul>
+        </ol>
+        {{ qualification_job_introduction.7 }}
+        <br>
         {{ qualification_job_introduction.8 }}
-    </div>
-    <div class="align-right">
-        <form method="post">
-            {% csrf_token %}
-            <input type="submit" value="{{ qualification_job_introduction.9 }}">
-        </form>
+        <div class="align-right">
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" value="{{ qualification_job_introduction.9 }}">
+            </form>
+        </div>
     </div>
 {% endblock %}

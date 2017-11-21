@@ -33,6 +33,7 @@ label_en = {
                            "Setup",
                            "Please perform this task in a quiet environment!",
                            "Ready"],
+    "training_job_rate": ["Weiter"],
     "acr_job_rate": ["Sample",
                      "Done",
                      "previous",
@@ -45,6 +46,8 @@ label_en = {
                       "Setup",
                       "Please perform this task in a quiet environment!",
                       "Ready"],
+    "acr_job_end": ["Danke für ihre Mitarbeit. Bitte nutzen sie folgenden VCODE:"],
+    "acr_job_welcome_back": [],
     "acr_scale": ["Quality of the speech",
                   "Score",
                   "Excellent",
@@ -52,6 +55,8 @@ label_en = {
                   "Fair",
                   "Poor",
                   "Bad"],
+    "display_stimulus": ["Sie müssen die Audiodatei vor dem Bewerten anhören",
+                         "Sie können die Audiodatei nun bewerten"],
     "calibrate": ["Please modify the listening volume of your device to a comfortable level when hearing the following "
                   "audio file.",
                   "IMPORTANT: After that, you are not allowed to change the volume anymore. If you do, your "
@@ -61,21 +66,20 @@ label_en = {
 label_de = {
     "base": ["Bewertung von Audiodateien"],
     "qualification_job_introduction": ["Einleitung",
-                                       "Wir suchen Arbeiter die bei einer Studie über die Qualität von Sprache "
-                                       "mitmachen. Während des Tests werden Sie kurze Sätze (5-10 Sekunden) mit ihrem "
-                                       "Lautsprecher anhören und anschließend diese bewerten. Sie werden ca. 10 Sätze "
-                                       "auf der folgenden Skala bewerten:",
-                                       "Diese Aufgabe können Sie in ca. 2-3 Minuten beenden.",
-                                       "Prozedur",
-                                       "Der Ablauf ist wie folgt:",
-                                       "Sie müssen die nachfolgende Qualifikation absolvieren.",
+                                       "Bei dieser Aufgabe werden Sie an einer Studie über Sprachqualität teilnehmen."
+                                       " Während des Tests werden Sie kurze Sätze (ca. 7-12 Sekunden) mit ihrem "
+                                       "Lautsprecher anhören und anschließend diese auf folgender Skala bewerten:",
+                                       "Nachdem sie 11 Sätze bewertet haben können Sie die Aufgabe abschließen",
+                                       "Um mit der Bewertung zu beginnen müssen sie folgende Schritte absolvieren:",
+                                       "Zuerst werden wir einige demografische Daten von Ihnen erheben - ca. 1 Minute",
                                        "Danach müssen Sie ein kleines Training durchführen bei dem Sie 4 Audiodateien "
-                                       "zur Übung anhören",
-                                       "Nach dem Training haben Sie 60 Minuten Zeit um Audiodateien zu bewerten. "
-                                       "Sie können diese Kampagne öfters aufrufen um neue Sätze zu bewerten.",
+                                       "zur Übung anhören - ca. 2 Minuten",
+                                       "Nach dem Training können Sie die Audiodateien bewerten und diese Aufgabe abschließen - ca. 5 Minuten",
+                                       "Der Abschluss des Trainings erlaubt es Ihnen für 60 Minuten andere Kampagnen ohne erneute "
+                                       "Ausführung von Schritt 1 und 2 durchzuführen.",
                                        "Wir erwarten, dass Sie diese Aufgabe in einer ruhigen Umgebung ausführen!",
                                        "Weiter"],
-    "qualification_job_questions": ["Allgemeine Fragen",
+    "qualification_job_questions": ["Demografische Daten",
                                     "Bitte beantworten Sie die nachfolgenden Fragen:",
                                     "Was ist Ihr Geschlecht?",
                                     "Wann wurden Sie geboren?",
@@ -83,10 +87,11 @@ label_de = {
                                     "Wann haben Sie das letzte mal an einem Subjektiven Test teilgenommen?",
                                     "Wann haben Sie das letzte mal an einem Sprachqualitätstest teilgenommen?",
                                     "Haben Sie jemals im Bereich Sprachkodierung oder Ähnlichem gearbeitet?",
-                                    "Abgeben",
+                                    "Weiter",
                                     ["Mann", "Frau", "Andere"],
                                     ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
-                                    ["Niemals", "1 Monat", "3 Monat", "6 Monat", "9 Monat", "1 Jahr oder länger"]],
+                                    ["Niemals", "1 Monat", "3 Monate", "6 Monate", "9 Monate", "1 Jahr oder länger"],
+                                    ["Ja", "Nein"]],
     "training_job_setup": ["Training",
                            "Im folgenden werden Sie einige Audiodateien zur Bewertung bekommen. Diese dienen nur zur "
                            "Übung und werden nicht gespeichert. Es gibt keine falschen Antworten! "
@@ -94,31 +99,42 @@ label_de = {
                            "Lautstärke, Störgeräusche, Sprachqualität und Aussetzern.",
                            "Setup",
                            "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung!",
-                           "Bereit"],
+                           "Weiter"],
+    "training_job_rate": ["Weiter"],
     "acr_job_rate": ["Aufgabe",
                      "Bearbeitet",
                      "vorher",
                      "nächstes",
                      "Abgeben"],
-    "acr_job_setup": ["Willkommen",
+    "acr_job_setup": ["Setup",
                       "Nachdem Sie dieses Setup beendet haben können Sie die Audiodateien bewerten. "
                       "Sie müssen jede Audiodatei vollständig und am Stück abgespielt haben um diese bewerten zu können. "
                       "Nachdem Sie jede Audiodatei bewertet haben können Sie mittels des Abgabe-Buttons ihr Bewertungen "
                       "abgeben und die Aufgabe abschließen.",
-                      "Bezahlung",
-                      "Sie erhalten x€",
-                      "Setup",
                       "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung!",
-                      "Bereit"],
+                      "Weiter"],
+    "acr_job_end": ["VCODE",
+                    "Danke für ihre Mitarbeit. Bitte nutzen sie folgenden VCODE zum Abschluss der Aufgabe:"],
+    "acr_job_welcome_back": ["Audiotests",
+                             "Willkommen zurück zur Bewertung von Audiodateien. Da sie in den letzten 60 Minuten das Training "
+                             "oder eine Aufgabe bereits abgeschlossen haben können sie direkt mit der neuen Aufgabe "
+                             "beginnen. Wir danken ihnen für die erneute Teilnahme.",
+                             "Weiter"],
     "acr_scale": ["Sprachqualität",
                   "Ergebnis",
                   "Ausgezeichnet",
                   "Gut",
-                  "Ausreichend",
-                  "Schlecht",
-                  "Ungenügend"],
+                  "Ordentlich",
+                  "Mäßig",
+                  "Mangelhaft"],
+    "display_stimulus": ["Sie müssen die Audiodatei vor dem Bewerten anhören",
+                         "Sie können die Audiodatei nun bewerten"],
     "calibrate": ["Bitte stellen Sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level ein.",
-                  "WICHTIG: Ändern Sie die Lautstärke NICHT mehr, sonst werden ihre Antworten verworfen!"]
+                  "WICHTIG: Bitte ändern sie die Lautstärke auch an ihren Lautsprechern nicht mehr; Die Laustärke der "
+                  "Audiodateien ist ebenfalls Bestandteil des Tests!"],
+    "campaign_is_full": ["Nicht Verfügbar",
+                         "Diese Kampagne ist zurzeit ausgelastet, bitte versuchen sie eine unserer anderen Kampagnen "
+                         "oder versuchen sie es später erneut."]
 }
 
 

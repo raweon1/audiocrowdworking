@@ -1,0 +1,14 @@
+{% extends "audiocrowd/base.html" %}
+
+{% load custom_tags %}
+
+{% block task %}
+    <div class="panel-heading">
+        {{ campaign_is_full.0 }}
+    </div>
+    <div class="panel-body">
+        <div>
+            <p>{{ campaign_is_full.1 }}</p>
+        </div>
+    </div>
+{% endblock %}
