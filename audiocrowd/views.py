@@ -124,20 +124,26 @@ def register(request):
     request.session["calibrate"] = 0.5
     worker, created = Worker.objects.get_or_create(name=worker_id)
 
-    tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
-    for entry in tmp:
-        if entry.time + timedelta(minutes=sub_campaign.tracker_window) < now():
-            entry.delete()
-    tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
-    if tmp.__len__() < sub_campaign.max_worker_count - RatingSet.objects.filter(sub_campaign=sub_campaign, finished=True).__len__():
-        track = SubCampaignTracker(sub_campaign=sub_campaign, worker=worker)
-        track.save()
-    else:
-        context = dict(list(get_context_language(sub_campaign.parent_campaign.language, "base").items()) +
-                       list(get_context_language(sub_campaign.parent_campaign.language, "campaign_is_full").items()))
-        request.session.flush()
-        return render(request, "audiocrowd/campaign_is_full.html", context)
-
+    try:
+        #sollte er schon ein token haben -> ok
+        tmp = SubCampaignTracker.objects.get(sub_campaign=sub_campaign, worker=worker)
+    except ObjectDoesNotExist:
+        #braucht ein token
+        tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
+        for entry in tmp:
+            if entry.time + timedelta(minutes=sub_campaign.tracker_window) < now():
+                entry.delete()
+        tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
+        if tmp.__len__() < sub_campaign.max_worker_count - RatingSet.objects.filter(sub_campaign=sub_campaign,
+                                                                                    finished=True).__len__():
+            track = SubCampaignTracker(sub_campaign=sub_campaign, worker=worker)
+            track.save()
+        else:
+            context = dict(list(get_context_language(sub_campaign.parent_campaign.language, "base").items()) +
+                           list(
+                               get_context_language(sub_campaign.parent_campaign.language, "campaign_is_full").items()))
+            request.session.flush()
+            return render(request, "audiocrowd/campaign_is_full.html", context)
     if not worker.qualification_done:
         return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['introduction'])
     elif not worker.access_training:
@@ -458,6 +464,9 @@ def acr_job_view(request):
         #damit man nach x Kampagnen nicht wieder Training machen muss
         worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
         worker.save()
+        #trackereintrag löschen
+        track = SubCampaignTracker.objects.get(worker=worker, sub_campaign=sub_campaign)
+        track.delete()
         context = dict(list(get_context_language(campaign.language, "base").items()) +
                        list(get_context_language(campaign.language, "acr_job_end").items()))
         context["vcode"] = get_mw_vcode(sub_campaign.sub_campaign_id, worker.name, campaign.vcode_key)

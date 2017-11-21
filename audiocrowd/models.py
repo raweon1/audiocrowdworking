@@ -99,6 +99,9 @@ class SubCampaign(models.Model):
     tracker_window = models.IntegerField(default=60)
     max_worker_count = models.IntegerField()
 
+    def __str__(self):
+        return str(self.sub_campaign_id) + " / " + str(self.parent_campaign)
+
 
 class SubCampaignTracker(models.Model):
     sub_campaign = models.ForeignKey(SubCampaign, on_delete=models.CASCADE)
