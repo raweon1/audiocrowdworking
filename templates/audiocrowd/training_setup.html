@@ -4,7 +4,7 @@
 {% block task %}
     <div class="panel-heading">{{ training_job_setup.0 }}</div>
     <div class="panel-body">{{ training_job_setup.1 }}
-        <div>{{ training_job_setup.3 }}</div>
+        <p>{{ training_job_setup.3 }}</p>
         <form method="post">
             {% csrf_token %}
             {% calibrate_volume calibrate_stimulus volume %}
