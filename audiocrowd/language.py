@@ -34,6 +34,9 @@ label_en = {
                            "Please perform this task in a quiet environment!",
                            "Ready"],
     "training_job_rate": ["Weiter"],
+    "training_job_welcome_back": ["Willkommen zurück zur Bewertung von Audiodateien. Da Ihre letzte Teilnahme schon "
+                                  "länger zurück liegt, müssen Sie das Training noch einmal absolvieren. "
+                                  "Wir danken Ihnen für die erneute Teilnahme."],
     "acr_job_rate": ["Sample",
                      "Done",
                      "previous",
@@ -46,7 +49,7 @@ label_en = {
                       "Setup",
                       "Please perform this task in a quiet environment!",
                       "Ready"],
-    "acr_job_end": ["Danke für ihre Mitarbeit. Bitte nutzen sie folgenden VCODE:"],
+    "acr_job_end": ["Danke für Ihre Mitarbeit. Bitte nutzen Sie folgenden VCODE:"],
     "acr_job_welcome_back": [],
     "acr_scale": ["Quality of the speech",
                   "Score",
@@ -67,17 +70,17 @@ label_de = {
     "base": ["Bewertung von Audiodateien"],
     "qualification_job_introduction": ["Einleitung",
                                        "Bei dieser Aufgabe werden Sie an einer Studie über Sprachqualität teilnehmen."
-                                       " Während des Tests werden Sie kurze Sätze (ca. 7-12 Sekunden) mit ihrem "
-                                       "Lautsprecher anhören und anschließend diese auf folgender Skala bewerten:",
-                                       "Nachdem sie 11 Sätze bewertet haben können Sie die Aufgabe abschließen",
-                                       "Um mit der Bewertung zu beginnen müssen sie folgende Schritte absolvieren:",
-                                       "Zuerst werden wir einige demografische Daten von Ihnen erheben - ca. 1 Minute",
-                                       "Danach müssen Sie ein kleines Training durchführen bei dem Sie 4 Audiodateien "
-                                       "zur Übung anhören - ca. 2 Minuten",
-                                       "Nach dem Training können Sie die Audiodateien bewerten und diese Aufgabe abschließen - ca. 5 Minuten",
+                                       " Während des Tests werden Sie kurze Sätze (ca. 7-12 Sekunden) mit Ihrem "
+                                       "Wiedergabegerät anhören und anschließend diese auf folgender Skala bewerten:",
+                                       "Nachdem Sie 11 Sätze bewertet haben können Sie die Aufgabe abschließen",
+                                       "Um mit der Bewertung zu beginnen müssen Sie folgende Schritte absolvieren:",
+                                       "Zuerst werden wir einige demografische Daten von Ihnen erheben - Dauer: ca. 1 Minute",
+                                       "Danach müssen Sie ein kurzes Training durchführen bei dem Sie 4 Audiodateien "
+                                       "zur Übung anhören - Dauer: ca. 2 Minuten",
+                                       "Nach dem Training können Sie die Audiodateien bewerten und diese Aufgabe abschließen - Dauer: ca. 5 Minuten",
                                        "Der Abschluss des Trainings erlaubt es Ihnen für 60 Minuten andere Kampagnen ohne erneute "
                                        "Ausführung von Schritt 1 und 2 durchzuführen.",
-                                       "Wir erwarten, dass Sie diese Aufgabe in einer ruhigen Umgebung ausführen!",
+                                       "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung.",
                                        "Weiter"],
     "qualification_job_questions": ["Demografische Daten",
                                     "Bitte beantworten Sie die nachfolgenden Fragen:",
@@ -94,31 +97,34 @@ label_de = {
                                     ["Ja", "Nein"]],
     "training_job_setup": ["Training",
                            "Im folgenden werden Sie einige Audiodateien zur Bewertung bekommen. Diese dienen nur zur "
-                           "Übung und werden nicht gespeichert. Es gibt keine falschen Antworten! "
+                           "Übung und werden nicht gespeichert; Es gibt keine falschen Antworten. "
                            "Die Audiodateien können sich in unterschiedlichen Kategorien unterscheiden wie "
                            "Lautstärke, Störgeräusche, Sprachqualität und Aussetzern.",
                            "Setup",
-                           "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung!",
+                           "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung.",
                            "Weiter"],
     "training_job_rate": ["Weiter"],
+    "training_job_welcome_back": ["Willkommen zurück zur Bewertung von Audiodateien. Da Ihre letzte Teilnahme schon "
+                                  "länger zurück liegt, müssen Sie das Training noch einmal absolvieren. "
+                                  "Wir danken Ihnen für die erneute Teilnahme."],
     "acr_job_rate": ["Aufgabe",
                      "Bearbeitet",
                      "vorher",
                      "nächstes",
                      "Abgeben"],
-    "acr_job_setup": ["Setup",
+    "acr_job_setup": ["Setup - Bewertung von Sprachqualität",
                       "Nachdem Sie dieses Setup beendet haben können Sie die Audiodateien bewerten. "
                       "Sie müssen jede Audiodatei vollständig und am Stück abgespielt haben um diese bewerten zu können. "
-                      "Nachdem Sie jede Audiodatei bewertet haben können Sie mittels des Abgabe-Buttons ihr Bewertungen "
+                      "Nachdem Sie jede Audiodatei bewertet haben können Sie mittels des Abgabe-Buttons Ihr Bewertungen "
                       "abgeben und die Aufgabe abschließen.",
-                      "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung!",
+                      "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung.",
                       "Weiter"],
     "acr_job_end": ["VCODE",
-                    "Danke für ihre Mitarbeit. Bitte nutzen sie folgenden VCODE zum Abschluss der Aufgabe:"],
+                    "Danke für Ihre Mitarbeit. Bitte nutzen Sie folgenden VCODE zum Abschluss der Aufgabe:"],
     "acr_job_welcome_back": ["Audiotests",
-                             "Willkommen zurück zur Bewertung von Audiodateien. Da sie in den letzten 60 Minuten das Training "
-                             "oder eine Aufgabe bereits abgeschlossen haben können sie direkt mit der neuen Aufgabe "
-                             "beginnen. Wir danken ihnen für die erneute Teilnahme.",
+                             "Willkommen zurück zur Bewertung von Audiodateien. Da Sie bereits in den letzten 60 Minuten das Training "
+                             "oder eine unserer Aufgaben abgeschlossen haben, können Sie direkt mit einer neuen Aufgabe "
+                             "beginnen. Wir danken Ihnen für Ihre erneute Teilnahme.",
                              "Weiter"],
     "acr_scale": ["Sprachqualität",
                   "Ergebnis",
@@ -130,11 +136,11 @@ label_de = {
     "display_stimulus": ["Sie müssen die Audiodatei vor dem Bewerten anhören",
                          "Sie können die Audiodatei nun bewerten"],
     "calibrate": ["Bitte stellen Sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level ein.",
-                  "WICHTIG: Bitte ändern sie die Lautstärke auch an ihren Lautsprechern nicht mehr; Die Laustärke der "
-                  "Audiodateien ist ebenfalls Bestandteil des Tests!"],
+                  "WICHTIG: Bitte ändern Sie die Lautstärke auch an Ihren Lautsprechern nicht mehr; Die Laustärke der "
+                  "Audiodateien ist ebenfalls Bestandteil des Tests."],
     "campaign_is_full": ["Nicht Verfügbar",
-                         "Diese Kampagne ist zurzeit ausgelastet, bitte versuchen sie eine unserer anderen Kampagnen "
-                         "oder versuchen sie es später erneut."]
+                         "Diese Kampagne ist zurzeit ausgelastet, bitte versuchen Sie eine unserer anderen Kampagnen "
+                         "oder versuchen Sie es später erneut."]
 }
 
 

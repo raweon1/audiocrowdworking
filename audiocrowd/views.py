@@ -15,7 +15,7 @@ from hashlib import sha256
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
 
 qualification_job_tasks = dict(introduction="introduction", questions="general_questions")
-training_job_tasks = dict(setup="setup", samples="samples")
+training_job_tasks = dict(setup="setup", samples="samples", welcome_back="welcome_back")
 acr_job_tasks = dict(setup="setup", rate="rate", next="next", done="done", end="end", welcome_back="welcome_back")
 
 task_list = {
@@ -148,7 +148,7 @@ def register(request):
         return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['introduction'])
     elif not worker.access_training:
         return HttpResponse("You are not qualified to participate")
-    return redirect_to(request, job_list['training'], task_list[job_list['training']]['setup'])
+    return redirect_to(request, job_list['training'], task_list[job_list['training']]['welcome_back'])
 
 
 class GeneralQuestionsForm(ModelForm):
@@ -183,7 +183,6 @@ class GeneralQuestionsForm(ModelForm):
             self.fields["speech_test"].choices = [("", "---------"),
                                                   (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
                                                   (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
-
 
 
 def qualification_job_view(request):
@@ -270,6 +269,15 @@ def training_job_view(request):
                 context["to_rate"] = get_training_stimuli_to_rate_context(campaign)
                 context["volume"] = request.session["calibrate"]
                 return render(request, "audiocrowd/acr_job_rate.html", context)
+        elif task == task_list[job_list['training']]["welcome_back"]:
+            if request.method == "POST":
+                return redirect_to(request, job_list['training'], task_list[job_list['training']]['setup'])
+            else:
+                context = dict(list(get_context_language(campaign.language, "base").items()) +
+                               list(get_context_language(campaign.language, "acr_job_welcome_back").items()))
+                context["acr_job_welcome_back"][1] = get_context_language(
+                    campaign.language, "training_job_welcome_back")["training_job_welcome_back"][0]
+                return render(request, "audiocrowd/acr_welcome_back.html", context)
     return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['welcome_back'])
 
 
