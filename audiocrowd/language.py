@@ -93,30 +93,32 @@ label_de = {
                                     "Weiter",
                                     ["Mann", "Frau", "Andere"],
                                     ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
-                                    ["Niemals", "1 Monat", "3 Monate", "6 Monate", "9 Monate", "1 Jahr oder länger"],
+                                    ["Niemals", "Vor 1 Monat", "Vor 3 Monaten", "Vor 6 Monaten", "Vor 9 Monaten", "Vor 1 Jahr oder länger"],
                                     ["Ja", "Nein"]],
     "training_job_setup": ["Training",
-                           "Im folgenden werden Sie einige Audiodateien zur Bewertung bekommen. Diese dienen nur zur "
-                           "Übung und werden nicht gespeichert; Es gibt keine falschen Antworten. "
-                           "Die Audiodateien können sich in unterschiedlichen Kategorien unterscheiden wie "
-                           "Lautstärke, Störgeräusche, Sprachqualität und Aussetzern.",
+                           "Im folgenden werden Sie einige Audiodateien zur Bewertung bekommen. Bei den Audiodateien "
+                           "können verschiedene Störungen auftreten, die Lautstärke oder Sprachqualität beeinflussen "
+                           "können oder zu Störgeräuschen und Aussetzen führen können. Bitte bewerten für jede "
+                           "Audiodatei wie Sie deren Qualität empfinden.",
                            "Setup",
                            "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung.",
+                           "Bei den nächsten 4 Audiodaten handelt es sich zunächst um ein Training, damit Sie sich mit "
+                           "der Bedienoberfläche vertraut machen können",
                            "Weiter"],
-    "training_job_rate": ["Weiter"],
+    "training_job_rate": ["Training abschließen"],
     "training_job_welcome_back": ["Willkommen zurück zur Bewertung von Audiodateien. Da Ihre letzte Teilnahme schon "
                                   "länger zurück liegt, müssen Sie das Training noch einmal absolvieren. "
                                   "Wir danken Ihnen für die erneute Teilnahme."],
     "acr_job_rate": ["Aufgabe",
                      "Bearbeitet",
-                     "vorher",
-                     "nächstes",
+                     "zurück",
+                     "weiter",
                      "Abgeben"],
     "acr_job_setup": ["Setup - Bewertung von Sprachqualität",
-                      "Nachdem Sie dieses Setup beendet haben können Sie die Audiodateien bewerten. "
-                      "Sie müssen jede Audiodatei vollständig und am Stück abgespielt haben um diese bewerten zu können. "
-                      "Nachdem Sie jede Audiodatei bewertet haben können Sie mittels des Abgabe-Buttons Ihr Bewertungen "
-                      "abgeben und die Aufgabe abschließen.",
+                      "Nachdem Sie das Training absolviert haben, beginnt nun die eigentliche Studie. Wie im Training "
+                      "können bei den Audiodateien verschiedene Störungen auftreten, die Lautstärke oder Sprachqualität "
+                      "beeinflussen können oder zu Störgeräuschen und Aussetzen führen können. Bitte bewerten Sie für "
+                      "jede Audiodatei wie Sie deren Qualität empfinden.",
                       "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung.",
                       "Weiter"],
     "acr_job_end": ["VCODE",
@@ -136,11 +138,11 @@ label_de = {
     "display_stimulus": ["Sie müssen die Audiodatei vor dem Bewerten anhören",
                          "Sie können die Audiodatei nun bewerten"],
     "calibrate": ["Bitte stellen Sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level ein.",
-                  "WICHTIG: Bitte ändern Sie die Lautstärke auch an Ihren Lautsprechern nicht mehr; Die Laustärke der "
-                  "Audiodateien ist ebenfalls Bestandteil des Tests."],
+                  "Bitte ändern Sie die Lautstärke auch an Ihren Lautsprechern nicht mehr, da die Laustärke der "
+                  "Audiodateien ebenfalls Bestandteil des Tests ist."],
     "campaign_is_full": ["Nicht Verfügbar",
-                         "Diese Kampagne ist zurzeit ausgelastet, bitte versuchen Sie eine unserer anderen Kampagnen "
-                         "oder versuchen Sie es später erneut."]
+                         "Derzeit sind alle offenen Positionen dieser Kampagne in Bearbeitung, bitte versuchen Sie eine "
+                         "unserer anderen Kampagnen oder versuchen Sie es später erneut."]
 }
 
 

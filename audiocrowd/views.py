@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
-from django.forms import ModelForm, SelectDateWidget
+from django.forms import ModelForm, SelectDateWidget, DateField
 from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.timezone import now
 
 from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, Campaign, SubCampaign, SubCampaignTracker
 from .language import get_context_language
+from .my_widgets import MySelectDateWidget
 
 from datetime import timedelta
 from random import randint
@@ -156,7 +157,7 @@ class GeneralQuestionsForm(ModelForm):
         model = Worker
         fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected")
         widgets = {
-            "birth_year": SelectDateWidget(years=[y for y in range(1950, 2007)])
+            "birth_year": MySelectDateWidget(empty_label=("---------", "---------", "---------"), years=[y for y in range(1950, 2007)])
         }
 
     def __init__(self, language, *args, **kwargs):
@@ -173,8 +174,7 @@ class GeneralQuestionsForm(ModelForm):
             self.fields["connected"].choices = [("", "---------"), (1, tmp[12][0]), (0, tmp[12][1])]
             self.fields["gender"].choices = [("", "---------"),
                                              ("male", tmp[9][0]), ("female", tmp[9][1]), ("other", tmp[9][2])]
-            self.fields["birth_year"].widget.months = {"": "---------",
-                                                       1: tmp[10][0], 2: tmp[10][1], 3: tmp[10][2], 4: tmp[10][3],
+            self.fields["birth_year"].widget.months = {1: tmp[10][0], 2: tmp[10][1], 3: tmp[10][2], 4: tmp[10][3],
                                                        5: tmp[10][4], 6: tmp[10][5], 7: tmp[10][6], 8: tmp[10][7],
                                                        9: tmp[10][8], 10: tmp[10][9], 11: tmp[10][10], 12: tmp[10][11]}
             self.fields["subjective_test"].choices = [("", "---------"),
@@ -183,6 +183,7 @@ class GeneralQuestionsForm(ModelForm):
             self.fields["speech_test"].choices = [("", "---------"),
                                                   (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
                                                   (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+
 
 
 def qualification_job_view(request):
