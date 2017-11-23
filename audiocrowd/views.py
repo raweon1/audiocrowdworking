@@ -1,17 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest, Http404
-from django.forms import ModelForm, SelectDateWidget, DateField
+from django.forms import ModelForm
 from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.timezone import now
 
-from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, Campaign, SubCampaign, SubCampaignTracker
+from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, \
+    Campaign, SubCampaign, SubCampaignTracker
 from .language import get_context_language
 from .my_widgets import MySelectDateWidget
 
 from datetime import timedelta
 from random import randint
 from hashlib import sha256
+from copy import deepcopy
 
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
 
@@ -31,11 +33,6 @@ link_list = {
     job_list['training']: "/audio/training/",
     job_list['acr']: "/audio/acr/",
 }
-
-
-# TODO allgemein was mir gerade einfällt
-# qualification general questions evaluation
-# payment auf acr_next
 
 
 def index(request):
@@ -126,10 +123,10 @@ def register(request):
     worker, created = Worker.objects.get_or_create(name=worker_id)
 
     try:
-        #sollte er schon ein token haben -> ok
-        tmp = SubCampaignTracker.objects.get(sub_campaign=sub_campaign, worker=worker)
+        # sollte er schon ein token haben -> ok
+        SubCampaignTracker.objects.get(sub_campaign=sub_campaign, worker=worker)
     except ObjectDoesNotExist:
-        #braucht ein token
+        # braucht ein token
         tmp = SubCampaignTracker.objects.filter(sub_campaign=sub_campaign)
         for entry in tmp:
             if entry.time + timedelta(minutes=sub_campaign.tracker_window) < now():
@@ -141,8 +138,8 @@ def register(request):
             track.save()
         else:
             context = dict(list(get_context_language(sub_campaign.parent_campaign.language, "base").items()) +
-                           list(
-                               get_context_language(sub_campaign.parent_campaign.language, "campaign_is_full").items()))
+                           list(get_context_language(
+                               sub_campaign.parent_campaign.language, "campaign_is_full").items()))
             request.session.flush()
             return render(request, "audiocrowd/campaign_is_full.html", context)
     if not worker.qualification_done:
@@ -157,7 +154,8 @@ class GeneralQuestionsForm(ModelForm):
         model = Worker
         fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected")
         widgets = {
-            "birth_year": MySelectDateWidget(empty_label=("---------", "---------", "---------"), years=[y for y in range(1950, 2007)])
+            "birth_year": MySelectDateWidget(empty_label=("---------", "---------", "---------"),
+                                             years=[y for y in range(1950, 2007)])
         }
 
     def __init__(self, language, *args, **kwargs):
@@ -183,7 +181,6 @@ class GeneralQuestionsForm(ModelForm):
             self.fields["speech_test"].choices = [("", "---------"),
                                                   (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
                                                   (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
-
 
 
 def qualification_job_view(request):
@@ -262,7 +259,7 @@ def training_job_view(request):
                 return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['setup'])
             else:
                 context = dict(list(get_context_language(campaign.language, "base").items()) +
-                               list(get_context_language(campaign.language, "acr_job_rate").items()) +
+                               list(deepcopy(get_context_language(campaign.language, "acr_job_rate")).items()) +
                                list(get_context_language(campaign.language, "acr_scale").items()) +
                                list(get_context_language(campaign.language, "display_stimulus").items()))
                 context["acr_job_rate"][4] = get_context_language(
@@ -275,7 +272,7 @@ def training_job_view(request):
                 return redirect_to(request, job_list['training'], task_list[job_list['training']]['setup'])
             else:
                 context = dict(list(get_context_language(campaign.language, "base").items()) +
-                               list(get_context_language(campaign.language, "acr_job_welcome_back").items()))
+                               list(deepcopy(get_context_language(campaign.language, "acr_job_welcome_back")).items()))
                 context["acr_job_welcome_back"][1] = get_context_language(
                     campaign.language, "training_job_welcome_back")["training_job_welcome_back"][0]
                 return render(request, "audiocrowd/acr_welcome_back.html", context)
@@ -285,7 +282,8 @@ def training_job_view(request):
 # @param: count = max. Anzahl von zu bearbeitenden Stimuli
 # @param: worker = Der aktuelle Arbeiter
 # @param: campaign = Die Campaign über die der Arbeiter kommt
-# @return: gibt eine Liste von Stimuli zurück, die von <worker> bisher nicht bearbeitet wurden. Die Reihenfolge ist zufällig. Stimuli stehen in Verbindung mit campaign.
+# @return: gibt eine Liste von Stimuli zurück, die von <worker> bisher nicht bearbeitet wurden. Die Reihenfolge ist
+# zufällig. Stimuli stehen in Verbindung mit campaign.
 # @return: Liste kann leer sein, wenn keine Stimuli mehr zu bewerten sind.
 def get_stimuli_to_rate(count, worker, campaign):
     available_stimuli = campaign.stimuli.all().exclude(rating__rating_set__worker=worker)
@@ -300,7 +298,8 @@ def get_stimuli_to_rate(count, worker, campaign):
 
 
 # @param: siehe get_stimuli_to_rate
-# @return: gibt eine Liste von Stimuli UND einer GoldStandardQuestion zurück, die von <worker> bisher nicht bearbeitet wurden. Die Reihenfolge ist zufällig.
+# @return: gibt eine Liste von Stimuli UND einer GoldStandardQuestion zurück, die von <worker> bisher nicht bearbeitet
+# wurden. Die Reihenfolge ist zufällig.
 # @return: Liste kann leer sein, wenn keine Stimuli ODER GoldStandardQuestions mehr zur Verfügung stehen.
 def get_set_to_rate(count, worker, campaign):
     set_to_rate = get_stimuli_to_rate(count, worker, campaign)
@@ -342,7 +341,8 @@ def get_set_to_rate_context(set_to_rate):
     return context_set
 
 
-# Funktion soll den Namen eines Stimulus von einem Key key aus dem Dict von acr_job_rate.html geben. Falls key != stimulus.name ist, muss diese Funktion
+# Funktion soll den Namen eines Stimulus von einem Key key aus dem Dict von acr_job_rate.html geben.
+# Falls key != stimulus.name ist, muss diese Funktion
 # für parse_name_from_key(key) == stimulus.name sorgen
 def parse_name_from_key(key):
     return key
@@ -423,7 +423,8 @@ def acr_job_view(request):
                 rating.save()
             for gold_standard_question in gold_standard:
                 gold_dict = gold_standard[gold_standard_question]
-                answer = GoldStandardAnswers(rating_set=rating_set, question=gold_dict["object"], answer=gold_dict["rating"])
+                answer = GoldStandardAnswers(rating_set=rating_set,
+                                             question=gold_dict["object"], answer=gold_dict["rating"])
                 answer.save()
                 if str(answer.answer) != str(answer.question.expected_answer):
                     rating_set.invalid_set = True
@@ -470,10 +471,10 @@ def acr_job_view(request):
             return render(request, "audiocrowd/acr_welcome_back.html", context)
 
     elif task == task_list[job_list['acr']]['end']:
-        #damit man nach x Kampagnen nicht wieder Training machen muss
+        # damit man nach x Kampagnen nicht wieder Training machen muss
         worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
         worker.save()
-        #trackereintrag löschen
+        # trackereintrag löschen
         track = SubCampaignTracker.objects.get(worker=worker, sub_campaign=sub_campaign)
         track.delete()
         context = dict(list(get_context_language(campaign.language, "base").items()) +
