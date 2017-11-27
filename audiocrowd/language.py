@@ -67,7 +67,7 @@ label_en = {
 }
 
 label_de = {
-    "base": ["Bewertung von Audiodateien"],
+    "base": ["Kontakt"],
     "qualification_job_introduction": ["Einleitung",
                                        "Bei dieser Aufgabe werden Sie an einer Studie über Sprachqualität teilnehmen."
                                        " Während des Tests werden Sie kurze Sätze (ca. 7-12 Sekunden) mit Ihrem "
@@ -106,14 +106,14 @@ label_de = {
                            "der Bedienoberfläche vertraut machen können",
                            "Weiter"],
     "training_job_rate": ["Training abschließen"],
-    "training_job_welcome_back": ["Willkommen zurück zur Bewertung von Audiodateien. Da Ihre letzte Teilnahme schon "
-                                  "länger zurück liegt, müssen Sie das Training noch einmal absolvieren. "
+    "training_job_welcome_back": ["Willkommen zurück zu unserer Studie über Sprachqualität. Da Ihre letzte Teilnahme "
+                                  "schon länger zurück liegt, müssen Sie das Training noch einmal absolvieren. "
                                   "Wir danken Ihnen für die erneute Teilnahme."],
     "acr_job_rate": ["Aufgabe",
                      "Bearbeitet",
                      "zurück",
                      "weiter",
-                     "Abgeben"],
+                     "Bewertung abgeben"],
     "acr_job_setup": ["Setup - Bewertung von Sprachqualität",
                       "Nachdem Sie das Training absolviert haben, beginnt nun die eigentliche Studie. Wie im Training "
                       "können bei den Audiodateien verschiedene Störungen auftreten, die Lautstärke oder Sprachqualität "
@@ -124,9 +124,9 @@ label_de = {
     "acr_job_end": ["VCODE",
                     "Danke für Ihre Mitarbeit. Bitte nutzen Sie folgenden VCODE zum Abschluss der Aufgabe:"],
     "acr_job_welcome_back": ["Audiotests",
-                             "Willkommen zurück zur Bewertung von Audiodateien. Da Sie bereits in den letzten 60 Minuten das Training "
-                             "oder eine unserer Aufgaben abgeschlossen haben, können Sie direkt mit einer neuen Aufgabe "
-                             "beginnen. Wir danken Ihnen für Ihre erneute Teilnahme.",
+                             "Willkommen zurück zu unserer Studie über Sprachqualität. Da Sie bereits in den letzten 60 Minuten "
+                             "das Training oder eine unserer Aufgaben abgeschlossen haben, können Sie direkt mit einer "
+                             "neuen Aufgabe beginnen. Wir danken Ihnen für Ihre erneute Teilnahme.",
                              "Weiter"],
     "acr_scale": ["Sprachqualität",
                   "Ergebnis",

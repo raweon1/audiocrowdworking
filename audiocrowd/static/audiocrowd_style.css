@@ -40,6 +40,7 @@
     max-width: 1000px;
     margin: auto;
     overflow: auto;
+    padding-bottom: 2em;
 }
 
 .align-right {
@@ -88,4 +89,13 @@ input:disabled {
     font-size: 1.5em;
     display: inline-block;
     word-wrap: break-word;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    height: 2em;
+    margin: auto;
+    text-align: right;
 }
