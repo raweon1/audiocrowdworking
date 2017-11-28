@@ -46,7 +46,7 @@ class Campaign(models.Model):
     campaign_id = models.CharField(max_length=50)
 
     platform = models.CharField(max_length=3, choices=[("mw", "Microworkers")])
-    vcode_key = models.CharField(max_length=50, default="No key")
+    vcode_key = models.CharField(max_length=256, default="No key")
 
     language = models.CharField(max_length=3, choices=[("de", "Deutsch"), ("en", "English")])
     stimuli_per_job = models.IntegerField(default=10)

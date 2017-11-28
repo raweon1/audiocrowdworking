@@ -103,8 +103,8 @@ def redirect_to(request, job, task):
 
 # localhost:8000/audio/register?workerid=1337&campaignid=hallo
 def register(request):
-    sub_campaign_id = request.GET.get("CampaignId")
-    worker_id = request.GET.get("WorkerId")
+    sub_campaign_id = request.GET.get("campaignid")
+    worker_id = request.GET.get("workerid")
     if not (sub_campaign_id and worker_id):
         error = '<div align="center">BadRequest 400<br>'
         if not sub_campaign_id:
