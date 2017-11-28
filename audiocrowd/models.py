@@ -20,13 +20,6 @@ class SingletonModel(models.Model):
         return obj
 
 
-class Configuration(SingletonModel):
-    access_window = models.IntegerField(default=60)
-
-    def __str__(self):
-        return "Config"
-
-
 class Stimuli(models.Model):
     name = models.CharField(max_length=50)
     path = models.CharField(max_length=50)
@@ -63,8 +56,18 @@ class Campaign(models.Model):
     training_stimuli = models.ManyToManyField(Stimuli, related_name="training_stimuli")
     calibrate_stimulus = models.ForeignKey(Stimuli)
 
+    contact_link = models.CharField(max_length=100, default="http://crowd-square.com/viewtopic.php?f=30&t=18835")
+
     def __str__(self):
         return "Campaign : " + str(self.platform) + "-" + str(self.campaign_id)
+
+
+class Configuration(SingletonModel):
+    access_window = models.IntegerField(default=60)
+    default_campaign = models.ForeignKey(Campaign, blank=True, null=True, default=None)
+
+    def __str__(self):
+        return "Config"
 
 
 class Worker(models.Model):
