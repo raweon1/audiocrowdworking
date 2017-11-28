@@ -4,11 +4,15 @@ from django.forms import ModelForm
 from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.timezone import now
+from django.contrib.staticfiles.templatetags.staticfiles import static
 
 from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, \
     Campaign, SubCampaign, SubCampaignTracker
 from .language import get_context_language
 from .my_widgets import MySelectDateWidget
+from .dbdatasheet import write_db_csv
+
+from audiocrowdworking.settings import STATIC_ROOT
 
 from datetime import timedelta
 from random import randint
@@ -99,8 +103,8 @@ def redirect_to(request, job, task):
 
 # localhost:8000/audio/register?workerid=1337&campaignid=hallo
 def register(request):
-    sub_campaign_id = request.GET.get("campaignid")
-    worker_id = request.GET.get("workerid")
+    sub_campaign_id = request.GET.get("CampaignId")
+    worker_id = request.GET.get("WorkerId")
     if not (sub_campaign_id and worker_id):
         error = '<div align="center">BadRequest 400<br>'
         if not sub_campaign_id:
@@ -115,7 +119,7 @@ def register(request):
         default_campaign = Configuration.load().default_campaign
         if default_campaign is not None:
             sub_campaign = SubCampaign(parent_campaign=default_campaign, sub_campaign_id=sub_campaign_id,
-                                       max_worker_count=50, tracker_window=60)
+                                       max_worker_count=30, tracker_window=60)
             sub_campaign.save()
         else:
             request.session.flush()
@@ -498,3 +502,8 @@ def acr_job_view(request):
         context["vcode"] = get_mw_vcode(sub_campaign.sub_campaign_id, worker.name, campaign.vcode_key)
         return render(request, "audiocrowd/acr_job_end.html", context)
     raise Http404()
+
+
+def result_view(request):
+    write_db_csv(STATIC_ROOT + "data.csv")
+    return HttpResponseRedirect(static("data.csv"))
