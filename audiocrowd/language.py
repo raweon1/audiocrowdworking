@@ -92,13 +92,15 @@ label_de = {
                                     "Wann haben Sie das letzte mal an einem Subjektiven Test teilgenommen?",
                                     "Wann haben Sie das letzte mal an einem Sprachqualitätstest teilgenommen?",
                                     "Haben Sie jemals im Bereich Sprachkodierung oder Ähnlichem gearbeitet?",
+                                    "Welchen Typ von Wiedergabegerät nutzen sie?",
                                     "Weiter",
                                     ["Mann", "Frau", "Andere"],
                                     ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August",
                                      "September", "Oktober", "November", "Dezember"],
                                     ["Niemals", "Vor 1 Monat", "Vor 3 Monaten", "Vor 6 Monaten",
                                      "Vor 9 Monaten", "Vor 1 Jahr oder länger"],
-                                    ["Ja", "Nein"]],
+                                    ["Ja", "Nein"],
+                                    ["Lautsprecher", "Kopfhörer", "In-Ear-Kopfhörer"]],
     "training_job_setup": ["Training",
                            "Im folgenden werden Sie einige Audiodateien zur Bewertung bekommen. Bei den Audiodateien "
                            "können verschiedene Störungen auftreten, die Lautstärke oder Sprachqualität beeinflussen "
@@ -137,8 +139,8 @@ label_de = {
                   "Ausgezeichnet",
                   "Gut",
                   "Ordentlich",
-                  "Mäßig",
-                  "Mangelhaft"],
+                  "Dürftig",
+                  "Schlecht"],
     "display_stimulus": ["Sie müssen die Audiodatei vor dem Bewerten anhören",
                          "Sie können die Audiodatei nun bewerten"],
     "calibrate": ["Bitte stellen Sie die Lautstärke mittels der nachfolgenden Audiodatei auf ein komfortables Level "

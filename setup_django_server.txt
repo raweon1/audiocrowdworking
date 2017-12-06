@@ -26,7 +26,7 @@ Ubunut 16.04
 	1.	Install git
 		sudo apt-get install git
 	2.	Download Project
-		sudo git clone git://github.com/raweon1/audiocrowdworking_ /var/www/audiocrowdworking
+		sudo git clone git://github.com/raweon1/audiocrowdworking /var/www/audiocrowdworking
 	3.	Prepare Django-Static-Files
 		python /var/www/audiocrowdworking/manage.py collectstatic
 	4.	Deactivate VirtualEnv and change owner "var/www" - apache2 cannot write to db otherwise
@@ -38,6 +38,7 @@ Ubunut 16.04
 	
 	Alias /static /var/www/static
 	<Directory /var/www/static>
+		Options -Indexes
 		Require all granted
 	</Directory>
 
@@ -54,5 +55,7 @@ Ubunut 16.04
 	remove
 	ServerAdmin webmaster@localhost
 	DocumentRoot /var/www/html
+	change
+	ServerName crowdsourcing.mas.uni-due.de
 	2.	Restart Apache2
 		sudo service apache2 restart

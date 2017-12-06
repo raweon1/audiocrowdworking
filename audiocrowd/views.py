@@ -83,7 +83,7 @@ def correct_job(request, job):
         raise WrongJobException
 
 
-def stuff(request, called_job):
+def get_environment(request, called_job):
     try:
         worker, campaign, sub_campaign = is_registered(request)
         correct_job(request, called_job)
@@ -101,8 +101,7 @@ def redirect_to(request, job, task):
     return HttpResponseRedirect(link_list[job])
 
 
-# localhost:8000/audio/register?workerid=1337&campaignid=hallo
-def register(request):
+def register(request, campaign_id):
     sub_campaign_id = request.GET.get("campaignid")
     worker_id = request.GET.get("workerid")
     if not (sub_campaign_id and worker_id):
@@ -116,14 +115,14 @@ def register(request):
     try:
         sub_campaign = SubCampaign.objects.get(sub_campaign_id=sub_campaign_id)
     except ObjectDoesNotExist:
-        default_campaign = Configuration.load().default_campaign
-        if default_campaign is not None:
-            sub_campaign = SubCampaign(parent_campaign=default_campaign, sub_campaign_id=sub_campaign_id,
+        try:
+            campaign = Campaign.objects.get(campaign_id=campaign_id)
+            sub_campaign = SubCampaign(parent_campaign=campaign, sub_campaign_id=sub_campaign_id,
                                        max_worker_count=30, tracker_window=60)
             sub_campaign.save()
-        else:
+        except ObjectDoesNotExist:
             request.session.flush()
-            return HttpResponseBadRequest("Campaign " + sub_campaign_id + " does not exist")
+            return HttpResponseRedirect("Campaign " + campaign_id + " does not exist")
     # session wird beendet wenn der browser geschlossen wird
     request.session.set_expiry(0)
     request.session["sub_campaign"] = sub_campaign_id
@@ -163,7 +162,8 @@ def register(request):
 class GeneralQuestionsForm(ModelForm):
     class Meta:
         model = Worker
-        fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected")
+        fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected",
+                  "listening_device")
         widgets = {
             "birth_year": MySelectDateWidget(empty_label=("---------", "---------", "---------"),
                                              years=[y for y in range(1950, 2007)])
@@ -178,24 +178,27 @@ class GeneralQuestionsForm(ModelForm):
         self.fields["subjective_test"].label = tmp[5]
         self.fields["speech_test"].label = tmp[6]
         self.fields["connected"].label = tmp[7]
+        self.fields["listening_device"].label = tmp[8]
         if language != "en":
-            self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[12][0]), (0, tmp[12][1])]
-            self.fields["connected"].choices = [("", "---------"), (1, tmp[12][0]), (0, tmp[12][1])]
             self.fields["gender"].choices = [("", "---------"),
-                                             ("male", tmp[9][0]), ("female", tmp[9][1]), ("other", tmp[9][2])]
-            self.fields["birth_year"].widget.months = {1: tmp[10][0], 2: tmp[10][1], 3: tmp[10][2], 4: tmp[10][3],
-                                                       5: tmp[10][4], 6: tmp[10][5], 7: tmp[10][6], 8: tmp[10][7],
-                                                       9: tmp[10][8], 10: tmp[10][9], 11: tmp[10][10], 12: tmp[10][11]}
+                                             ("male", tmp[10][0]), ("female", tmp[10][1]), ("other", tmp[10][2])]
+            self.fields["birth_year"].widget.months = {1: tmp[11][0], 2: tmp[11][1], 3: tmp[11][2], 4: tmp[11][3],
+                                                       5: tmp[11][4], 6: tmp[11][5], 7: tmp[11][6], 8: tmp[11][7],
+                                                       9: tmp[11][8], 10: tmp[11][9], 11: tmp[11][10], 12: tmp[11][11]}
             self.fields["subjective_test"].choices = [("", "---------"),
-                                                      (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
-                                                      (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+                                                      (0, tmp[12][0]), (1, tmp[12][1]), (2, tmp[12][2]),
+                                                      (3, tmp[12][3]), (4, tmp[12][4]), (5, tmp[12][5])]
             self.fields["speech_test"].choices = [("", "---------"),
-                                                  (0, tmp[11][0]), (1, tmp[11][1]), (2, tmp[11][2]),
-                                                  (3, tmp[11][3]), (4, tmp[11][4]), (5, tmp[11][5])]
+                                                  (0, tmp[12][0]), (1, tmp[12][1]), (2, tmp[12][2]),
+                                                  (3, tmp[12][3]), (4, tmp[12][4]), (5, tmp[12][5])]
+            self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
+            self.fields["connected"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
+            self.fields["listening_device"].choices = [("", "---------"),
+                                                       (0, tmp[14][0]), (1, tmp[14][1]), (2, tmp[14][2])]
 
 
 def qualification_job_view(request):
-    error, http, worker, campaign, sub_campaign, task = stuff(request, job_list['qualification'])
+    error, http, worker, campaign, sub_campaign, task = get_environment(request, job_list['qualification'])
     if error:
         return http
 
@@ -249,7 +252,7 @@ def get_training_stimuli_to_rate_context(campaign):
 
 
 def training_job_view(request):
-    error, http, worker, campaign, sub_campaign, task = stuff(request, job_list['training'])
+    error, http, worker, campaign, sub_campaign, task = get_environment(request, job_list['training'])
     if error:
         return http
 
@@ -405,7 +408,7 @@ def get_mw_vcode(sub_campaign_id, worker_id, vcode_key):
 
 
 def acr_job_view(request):
-    error, http, worker, campaign, sub_campaign, task = stuff(request, job_list['acr'])
+    error, http, worker, campaign, sub_campaign, task = get_environment(request, job_list['acr'])
     if error:
         return http
 
