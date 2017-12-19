@@ -113,10 +113,8 @@ def register(request, campaign_id):
         error = error + "</div>"
         return HttpResponseBadRequest(error)
     try:
-        sub_campaign = SubCampaign.objects.get(sub_campaign_id=sub_campaign_id)
-        if campaign_id != str(sub_campaign.parent_campaign.campaign_id):
-            request.session.flush()
-            return HttpResponseBadRequest("subcampaign & campaign are not connected")
+        sub_campaign = SubCampaign.objects.get(sub_campaign_id=sub_campaign_id,
+                                               parent_campaign__campaign_id=campaign_id)
     except ObjectDoesNotExist:
         try:
             campaign = Campaign.objects.get(campaign_id=campaign_id)
