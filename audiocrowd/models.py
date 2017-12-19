@@ -45,7 +45,7 @@ class GoldStandardQuestions(models.Model):
 class Campaign(models.Model):
     campaign_id = models.CharField(max_length=50)
 
-    platform = models.CharField(max_length=3, choices=[("mw", "Microworkers")])
+    platform = models.CharField(max_length=3, choices=[("mw", "Microworkers"), ("cf", "CrowdFlower")])
     vcode_key = models.CharField(max_length=256, default="No key")
 
     language = models.CharField(max_length=3, choices=[("de", "Deutsch"), ("en", "English")])

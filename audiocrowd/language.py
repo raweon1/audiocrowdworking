@@ -1,22 +1,20 @@
 label_en = {
-    "base": ["Evaluation of audio-samples"],
+    "base": ["Contact"],
     "qualification_job_introduction": ["Introduction",
                                        "We are looking for workers who are willing to participate in a speech quality "
                                        "assessment experiment. During the test you will be listening to short groups "
-                                       "of sentences (4-6) seconds via your listening device and giving your opinion "
-                                       "of the speech you hear. In each task you will listen to X audio files and give "
-                                       "your opinion for each on the following scale:",
-                                       "Each task can be completed in Y minutes. There will be a total of Z tasks "
-                                       "available for each worker",
-                                       "Procedure",
-                                       "The procedure is as following:",
-                                       "To get access to the quality assessment job, you should first complete this "
-                                       "qualification job.",
-                                       "Selected group of workers will be invited to perform the training job "
-                                       "(B minutes) in which you will listen to C sample audio files",
-                                       "Then, they get access to the quality assessment job and can perform up "
-                                       "to D tasks",
-                                       "It is expected that you perform the task in a quiet environment!",
+                                       "of sentences (7-12 seconds) via your listening device and giving your opinion "
+                                       "of the speech you hear on the following scale:",
+                                       "In this task you will listen to 11 audio files.",
+                                       "To complete this task you will have to do the following steps:",
+                                       "First we will collect demographic data from you - Duration: ca 1. minute",
+                                       "Then you have to do a short training where you listen to 4 audio files for "
+                                       "practice - Duration: ca 2. minutes",
+                                       "After completing the training you can rate the audiofiles and finish this "
+                                       "task - Duration: ca. 5 minutes",
+                                       "Completing the training will allow you to perform other campaigns for up to 60 "
+                                       "minutes without redoing steps 1 and 2.",
+                                       "It is expected that you perform the task in a quiet environment.",
                                        "Continue"],
     "qualification_job_questions": ["General Questions",
                                     "Please answer the following questions carefully:",
@@ -27,29 +25,34 @@ label_en = {
                                     "When was the last time you participated in a speech quality assessment test? ",
                                     "Have you ever been directly involved in work connected with assessment of the "
                                     "performance of telephone circuits, or related work such as speech coding? ",
-                                    "Submit"],
+                                    "What type of listening device do you use for this task?",
+                                    "Continue"],
     "training_job_setup": ["Training",
-                           "Placeholder",
+                           "Next you will get some audio files for review. The audio files may experience various "
+                           "types of interference, which may affect the volume or quality of the sound, or cause "
+                           "noise and exposure. Please rate for each audio file how you feel about its quality.",
                            "Setup",
-                           "Please perform this task in a quiet environment!",
-                           "Ready"],
-    "training_job_rate": ["Weiter"],
-    "training_job_welcome_back": ["Willkommen zurück zur Bewertung von Audiodateien. Da Ihre letzte Teilnahme schon "
-                                  "länger zurück liegt, müssen Sie das Training noch einmal absolvieren. "
-                                  "Wir danken Ihnen für die erneute Teilnahme."],
-    "acr_job_rate": ["Sample",
+                           "Please perform this task in a quiet environment.",
+                           "The next 4 audio files are a training session to familiarize you with the user interface.",
+                           "Continue"],
+    "training_job_rate": ["Complete training"],
+    "training_job_welcome_back": ["Welcome back to the evaluation of audio files. Since your last participation "
+                                  "is already a long time behind, you have to complete the training again. We "
+                                  "thank you for the renewed participation."],
+    "acr_job_rate": ["Task",
                      "Done",
                      "previous",
                      "next",
                      "Submit"],
-    "acr_job_setup": ["Welcome",
-                      "Placeholder",
-                      "Payment",
-                      "Placeholder",
-                      "Setup",
-                      "Please perform this task in a quiet environment!",
-                      "Ready"],
-    "acr_job_end": ["Danke für Ihre Mitarbeit. Bitte nutzen Sie folgenden VCODE:"],
+    "acr_job_setup": ["Setup - Evaluation of voice quality",
+                      "After completing the training, the actual study begins. As in training, the audio "
+                      "files may experience a variety of disturbances that can affect volume or voice "
+                      "quality, or that can cause noise and exposure. Please rate for each audio file how "
+                      "you feel about its quality.",
+                      "Please perform this task in a quiet environment.",
+                      "Continue"],
+    "acr_job_end": ["VCODE",
+                    "Thank you for your participation. Please use the following VCODE to complete the task:"],
     "acr_job_welcome_back": [],
     "acr_scale": ["Quality of the speech",
                   "Score",
@@ -58,12 +61,15 @@ label_en = {
                   "Fair",
                   "Poor",
                   "Bad"],
-    "display_stimulus": ["Sie müssen die Audiodatei vor dem Bewerten anhören",
-                         "Sie können die Audiodatei nun bewerten"],
+    "display_stimulus": ["You have to listen to the audio file before rating",
+                         "You can now rate the audio file"],
     "calibrate": ["Please modify the listening volume of your device to a comfortable level when hearing the following "
                   "audio file.",
-                  "IMPORTANT: After that, you are not allowed to change the volume anymore. If you do, your "
-                  "response will be discarded!"],
+                  "Please do not change the volume on your speakers anymore, since the volume of the audio files "
+                  "is also part of the test."],
+    "campaign_is_full": ["Not available",
+                         "All open positions in this campaign are currently being processed, please try one of our "
+                         "other campaigns or try again later."]
 }
 
 label_de = {

@@ -114,6 +114,9 @@ def register(request, campaign_id):
         return HttpResponseBadRequest(error)
     try:
         sub_campaign = SubCampaign.objects.get(sub_campaign_id=sub_campaign_id)
+        if campaign_id != str(sub_campaign.parent_campaign.campaign_id):
+            request.session.flush()
+            return HttpResponseBadRequest("subcampaign & campaign are not connected")
     except ObjectDoesNotExist:
         try:
             campaign = Campaign.objects.get(campaign_id=campaign_id)
@@ -122,7 +125,7 @@ def register(request, campaign_id):
             sub_campaign.save()
         except ObjectDoesNotExist:
             request.session.flush()
-            return HttpResponseRedirect("Campaign " + campaign_id + " does not exist")
+            return HttpResponseBadRequest("Campaign " + campaign_id + " does not exist")
     # session wird beendet wenn der browser geschlossen wird
     request.session.set_expiry(0)
     request.session["sub_campaign"] = sub_campaign_id

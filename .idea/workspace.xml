@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0031_worker_listening_device.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0032_auto_20171219_1308.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/language.py" afterPath="$PROJECT_DIR$/audiocrowd/language.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/models.py" afterPath="$PROJECT_DIR$/audiocrowd/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/urls.py" afterPath="$PROJECT_DIR$/audiocrowd/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup_django_server.txt" afterPath="$PROJECT_DIR$/setup_django_server.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +40,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="195" column="55" lean-forward="true" selection-start-line="195" selection-start-column="55" selection-end-line="195" selection-end-column="55" />
+            <state relative-caret-position="-665">
+              <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
                 <element signature="e#1236#1377#0" expanded="false" />
                 <element signature="e#1391#1577#0" expanded="false" />
@@ -56,19 +53,19 @@
                 <element signature="e#2491#2574#0" expanded="false" />
                 <element signature="e#2623#3080#0" expanded="false" />
                 <element signature="e#3124#3235#0" expanded="false" />
-                <element signature="e#10980#11012#0" expanded="false" />
-                <element signature="e#11071#11517#0" expanded="false" />
-                <element signature="e#14661#14719#0" expanded="false" />
-                <element signature="e#15123#15554#0" expanded="false" />
-                <element signature="e#15557#15592#0" expanded="false" />
-                <element signature="e#15908#16589#0" expanded="false" />
-                <element signature="e#16662#17400#0" expanded="false" />
-                <element signature="e#17403#17461#0" expanded="false" />
-                <element signature="e#17600#17741#0" expanded="false" />
-                <element signature="e#17744#17844#0" expanded="false" />
-                <element signature="e#17988#17998#0" expanded="false" />
-                <element signature="e#18039#19385#0" expanded="false" />
-                <element signature="e#19449#19553#0" expanded="false" />
+                <element signature="e#11177#11209#0" expanded="false" />
+                <element signature="e#11268#11714#0" expanded="false" />
+                <element signature="e#14858#14916#0" expanded="false" />
+                <element signature="e#15320#15751#0" expanded="false" />
+                <element signature="e#15754#15789#0" expanded="false" />
+                <element signature="e#16105#16786#0" expanded="false" />
+                <element signature="e#16859#17597#0" expanded="false" />
+                <element signature="e#17600#17658#0" expanded="false" />
+                <element signature="e#17797#17938#0" expanded="false" />
+                <element signature="e#17941#18041#0" expanded="false" />
+                <element signature="e#18185#18195#0" expanded="false" />
+                <element signature="e#18236#19582#0" expanded="false" />
+                <element signature="e#19646#19750#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -110,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/audiocrowdworking/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1513">
-              <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+              <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -119,8 +116,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="20" />
+            <state relative-caret-position="748">
+              <caret line="45" column="49" lean-forward="true" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -151,8 +148,8 @@
       <file leaf-file-name="language.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="151" column="53" lean-forward="true" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
+            <state relative-caret-position="238">
+              <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -172,7 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
       <find>context[&quot;volume&quot;]</find>
       <find>training</find>
       <find>campa</find>
@@ -202,6 +198,7 @@
       <find>D502_CH_m1_s3_c07</find>
       <find>10</find>
       <find>11</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>Sie</replace>
@@ -249,9 +246,9 @@
         <option value="$PROJECT_DIR$/audiocrowd/dbdatasheet.py" />
         <option value="$PROJECT_DIR$/data.csv" />
         <option value="$PROJECT_DIR$/test_suit.py" />
-        <option value="$PROJECT_DIR$/audiocrowd/models.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
         <option value="$PROJECT_DIR$/audiocrowd/urls.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/models.py" />
         <option value="$PROJECT_DIR$/audiocrowd/views.py" />
         <option value="$PROJECT_DIR$/audiocrowd/language.py" />
       </list>
@@ -292,6 +289,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,8 +342,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -768,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511876188797</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="result">
+      <created>1512567844373</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1512567844373</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -785,13 +789,13 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.5842217" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.41577825" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4936034" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.5858209" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.41417912" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.47228146" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48933902" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20575693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21215352" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -871,19 +875,19 @@
             <element signature="e#2491#2574#0" expanded="false" />
             <element signature="e#2623#3080#0" expanded="false" />
             <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#10980#11012#0" expanded="false" />
-            <element signature="e#11071#11517#0" expanded="false" />
-            <element signature="e#14661#14719#0" expanded="false" />
-            <element signature="e#15123#15554#0" expanded="false" />
-            <element signature="e#15557#15592#0" expanded="false" />
-            <element signature="e#15908#16589#0" expanded="false" />
-            <element signature="e#16662#17400#0" expanded="false" />
-            <element signature="e#17403#17461#0" expanded="false" />
-            <element signature="e#17600#17741#0" expanded="false" />
-            <element signature="e#17744#17844#0" expanded="false" />
-            <element signature="e#17988#17998#0" expanded="false" />
-            <element signature="e#18039#19385#0" expanded="false" />
-            <element signature="e#19449#19553#0" expanded="false" />
+            <element signature="e#11177#11209#0" expanded="false" />
+            <element signature="e#11268#11714#0" expanded="false" />
+            <element signature="e#14858#14916#0" expanded="false" />
+            <element signature="e#15320#15751#0" expanded="false" />
+            <element signature="e#15754#15789#0" expanded="false" />
+            <element signature="e#16105#16786#0" expanded="false" />
+            <element signature="e#16859#17597#0" expanded="false" />
+            <element signature="e#17600#17658#0" expanded="false" />
+            <element signature="e#17797#17938#0" expanded="false" />
+            <element signature="e#17941#18041#0" expanded="false" />
+            <element signature="e#18185#18195#0" expanded="false" />
+            <element signature="e#18236#19582#0" expanded="false" />
+            <element signature="e#19646#19750#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,19 +950,19 @@
             <element signature="e#2491#2574#0" expanded="false" />
             <element signature="e#2623#3080#0" expanded="false" />
             <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#10980#11012#0" expanded="false" />
-            <element signature="e#11071#11517#0" expanded="false" />
-            <element signature="e#14661#14719#0" expanded="false" />
-            <element signature="e#15123#15554#0" expanded="false" />
-            <element signature="e#15557#15592#0" expanded="false" />
-            <element signature="e#15908#16589#0" expanded="false" />
-            <element signature="e#16662#17400#0" expanded="false" />
-            <element signature="e#17403#17461#0" expanded="false" />
-            <element signature="e#17600#17741#0" expanded="false" />
-            <element signature="e#17744#17844#0" expanded="false" />
-            <element signature="e#17988#17998#0" expanded="false" />
-            <element signature="e#18039#19385#0" expanded="false" />
-            <element signature="e#19449#19553#0" expanded="false" />
+            <element signature="e#11177#11209#0" expanded="false" />
+            <element signature="e#11268#11714#0" expanded="false" />
+            <element signature="e#14858#14916#0" expanded="false" />
+            <element signature="e#15320#15751#0" expanded="false" />
+            <element signature="e#15754#15789#0" expanded="false" />
+            <element signature="e#16105#16786#0" expanded="false" />
+            <element signature="e#16859#17597#0" expanded="false" />
+            <element signature="e#17600#17658#0" expanded="false" />
+            <element signature="e#17797#17938#0" expanded="false" />
+            <element signature="e#17941#18041#0" expanded="false" />
+            <element signature="e#18185#18195#0" expanded="false" />
+            <element signature="e#18236#19582#0" expanded="false" />
+            <element signature="e#19646#19750#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1000,19 +1004,19 @@
             <element signature="e#2491#2574#0" expanded="false" />
             <element signature="e#2623#3080#0" expanded="false" />
             <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#10980#11012#0" expanded="false" />
-            <element signature="e#11071#11517#0" expanded="false" />
-            <element signature="e#14661#14719#0" expanded="false" />
-            <element signature="e#15123#15554#0" expanded="false" />
-            <element signature="e#15557#15592#0" expanded="false" />
-            <element signature="e#15908#16589#0" expanded="false" />
-            <element signature="e#16662#17400#0" expanded="false" />
-            <element signature="e#17403#17461#0" expanded="false" />
-            <element signature="e#17600#17741#0" expanded="false" />
-            <element signature="e#17744#17844#0" expanded="false" />
-            <element signature="e#17988#17998#0" expanded="false" />
-            <element signature="e#18039#19385#0" expanded="false" />
-            <element signature="e#19449#19553#0" expanded="false" />
+            <element signature="e#11177#11209#0" expanded="false" />
+            <element signature="e#11268#11714#0" expanded="false" />
+            <element signature="e#14858#14916#0" expanded="false" />
+            <element signature="e#15320#15751#0" expanded="false" />
+            <element signature="e#15754#15789#0" expanded="false" />
+            <element signature="e#16105#16786#0" expanded="false" />
+            <element signature="e#16859#17597#0" expanded="false" />
+            <element signature="e#17600#17658#0" expanded="false" />
+            <element signature="e#17797#17938#0" expanded="false" />
+            <element signature="e#17941#18041#0" expanded="false" />
+            <element signature="e#18185#18195#0" expanded="false" />
+            <element signature="e#18236#19582#0" expanded="false" />
+            <element signature="e#19646#19750#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1062,19 +1066,19 @@
             <element signature="e#2491#2574#0" expanded="false" />
             <element signature="e#2623#3080#0" expanded="false" />
             <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#10980#11012#0" expanded="false" />
-            <element signature="e#11071#11517#0" expanded="false" />
-            <element signature="e#14661#14719#0" expanded="false" />
-            <element signature="e#15123#15554#0" expanded="false" />
-            <element signature="e#15557#15592#0" expanded="false" />
-            <element signature="e#15908#16589#0" expanded="false" />
-            <element signature="e#16662#17400#0" expanded="false" />
-            <element signature="e#17403#17461#0" expanded="false" />
-            <element signature="e#17600#17741#0" expanded="false" />
-            <element signature="e#17744#17844#0" expanded="false" />
-            <element signature="e#17988#17998#0" expanded="false" />
-            <element signature="e#18039#19385#0" expanded="false" />
-            <element signature="e#19449#19553#0" expanded="false" />
+            <element signature="e#11177#11209#0" expanded="false" />
+            <element signature="e#11268#11714#0" expanded="false" />
+            <element signature="e#14858#14916#0" expanded="false" />
+            <element signature="e#15320#15751#0" expanded="false" />
+            <element signature="e#15754#15789#0" expanded="false" />
+            <element signature="e#16105#16786#0" expanded="false" />
+            <element signature="e#16859#17597#0" expanded="false" />
+            <element signature="e#17600#17658#0" expanded="false" />
+            <element signature="e#17797#17938#0" expanded="false" />
+            <element signature="e#17941#18041#0" expanded="false" />
+            <element signature="e#18185#18195#0" expanded="false" />
+            <element signature="e#18236#19582#0" expanded="false" />
+            <element signature="e#19646#19750#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1253,7 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1274,25 +1277,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup_django_server.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowdworking/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
-          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="20" />
+          <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1313,10 +1301,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setup_django_server.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="33" column="48" lean-forward="false" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="45" column="49" lean-forward="true" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="195" column="55" lean-forward="true" selection-start-line="195" selection-start-column="55" selection-end-line="195" selection-end-column="55" />
+        <state relative-caret-position="-665">
+          <caret line="206" column="0" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
           <folding>
             <element signature="e#1236#1377#0" expanded="false" />
             <element signature="e#1391#1577#0" expanded="false" />
@@ -1328,27 +1331,27 @@
             <element signature="e#2491#2574#0" expanded="false" />
             <element signature="e#2623#3080#0" expanded="false" />
             <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#10980#11012#0" expanded="false" />
-            <element signature="e#11071#11517#0" expanded="false" />
-            <element signature="e#14661#14719#0" expanded="false" />
-            <element signature="e#15123#15554#0" expanded="false" />
-            <element signature="e#15557#15592#0" expanded="false" />
-            <element signature="e#15908#16589#0" expanded="false" />
-            <element signature="e#16662#17400#0" expanded="false" />
-            <element signature="e#17403#17461#0" expanded="false" />
-            <element signature="e#17600#17741#0" expanded="false" />
-            <element signature="e#17744#17844#0" expanded="false" />
-            <element signature="e#17988#17998#0" expanded="false" />
-            <element signature="e#18039#19385#0" expanded="false" />
-            <element signature="e#19449#19553#0" expanded="false" />
+            <element signature="e#11177#11209#0" expanded="false" />
+            <element signature="e#11268#11714#0" expanded="false" />
+            <element signature="e#14858#14916#0" expanded="false" />
+            <element signature="e#15320#15751#0" expanded="false" />
+            <element signature="e#15754#15789#0" expanded="false" />
+            <element signature="e#16105#16786#0" expanded="false" />
+            <element signature="e#16859#17597#0" expanded="false" />
+            <element signature="e#17600#17658#0" expanded="false" />
+            <element signature="e#17797#17938#0" expanded="false" />
+            <element signature="e#17941#18041#0" expanded="false" />
+            <element signature="e#18185#18195#0" expanded="false" />
+            <element signature="e#18236#19582#0" expanded="false" />
+            <element signature="e#19646#19750#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="151" column="53" lean-forward="true" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
+        <state relative-caret-position="238">
+          <caret line="17" column="51" lean-forward="true" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
           <folding />
         </state>
       </provider>
