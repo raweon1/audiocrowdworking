@@ -166,9 +166,9 @@ class GeneralQuestionsForm(ModelForm):
                                              years=[y for y in range(1950, 2007)])
         }
 
-    def __init__(self, language, *args, **kwargs):
+    def __init__(self, campaign, *args, **kwargs):
         super(GeneralQuestionsForm, self).__init__(*args, **kwargs)
-        tmp = get_context(language, "qualification_job_questions")["qualification_job_questions"]
+        tmp = get_context(campaign, "qualification_job_questions")["qualification_job_questions"]
         self.fields["gender"].label = tmp[2]
         self.fields["birth_year"].label = tmp[3]
         self.fields["hearing_loss"].label = tmp[4]
@@ -176,7 +176,7 @@ class GeneralQuestionsForm(ModelForm):
         self.fields["speech_test"].label = tmp[6]
         self.fields["connected"].label = tmp[7]
         self.fields["listening_device"].label = tmp[8]
-        if language != "en":
+        if campaign.language != "en":
             self.fields["gender"].choices = [("", "---------"),
                                              ("male", tmp[10][0]), ("female", tmp[10][1]), ("other", tmp[10][2])]
             self.fields["birth_year"].widget.months = {1: tmp[11][0], 2: tmp[11][1], 3: tmp[11][2], 4: tmp[11][3],
@@ -207,7 +207,7 @@ def qualification_job_view(request):
             return render(request, "audiocrowd/qualification_job_introduction.html", context)
     elif task == task_list[job_list['qualification']]['questions']:
         if request.method == "POST":
-            form = GeneralQuestionsForm(campaign.language, data=request.POST, instance=worker)
+            form = GeneralQuestionsForm(campaign, data=request.POST, instance=worker)
             if form.is_valid():
                 form.save()
                 worker.qualification_done = True
@@ -221,7 +221,7 @@ def qualification_job_view(request):
                 return HttpResponse("Form is invalid")
         else:
             context = get_context(campaign, "qualification_job_questions")
-            form = GeneralQuestionsForm(campaign.language, instance=worker)
+            form = GeneralQuestionsForm(campaign, instance=worker)
             context["form"] = form
             return render(request, "audiocrowd/qualification_job_questions.html", context)
 
