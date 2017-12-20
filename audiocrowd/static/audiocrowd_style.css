@@ -99,3 +99,13 @@ input:disabled {
     margin: auto;
     text-align: right;
 }
+
+table {
+    margin: 0 auto;
+    width: 80%;
+}
+
+th, td {
+    text-align: left;
+    font-weight: normal;
+}

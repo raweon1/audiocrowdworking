@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/language.py" afterPath="$PROJECT_DIR$/audiocrowd/language.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" afterPath="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" afterPath="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,33 +41,65 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="116" column="58" lean-forward="false" selection-start-line="116" selection-start-column="58" selection-end-line="116" selection-end-column="58" />
+            <state relative-caret-position="334">
+              <caret line="343" column="0" lean-forward="true" selection-start-line="343" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
               <folding>
-                <element signature="e#1236#1377#0" expanded="false" />
-                <element signature="e#1391#1577#0" expanded="false" />
-                <element signature="e#1686#1690#0" expanded="false" />
-                <element signature="e#1733#1737#0" expanded="false" />
-                <element signature="e#1767#1868#0" expanded="false" />
-                <element signature="e#1897#1997#0" expanded="false" />
-                <element signature="e#2032#2453#0" expanded="false" />
-                <element signature="e#2491#2574#0" expanded="false" />
-                <element signature="e#2623#3080#0" expanded="false" />
-                <element signature="e#3124#3235#0" expanded="false" />
-                <element signature="e#11071#11103#0" expanded="false" />
-                <element signature="e#11162#11608#0" expanded="false" />
-                <element signature="e#14752#14810#0" expanded="false" />
-                <element signature="e#15214#15645#0" expanded="false" />
-                <element signature="e#15648#15683#0" expanded="false" />
-                <element signature="e#15999#16680#0" expanded="false" />
-                <element signature="e#16753#17491#0" expanded="false" />
-                <element signature="e#17494#17552#0" expanded="false" />
-                <element signature="e#17691#17832#0" expanded="false" />
-                <element signature="e#17835#17935#0" expanded="false" />
-                <element signature="e#18079#18089#0" expanded="false" />
-                <element signature="e#18130#19476#0" expanded="false" />
-                <element signature="e#19540#19644#0" expanded="false" />
+                <element signature="e#1201#1342#0" expanded="false" />
+                <element signature="e#1356#1542#0" expanded="false" />
+                <element signature="e#1651#1655#0" expanded="false" />
+                <element signature="e#1698#1702#0" expanded="false" />
+                <element signature="e#1732#1833#0" expanded="false" />
+                <element signature="e#1862#1962#0" expanded="false" />
+                <element signature="e#1997#2418#0" expanded="false" />
+                <element signature="e#2456#2539#0" expanded="false" />
+                <element signature="e#2588#3045#0" expanded="false" />
+                <element signature="e#3089#3200#0" expanded="false" />
+                <element signature="e#10320#10352#0" expanded="false" />
+                <element signature="e#10411#10857#0" expanded="false" />
+                <element signature="e#13087#13145#0" expanded="false" />
+                <element signature="e#13549#13980#0" expanded="false" />
+                <element signature="e#13983#14018#0" expanded="false" />
+                <element signature="e#14334#15015#0" expanded="false" />
+                <element signature="e#15088#15826#0" expanded="false" />
+                <element signature="e#15829#15887#0" expanded="false" />
+                <element signature="e#16026#16167#0" expanded="false" />
+                <element signature="e#16170#16270#0" expanded="false" />
+                <element signature="e#16414#16424#0" expanded="false" />
+                <element signature="e#16465#17811#0" expanded="false" />
+                <element signature="e#17875#17979#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom_tags.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="101" lean-forward="false" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="acr_scale.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="audiocrowd_style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="104" column="15" lean-forward="true" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -89,16 +126,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="51" lean-forward="false" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowdworking/settings.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,18 +146,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbdatasheet.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiocrowd/dbdatasheet.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="12" column="57" lean-forward="false" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/urls.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -144,9 +159,12 @@
       <file leaf-file-name="language.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2" column="54" lean-forward="false" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="60" column="38" lean-forward="true" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#6041#12792#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,7 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>context[&quot;volume&quot;]</find>
       <find>training</find>
       <find>campa</find>
       <find>stuff</find>
@@ -195,6 +212,7 @@
       <find>10</find>
       <find>11</find>
       <find>print</find>
+      <find>context =</find>
     </findStrings>
     <replaceStrings>
       <replace>Sie</replace>
@@ -223,7 +241,6 @@
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_next_job.html" />
         <option value="$PROJECT_DIR$/audiocrowdworking/settings.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_introduction.html" />
-        <option value="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" />
         <option value="$PROJECT_DIR$/audiocrowd/vcodetest.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_end.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_welcome_back.html" />
@@ -235,9 +252,7 @@
         <option value="$PROJECT_DIR$/audiocrowd/MyWidgets.py" />
         <option value="$PROJECT_DIR$/audiocrowd/my_widgets.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/training_setup.html" />
-        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html" />
-        <option value="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/base.html" />
         <option value="$PROJECT_DIR$/audiocrowd/dbdatasheet.py" />
         <option value="$PROJECT_DIR$/data.csv" />
@@ -245,7 +260,10 @@
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
         <option value="$PROJECT_DIR$/audiocrowd/urls.py" />
         <option value="$PROJECT_DIR$/audiocrowd/models.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py" />
         <option value="$PROJECT_DIR$/audiocrowd/language.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
         <option value="$PROJECT_DIR$/audiocrowd/views.py" />
       </list>
     </option>
@@ -775,7 +793,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513685978917</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary=".">
+      <created>1513697296865</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1513697296865</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -792,13 +817,13 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.5858209" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.41417912" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.58742005" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.41257995" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.47228146" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.46588486" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48933902" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21215352" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -824,7 +849,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Lautstärke-Kalibrierung abgeschlossen, man muss vor jedem ACR-Job die Lautstärke kalibrieren und jede Änderung wird gespeichert (Das RatingSet wird invalid geflagged und für jedes Rating wird die Lautstärke gespeichert -&gt; man kann am Ende sehen welche Stimuli geändert wurden, d.h. es wird nicht direkt das gesamte Set gelöscht)&#10;JavaScript-code ,um skippen der Audiofiles zu verhindern, hinzugefügt; muss getestet werden." />
     <MESSAGE value="Campaigns sind wieder da, Stimuli eingefügt." />
     <MESSAGE value="remove audio" />
     <MESSAGE value="recommit" />
@@ -849,7 +873,8 @@
     <MESSAGE value="default campaign, kontakt" />
     <MESSAGE value="result" />
     <MESSAGE value="en updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="en updated" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -868,29 +893,29 @@
         <state relative-caret-position="85">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#1236#1377#0" expanded="false" />
-            <element signature="e#1391#1577#0" expanded="false" />
-            <element signature="e#1686#1690#0" expanded="false" />
-            <element signature="e#1733#1737#0" expanded="false" />
-            <element signature="e#1767#1868#0" expanded="false" />
-            <element signature="e#1897#1997#0" expanded="false" />
-            <element signature="e#2032#2453#0" expanded="false" />
-            <element signature="e#2491#2574#0" expanded="false" />
-            <element signature="e#2623#3080#0" expanded="false" />
-            <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#11071#11103#0" expanded="false" />
-            <element signature="e#11162#11608#0" expanded="false" />
-            <element signature="e#14752#14810#0" expanded="false" />
-            <element signature="e#15214#15645#0" expanded="false" />
-            <element signature="e#15648#15683#0" expanded="false" />
-            <element signature="e#15999#16680#0" expanded="false" />
-            <element signature="e#16753#17491#0" expanded="false" />
-            <element signature="e#17494#17552#0" expanded="false" />
-            <element signature="e#17691#17832#0" expanded="false" />
-            <element signature="e#17835#17935#0" expanded="false" />
-            <element signature="e#18079#18089#0" expanded="false" />
-            <element signature="e#18130#19476#0" expanded="false" />
-            <element signature="e#19540#19644#0" expanded="false" />
+            <element signature="e#1201#1342#0" expanded="false" />
+            <element signature="e#1356#1542#0" expanded="false" />
+            <element signature="e#1651#1655#0" expanded="false" />
+            <element signature="e#1698#1702#0" expanded="false" />
+            <element signature="e#1732#1833#0" expanded="false" />
+            <element signature="e#1862#1962#0" expanded="false" />
+            <element signature="e#1997#2418#0" expanded="false" />
+            <element signature="e#2456#2539#0" expanded="false" />
+            <element signature="e#2588#3045#0" expanded="false" />
+            <element signature="e#3089#3200#0" expanded="false" />
+            <element signature="e#10320#10352#0" expanded="false" />
+            <element signature="e#10411#10857#0" expanded="false" />
+            <element signature="e#13087#13145#0" expanded="false" />
+            <element signature="e#13549#13980#0" expanded="false" />
+            <element signature="e#13983#14018#0" expanded="false" />
+            <element signature="e#14334#15015#0" expanded="false" />
+            <element signature="e#15088#15826#0" expanded="false" />
+            <element signature="e#15829#15887#0" expanded="false" />
+            <element signature="e#16026#16167#0" expanded="false" />
+            <element signature="e#16170#16270#0" expanded="false" />
+            <element signature="e#16414#16424#0" expanded="false" />
+            <element signature="e#16465#17811#0" expanded="false" />
+            <element signature="e#17875#17979#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -943,29 +968,29 @@
         <state relative-caret-position="136">
           <caret line="10" column="79" lean-forward="true" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
           <folding>
-            <element signature="e#1236#1377#0" expanded="false" />
-            <element signature="e#1391#1577#0" expanded="false" />
-            <element signature="e#1686#1690#0" expanded="false" />
-            <element signature="e#1733#1737#0" expanded="false" />
-            <element signature="e#1767#1868#0" expanded="false" />
-            <element signature="e#1897#1997#0" expanded="false" />
-            <element signature="e#2032#2453#0" expanded="false" />
-            <element signature="e#2491#2574#0" expanded="false" />
-            <element signature="e#2623#3080#0" expanded="false" />
-            <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#11071#11103#0" expanded="false" />
-            <element signature="e#11162#11608#0" expanded="false" />
-            <element signature="e#14752#14810#0" expanded="false" />
-            <element signature="e#15214#15645#0" expanded="false" />
-            <element signature="e#15648#15683#0" expanded="false" />
-            <element signature="e#15999#16680#0" expanded="false" />
-            <element signature="e#16753#17491#0" expanded="false" />
-            <element signature="e#17494#17552#0" expanded="false" />
-            <element signature="e#17691#17832#0" expanded="false" />
-            <element signature="e#17835#17935#0" expanded="false" />
-            <element signature="e#18079#18089#0" expanded="false" />
-            <element signature="e#18130#19476#0" expanded="false" />
-            <element signature="e#19540#19644#0" expanded="false" />
+            <element signature="e#1201#1342#0" expanded="false" />
+            <element signature="e#1356#1542#0" expanded="false" />
+            <element signature="e#1651#1655#0" expanded="false" />
+            <element signature="e#1698#1702#0" expanded="false" />
+            <element signature="e#1732#1833#0" expanded="false" />
+            <element signature="e#1862#1962#0" expanded="false" />
+            <element signature="e#1997#2418#0" expanded="false" />
+            <element signature="e#2456#2539#0" expanded="false" />
+            <element signature="e#2588#3045#0" expanded="false" />
+            <element signature="e#3089#3200#0" expanded="false" />
+            <element signature="e#10320#10352#0" expanded="false" />
+            <element signature="e#10411#10857#0" expanded="false" />
+            <element signature="e#13087#13145#0" expanded="false" />
+            <element signature="e#13549#13980#0" expanded="false" />
+            <element signature="e#13983#14018#0" expanded="false" />
+            <element signature="e#14334#15015#0" expanded="false" />
+            <element signature="e#15088#15826#0" expanded="false" />
+            <element signature="e#15829#15887#0" expanded="false" />
+            <element signature="e#16026#16167#0" expanded="false" />
+            <element signature="e#16170#16270#0" expanded="false" />
+            <element signature="e#16414#16424#0" expanded="false" />
+            <element signature="e#16465#17811#0" expanded="false" />
+            <element signature="e#17875#17979#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -997,29 +1022,29 @@
         <state relative-caret-position="17">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#1236#1377#0" expanded="false" />
-            <element signature="e#1391#1577#0" expanded="false" />
-            <element signature="e#1686#1690#0" expanded="false" />
-            <element signature="e#1733#1737#0" expanded="false" />
-            <element signature="e#1767#1868#0" expanded="false" />
-            <element signature="e#1897#1997#0" expanded="false" />
-            <element signature="e#2032#2453#0" expanded="false" />
-            <element signature="e#2491#2574#0" expanded="false" />
-            <element signature="e#2623#3080#0" expanded="false" />
-            <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#11071#11103#0" expanded="false" />
-            <element signature="e#11162#11608#0" expanded="false" />
-            <element signature="e#14752#14810#0" expanded="false" />
-            <element signature="e#15214#15645#0" expanded="false" />
-            <element signature="e#15648#15683#0" expanded="false" />
-            <element signature="e#15999#16680#0" expanded="false" />
-            <element signature="e#16753#17491#0" expanded="false" />
-            <element signature="e#17494#17552#0" expanded="false" />
-            <element signature="e#17691#17832#0" expanded="false" />
-            <element signature="e#17835#17935#0" expanded="false" />
-            <element signature="e#18079#18089#0" expanded="false" />
-            <element signature="e#18130#19476#0" expanded="false" />
-            <element signature="e#19540#19644#0" expanded="false" />
+            <element signature="e#1201#1342#0" expanded="false" />
+            <element signature="e#1356#1542#0" expanded="false" />
+            <element signature="e#1651#1655#0" expanded="false" />
+            <element signature="e#1698#1702#0" expanded="false" />
+            <element signature="e#1732#1833#0" expanded="false" />
+            <element signature="e#1862#1962#0" expanded="false" />
+            <element signature="e#1997#2418#0" expanded="false" />
+            <element signature="e#2456#2539#0" expanded="false" />
+            <element signature="e#2588#3045#0" expanded="false" />
+            <element signature="e#3089#3200#0" expanded="false" />
+            <element signature="e#10320#10352#0" expanded="false" />
+            <element signature="e#10411#10857#0" expanded="false" />
+            <element signature="e#13087#13145#0" expanded="false" />
+            <element signature="e#13549#13980#0" expanded="false" />
+            <element signature="e#13983#14018#0" expanded="false" />
+            <element signature="e#14334#15015#0" expanded="false" />
+            <element signature="e#15088#15826#0" expanded="false" />
+            <element signature="e#15829#15887#0" expanded="false" />
+            <element signature="e#16026#16167#0" expanded="false" />
+            <element signature="e#16170#16270#0" expanded="false" />
+            <element signature="e#16414#16424#0" expanded="false" />
+            <element signature="e#16465#17811#0" expanded="false" />
+            <element signature="e#17875#17979#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1059,29 +1084,29 @@
         <state relative-caret-position="17">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#1236#1377#0" expanded="false" />
-            <element signature="e#1391#1577#0" expanded="false" />
-            <element signature="e#1686#1690#0" expanded="false" />
-            <element signature="e#1733#1737#0" expanded="false" />
-            <element signature="e#1767#1868#0" expanded="false" />
-            <element signature="e#1897#1997#0" expanded="false" />
-            <element signature="e#2032#2453#0" expanded="false" />
-            <element signature="e#2491#2574#0" expanded="false" />
-            <element signature="e#2623#3080#0" expanded="false" />
-            <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#11071#11103#0" expanded="false" />
-            <element signature="e#11162#11608#0" expanded="false" />
-            <element signature="e#14752#14810#0" expanded="false" />
-            <element signature="e#15214#15645#0" expanded="false" />
-            <element signature="e#15648#15683#0" expanded="false" />
-            <element signature="e#15999#16680#0" expanded="false" />
-            <element signature="e#16753#17491#0" expanded="false" />
-            <element signature="e#17494#17552#0" expanded="false" />
-            <element signature="e#17691#17832#0" expanded="false" />
-            <element signature="e#17835#17935#0" expanded="false" />
-            <element signature="e#18079#18089#0" expanded="false" />
-            <element signature="e#18130#19476#0" expanded="false" />
-            <element signature="e#19540#19644#0" expanded="false" />
+            <element signature="e#1201#1342#0" expanded="false" />
+            <element signature="e#1356#1542#0" expanded="false" />
+            <element signature="e#1651#1655#0" expanded="false" />
+            <element signature="e#1698#1702#0" expanded="false" />
+            <element signature="e#1732#1833#0" expanded="false" />
+            <element signature="e#1862#1962#0" expanded="false" />
+            <element signature="e#1997#2418#0" expanded="false" />
+            <element signature="e#2456#2539#0" expanded="false" />
+            <element signature="e#2588#3045#0" expanded="false" />
+            <element signature="e#3089#3200#0" expanded="false" />
+            <element signature="e#10320#10352#0" expanded="false" />
+            <element signature="e#10411#10857#0" expanded="false" />
+            <element signature="e#13087#13145#0" expanded="false" />
+            <element signature="e#13549#13980#0" expanded="false" />
+            <element signature="e#13983#14018#0" expanded="false" />
+            <element signature="e#14334#15015#0" expanded="false" />
+            <element signature="e#15088#15826#0" expanded="false" />
+            <element signature="e#15829#15887#0" expanded="false" />
+            <element signature="e#16026#16167#0" expanded="false" />
+            <element signature="e#16170#16270#0" expanded="false" />
+            <element signature="e#16414#16424#0" expanded="false" />
+            <element signature="e#16465#17811#0" expanded="false" />
+            <element signature="e#17875#17979#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1119,13 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="113" lean-forward="false" selection-start-line="12" selection-start-column="113" selection-end-line="12" selection-end-column="113" />
         </state>
       </provider>
     </entry>
@@ -1200,20 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="61" lean-forward="false" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="60" lean-forward="false" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="21" lean-forward="false" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1296,14 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setup_django_server.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
@@ -1319,42 +1315,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="54" lean-forward="false" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        <state relative-caret-position="308">
+          <caret line="60" column="38" lean-forward="true" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#6041#12792#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/static/audiocrowd_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="104" column="15" lean-forward="true" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/templatetags/custom_tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="101" lean-forward="false" selection-start-line="7" selection-start-column="101" selection-end-line="7" selection-end-column="101" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="116" column="58" lean-forward="false" selection-start-line="116" selection-start-column="58" selection-end-line="116" selection-end-column="58" />
+        <state relative-caret-position="334">
+          <caret line="343" column="0" lean-forward="true" selection-start-line="343" selection-start-column="0" selection-end-line="343" selection-end-column="0" />
           <folding>
-            <element signature="e#1236#1377#0" expanded="false" />
-            <element signature="e#1391#1577#0" expanded="false" />
-            <element signature="e#1686#1690#0" expanded="false" />
-            <element signature="e#1733#1737#0" expanded="false" />
-            <element signature="e#1767#1868#0" expanded="false" />
-            <element signature="e#1897#1997#0" expanded="false" />
-            <element signature="e#2032#2453#0" expanded="false" />
-            <element signature="e#2491#2574#0" expanded="false" />
-            <element signature="e#2623#3080#0" expanded="false" />
-            <element signature="e#3124#3235#0" expanded="false" />
-            <element signature="e#11071#11103#0" expanded="false" />
-            <element signature="e#11162#11608#0" expanded="false" />
-            <element signature="e#14752#14810#0" expanded="false" />
-            <element signature="e#15214#15645#0" expanded="false" />
-            <element signature="e#15648#15683#0" expanded="false" />
-            <element signature="e#15999#16680#0" expanded="false" />
-            <element signature="e#16753#17491#0" expanded="false" />
-            <element signature="e#17494#17552#0" expanded="false" />
-            <element signature="e#17691#17832#0" expanded="false" />
-            <element signature="e#17835#17935#0" expanded="false" />
-            <element signature="e#18079#18089#0" expanded="false" />
-            <element signature="e#18130#19476#0" expanded="false" />
-            <element signature="e#19540#19644#0" expanded="false" />
+            <element signature="e#1201#1342#0" expanded="false" />
+            <element signature="e#1356#1542#0" expanded="false" />
+            <element signature="e#1651#1655#0" expanded="false" />
+            <element signature="e#1698#1702#0" expanded="false" />
+            <element signature="e#1732#1833#0" expanded="false" />
+            <element signature="e#1862#1962#0" expanded="false" />
+            <element signature="e#1997#2418#0" expanded="false" />
+            <element signature="e#2456#2539#0" expanded="false" />
+            <element signature="e#2588#3045#0" expanded="false" />
+            <element signature="e#3089#3200#0" expanded="false" />
+            <element signature="e#10320#10352#0" expanded="false" />
+            <element signature="e#10411#10857#0" expanded="false" />
+            <element signature="e#13087#13145#0" expanded="false" />
+            <element signature="e#13549#13980#0" expanded="false" />
+            <element signature="e#13983#14018#0" expanded="false" />
+            <element signature="e#14334#15015#0" expanded="false" />
+            <element signature="e#15088#15826#0" expanded="false" />
+            <element signature="e#15829#15887#0" expanded="false" />
+            <element signature="e#16026#16167#0" expanded="false" />
+            <element signature="e#16170#16270#0" expanded="false" />
+            <element signature="e#16414#16424#0" expanded="false" />
+            <element signature="e#16465#17811#0" expanded="false" />
+            <element signature="e#17875#17979#0" expanded="false" />
           </folding>
         </state>
       </provider>

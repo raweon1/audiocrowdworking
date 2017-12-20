@@ -5,7 +5,7 @@ register = template.Library()
 
 @register.inclusion_tag("audiocrowd/acr_scale.html", takes_context=True)
 def acr_scale(context, index=0, stimulus={"name": "noname"}):
-    return {"stimuli": stimulus, "index": index, "acr_scale": context["acr_scale"]}
+    return {"stimuli": stimulus, "index": index, "acr_scale": context["acr_scale"], "language": context["language"]}
 
 
 @register.inclusion_tag("audiocrowd/display_stimulus.html", takes_context=True)

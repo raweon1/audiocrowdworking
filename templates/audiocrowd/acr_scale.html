@@ -15,24 +15,63 @@
            });
         });
     </script>
-    <div style="display: inline-block; text-align: left">
-        <div>
-        {{ acr_scale.0 }}
+    {% if language == "de" %}
+        <div style="display: inline-block; text-align: left">
+            <div>
+                {{ acr_scale.0 }}
+            </div>
+            <div>
+                <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="5"> {{ acr_scale.2 }}
+            </div>
+            <div>
+                 <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="4"> {{ acr_scale.3 }}
+            </div>
+            <div>
+                 <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="3"> {{ acr_scale.4 }}
+            </div>
+            <div>
+                 <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="2"> {{ acr_scale.5 }}
+            </div>
+            <div>
+                 <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="1"> {{ acr_scale.6 }}
+            </div>
         </div>
-        <div>
-            <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="5"> {{ acr_scale.2 }}
-        </div>
-        <div>
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="4"> {{ acr_scale.3 }}
-        </div>
-        <div>
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="3"> {{ acr_scale.4 }}
-        </div>
-        <div>
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="2"> {{ acr_scale.5 }}
-        </div>
-        <div>
-             <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="1"> {{ acr_scale.6 }}
-        </div>
-    </div>
+    {% else %}
+        <table>
+            <tr>
+                <th>{{ acr_scale.0 }}</th>
+                <th>{{ acr_scale.1 }}</th>
+            </tr>
+            <tr>
+                <td>
+                    <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="5"> {{ acr_scale.2 }}
+                </td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="4"> {{ acr_scale.3 }}
+                </td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="3"> {{ acr_scale.4 }}
+                </td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="2"> {{ acr_scale.5 }}
+                </td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="acr-radio" type="radio" name="{{ stimuli.name }}" value="1"> {{ acr_scale.6 }}
+                </td>
+                <td>1</td>
+            </tr>
+        </table>
+    {% endif %}
 </div>
