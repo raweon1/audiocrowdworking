@@ -1,0 +1,38 @@
+{% extends "audiocrowd/base.html" %}
+
+{% load custom_tags %}
+
+{% block task %}
+    <div class="panel-heading">{{ qualification_job_questionnaire_meta.0 }}</div>
+    <div class="panel-body">
+        <form method="post">
+            {% csrf_token %}
+
+            {% for index, question in qualification_job_questionnaire %}
+                <p><b>{{ index }}. {{ question }}</b></p>
+                <table class="align-center">
+                    <tr>
+                        <td>
+                            <input class="acr-radio" type="radio" name="{{ index }}" value="5" required> {{ qualification_job_questionnaire_meta.1 }}
+                        </td>
+                        <td>
+                            <input class="acr-radio" type="radio" name="{{ index }}" value="4" required> {{ qualification_job_questionnaire_meta.2 }}
+                        </td>
+                        <td>
+                            <input class="acr-radio" type="radio" name="{{ index }}" value="3" required> {{ qualification_job_questionnaire_meta.3 }}
+                        </td>
+                        <td>
+                            <input class="acr-radio" type="radio" name="{{ index }}" value="2" required> {{ qualification_job_questionnaire_meta.4 }}
+                        </td>
+                        <td>
+                            <input class="acr-radio" type="radio" name="{{ index }}" value="1" required> {{ qualification_job_questionnaire_meta.5 }}
+                        </td>
+                    </tr>
+                </table>
+            {% endfor %}
+            <div class="align-right">
+                <input type="submit" value="{{ qualification_job_questionnaire_meta.6 }}">
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -86,6 +86,7 @@ class Worker(models.Model):
     connected = models.IntegerField(choices=[(1, "Yes"), (0, "No")], null=True)
     listening_device = models.IntegerField(choices=[(0, "Loudspeaker"), (1, "Head-set/phones"), (2, "In-Ear Headset")],
                                            null=True)
+    questions = models.CharField(max_length=64, null=True)
 
     # hat der Worker die qualification abgeschlossen?
     qualification_done = models.BooleanField(default=False)

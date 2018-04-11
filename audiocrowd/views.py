@@ -20,7 +20,7 @@ from hashlib import sha256
 
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
 
-qualification_job_tasks = dict(introduction="introduction", questions="general_questions")
+qualification_job_tasks = dict(introduction="introduction", questions="general_questions", questionnaire="questionnaire")
 training_job_tasks = dict(setup="setup", samples="samples", welcome_back="welcome_back")
 acr_job_tasks = dict(setup="setup", rate="rate", next="next", done="done", end="end", welcome_back="welcome_back")
 
@@ -68,7 +68,8 @@ def is_registered(request):
     try:
         campaign = Campaign.objects.get(campaign_id=request.session["campaign"])
         worker = Worker.objects.get(name=request.session["worker"])
-        sub_campaing = SubCampaign.objects.get(sub_campaign_id=request.session["sub_campaign"])
+        sub_campaing = SubCampaign.objects.get(sub_campaign_id=request.session["sub_campaign"],
+                                               parent_campaign=campaign)
     except KeyError:
         raise NotRegisteredException()
     except ObjectDoesNotExist:
@@ -215,7 +216,7 @@ def qualification_job_view(request):
                 # TODO evaluation! wenn Zugang gewährt wird muss worker.access_training auf True gesetzt werden
                 worker.access_training = True
                 worker.save()
-                return redirect_to(request, job_list['training'], task_list[job_list['training']]["setup"])
+                return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['questionnaire'])
             else:
                 # Die Form ist sollte immer valid sein
                 return HttpResponse("Form is invalid")
@@ -224,6 +225,20 @@ def qualification_job_view(request):
             form = GeneralQuestionsForm(campaign, instance=worker)
             context["form"] = form
             return render(request, "audiocrowd/qualification_job_questions.html", context)
+    elif task == task_list[job_list['qualification']]['questionnaire']:
+        if request.method == "POST":
+            tmp = request.POST.dict()
+            answer = "".join([tmp[str(i)] for i in range(1, tmp.__len__())])
+            worker.questions = answer
+            worker.save()
+            return redirect_to(request, job_list['training'], task_list[job_list['training']]["setup"])
+        else:
+            context = get_context(campaign, "qualification_job_questionnaire", "qualification_job_questionnaire_meta")
+            tmp_list = []
+            for i in range(1, context["qualification_job_questionnaire"].__len__() + 1):
+                tmp_list.append((i, context["qualification_job_questionnaire"][i - 1]))
+            context["qualification_job_questionnaire"] = tmp_list
+            return render(request, "audiocrowd/qualification_job_questionaire.html", context)
 
 
 def require_training(worker):
