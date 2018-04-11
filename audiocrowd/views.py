@@ -211,10 +211,6 @@ def qualification_job_view(request):
             form = GeneralQuestionsForm(campaign, data=request.POST, instance=worker)
             if form.is_valid():
                 form.save()
-                worker.qualification_done = True
-                worker.save()
-                # TODO evaluation! wenn Zugang gewährt wird muss worker.access_training auf True gesetzt werden
-                worker.access_training = True
                 worker.save()
                 return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['questionnaire'])
             else:
@@ -230,6 +226,9 @@ def qualification_job_view(request):
             tmp = request.POST.dict()
             answer = "".join([tmp[str(i)] for i in range(1, tmp.__len__())])
             worker.questions = answer
+            # TODO evaluation! wenn Zugang gewährt wird muss worker.access_training auf True gesetzt werden
+            worker.qualification_done = True
+            worker.access_training = True
             worker.save()
             return redirect_to(request, job_list['training'], task_list[job_list['training']]["setup"])
         else:
