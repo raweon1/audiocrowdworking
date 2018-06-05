@@ -34,6 +34,7 @@ def write_db_csv(path="data.csv"):
                         "subjective_test": worker.subjective_test,
                         "speech_test": worker.speech_test,
                         "connected": worker.connected,
+                        "questions": worker.questions,
                         "rating_set_nr": rating_set.set_nr,
                         "invalid": rating_set.invalid_set}
             ratings = Rating.objects.filter(rating_set=rating_set)
