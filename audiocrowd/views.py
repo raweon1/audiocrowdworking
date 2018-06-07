@@ -303,7 +303,8 @@ def training_job_view(request):
 # zufällig. Stimuli stehen in Verbindung mit campaign.
 # @return: Liste kann leer sein, wenn keine Stimuli mehr zu bewerten sind.
 def get_stimuli_to_rate(count, worker, campaign):
-    available_stimuli = campaign.stimuli.all().exclude(rating__rating_set__worker=worker)
+    available_stimuli = campaign.stimuli.all().exclude(rating__rating_set__worker=worker,
+                                                       rating__rating_set__sub_campaign__parent_campaign=campaign)
     tmp = defaultdict(list)
     for stimulus in available_stimuli:
         rating_count = Rating.objects.filter(rating_set__sub_campaign__parent_campaign=campaign, stimulus=stimulus).__len__()
