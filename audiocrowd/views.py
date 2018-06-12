@@ -309,19 +309,27 @@ def get_stimuli_to_rate(count, worker, campaign):
     for stimulus in available_stimuli:
         rating_count = Rating.objects.filter(rating_set__sub_campaign__parent_campaign=campaign, stimulus=stimulus).__len__()
         tmp[rating_count].append(stimulus)
-    available_stimuli = []
+
+    pflicht_stim = []
+    filler_stim = []
     for rating_count, stim_list in sorted(tmp.items(), key=itemgetter(0)):
-        available_stimuli.extend(stim_list)
-        if available_stimuli.__len__() >= count:
+        pflicht_stim.extend(filler_stim)
+        filler_stim = stim_list
+        if pflicht_stim.__len__() + filler_stim.__len__() >= count:
             break
+
     stimuli_to_rate = []
     for i in range(0, count):
-        if available_stimuli.__len__() == 0:
+        if pflicht_stim.__len__() > 0:
+            rnd = randint(0, pflicht_stim.__len__() - 1)
+            stimuli_to_rate.append(pflicht_stim[rnd])
+            del pflicht_stim[rnd]
+        elif filler_stim.__len__() > 0:
+            rnd = randint(0, filler_stim.__len__() - 1)
+            stimuli_to_rate.append(filler_stim[rnd])
+            del filler_stim[rnd]
+        if pflicht_stim.__len__() + filler_stim.__len__() == 0:
             break
-        rnd = randint(0, available_stimuli.__len__() - 1)
-        stimuli_to_rate.append(available_stimuli[rnd])
-        del available_stimuli[rnd]
-        # available_stimuli = available_stimuli.remove(available_stimuli[rnd])
     return stimuli_to_rate
 
 

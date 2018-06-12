@@ -4,6 +4,7 @@
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="344" column="0" lean-forward="false" selection-start-line="344" selection-start-column="0" selection-end-line="344" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="313" column="20" lean-forward="true" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1300#1441#0" expanded="false" />
@@ -54,13 +55,13 @@
                 <element signature="e#11347#11379#0" expanded="false" />
                 <element signature="e#11438#11884#0" expanded="false" />
                 <element signature="e#14114#14172#0" expanded="false" />
-                <element signature="e#15600#15635#0" expanded="false" />
-                <element signature="e#15951#16632#0" expanded="false" />
-                <element signature="e#16705#17443#0" expanded="false" />
-                <element signature="e#17446#17504#0" expanded="false" />
-                <element signature="e#17787#17887#0" expanded="false" />
-                <element signature="e#18031#18041#0" expanded="false" />
-                <element signature="e#18082#19428#0" expanded="false" />
+                <element signature="e#15824#15859#0" expanded="false" />
+                <element signature="e#16175#16856#0" expanded="false" />
+                <element signature="e#16929#17667#0" expanded="false" />
+                <element signature="e#17670#17728#0" expanded="false" />
+                <element signature="e#18011#18111#0" expanded="false" />
+                <element signature="e#18255#18265#0" expanded="false" />
+                <element signature="e#18306#19652#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -86,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="238">
+              <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -295,7 +296,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -347,6 +347,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -859,7 +860,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528371384225</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Datenbank update">
+      <created>1528452483340</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1528452483340</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView">
@@ -873,27 +881,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4914712" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.6034115" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.39658847" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.6050107" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.39498934" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48294243" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.4466951" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23987207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24253732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -907,7 +916,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Training" />
     <MESSAGE value="Calibrate" />
     <MESSAGE value="Bugfixes" />
     <MESSAGE value="Bugfixes &amp; calibrated volume &amp; Sprache" />
@@ -932,7 +940,8 @@
     <MESSAGE value="f" />
     <MESSAGE value="changed stimulus selection" />
     <MESSAGE value="Datenbank" />
-    <option name="LAST_COMMIT_MESSAGE" value="Datenbank" />
+    <MESSAGE value="Datenbank update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Datenbank update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1006,13 +1015,13 @@
             <element signature="e#11347#11379#0" expanded="false" />
             <element signature="e#11438#11884#0" expanded="false" />
             <element signature="e#14114#14172#0" expanded="false" />
-            <element signature="e#15600#15635#0" expanded="false" />
-            <element signature="e#15951#16632#0" expanded="false" />
-            <element signature="e#16705#17443#0" expanded="false" />
-            <element signature="e#17446#17504#0" expanded="false" />
-            <element signature="e#17787#17887#0" expanded="false" />
-            <element signature="e#18031#18041#0" expanded="false" />
-            <element signature="e#18082#19428#0" expanded="false" />
+            <element signature="e#15824#15859#0" expanded="false" />
+            <element signature="e#16175#16856#0" expanded="false" />
+            <element signature="e#16929#17667#0" expanded="false" />
+            <element signature="e#17670#17728#0" expanded="false" />
+            <element signature="e#18011#18111#0" expanded="false" />
+            <element signature="e#18255#18265#0" expanded="false" />
+            <element signature="e#18306#19652#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1057,13 +1066,13 @@
             <element signature="e#11347#11379#0" expanded="false" />
             <element signature="e#11438#11884#0" expanded="false" />
             <element signature="e#14114#14172#0" expanded="false" />
-            <element signature="e#15600#15635#0" expanded="false" />
-            <element signature="e#15951#16632#0" expanded="false" />
-            <element signature="e#16705#17443#0" expanded="false" />
-            <element signature="e#17446#17504#0" expanded="false" />
-            <element signature="e#17787#17887#0" expanded="false" />
-            <element signature="e#18031#18041#0" expanded="false" />
-            <element signature="e#18082#19428#0" expanded="false" />
+            <element signature="e#15824#15859#0" expanded="false" />
+            <element signature="e#16175#16856#0" expanded="false" />
+            <element signature="e#16929#17667#0" expanded="false" />
+            <element signature="e#17670#17728#0" expanded="false" />
+            <element signature="e#18011#18111#0" expanded="false" />
+            <element signature="e#18255#18265#0" expanded="false" />
+            <element signature="e#18306#19652#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1115,13 +1124,13 @@
             <element signature="e#11347#11379#0" expanded="false" />
             <element signature="e#11438#11884#0" expanded="false" />
             <element signature="e#14114#14172#0" expanded="false" />
-            <element signature="e#15600#15635#0" expanded="false" />
-            <element signature="e#15951#16632#0" expanded="false" />
-            <element signature="e#16705#17443#0" expanded="false" />
-            <element signature="e#17446#17504#0" expanded="false" />
-            <element signature="e#17787#17887#0" expanded="false" />
-            <element signature="e#18031#18041#0" expanded="false" />
-            <element signature="e#18082#19428#0" expanded="false" />
+            <element signature="e#15824#15859#0" expanded="false" />
+            <element signature="e#16175#16856#0" expanded="false" />
+            <element signature="e#16929#17667#0" expanded="false" />
+            <element signature="e#17670#17728#0" expanded="false" />
+            <element signature="e#18011#18111#0" expanded="false" />
+            <element signature="e#18255#18265#0" expanded="false" />
+            <element signature="e#18306#19652#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1352,10 +1361,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="344" column="0" lean-forward="false" selection-start-line="344" selection-start-column="0" selection-end-line="344" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="313" column="20" lean-forward="true" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1300#1441#0" expanded="false" />
@@ -1370,22 +1387,14 @@
             <element signature="e#11347#11379#0" expanded="false" />
             <element signature="e#11438#11884#0" expanded="false" />
             <element signature="e#14114#14172#0" expanded="false" />
-            <element signature="e#15600#15635#0" expanded="false" />
-            <element signature="e#15951#16632#0" expanded="false" />
-            <element signature="e#16705#17443#0" expanded="false" />
-            <element signature="e#17446#17504#0" expanded="false" />
-            <element signature="e#17787#17887#0" expanded="false" />
-            <element signature="e#18031#18041#0" expanded="false" />
-            <element signature="e#18082#19428#0" expanded="false" />
+            <element signature="e#15824#15859#0" expanded="false" />
+            <element signature="e#16175#16856#0" expanded="false" />
+            <element signature="e#16929#17667#0" expanded="false" />
+            <element signature="e#17670#17728#0" expanded="false" />
+            <element signature="e#18011#18111#0" expanded="false" />
+            <element signature="e#18255#18265#0" expanded="false" />
+            <element signature="e#18306#19652#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
