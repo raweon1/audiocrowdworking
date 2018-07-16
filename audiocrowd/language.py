@@ -13,7 +13,7 @@ labels = {
                                            "In this task you will listen to 11 audio files.",
                                            "To complete this task you will have to do the following steps:",
                                            "First we will collect demographic data from you - Duration: ca 1. minute",
-                                           "Then you have to do a short training where you listen to 4 audio files for "
+                                           "Then you have to do a short training where you listen to 3 audio files for "
                                            "practice - Duration: ca 2. minutes",
                                            "After completing the training you can rate the audiofiles and finish this "
                                            "task - Duration: ca. 5 minutes",
@@ -63,7 +63,7 @@ labels = {
                                "noise and exposure. Please rate for each audio file how you feel about its quality.",
                                "Setup",
                                "Please perform this task in a quiet environment.",
-                               "The next 4 audio files are a training session to familiarize you with the user interface.",
+                               "The next 3 audio files are a training session to familiarize you with the user interface.",
                                "Continue"],
         "training_job_rate": ["Complete training"],
         "training_job_welcome_back": ["Welcome back to the evaluation of audio files. Since your last participation "
@@ -71,10 +71,10 @@ labels = {
                                       "thank you for the renewed participation."],
         "acr_job_rate": ["Task",
                          "Done",
-                         "previous",
-                         "next",
+                         "Previous",
+                         "Next",
                          "Submit"],
-        "acr_job_setup": ["Setup - Evaluation of voice quality",
+        "acr_job_setup": ["Setup - Evaluation of speech quality",
                           "After completing the training, the actual study begins. As in training, the audio "
                           "files may experience a variety of disturbances that can affect volume or voice "
                           "quality, or that can cause noise and exposure. Please rate for each audio file how "
@@ -116,7 +116,7 @@ labels = {
                                            "Um mit der Bewertung zu beginnen müssen Sie folgende Schritte absolvieren:",
                                            "Zuerst werden wir einige demografische Daten "
                                            "von Ihnen erheben - Dauer: ca. 1 Minute",
-                                           "Danach müssen Sie ein kurzes Training durchführen bei dem Sie 4 Audiodateien "
+                                           "Danach müssen Sie ein kurzes Training durchführen bei dem Sie 3 Audiodateien "
                                            "zur Übung anhören - Dauer: ca. 2 Minuten",
                                            "Nach dem Training können Sie die Audiodateien bewerten und diese Aufgabe "
                                            "abschließen - Dauer: ca. 5 Minuten",
@@ -173,7 +173,7 @@ labels = {
                                "Audiodatei wie Sie deren Qualität empfinden.",
                                "Setup",
                                "Bitte bearbeiten Sie diese Aufgabe in einer ruhigen Umgebung.",
-                               "Bei den nächsten 4 Audiodaten handelt es sich zunächst um ein Training, damit Sie sich mit "
+                               "Bei den nächsten 3 Audiodaten handelt es sich zunächst um ein Training, damit Sie sich mit "
                                "der Bedienoberfläche vertraut machen können",
                                "Weiter"],
         "training_job_rate": ["Training abschließen"],

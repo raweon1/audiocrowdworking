@@ -23,6 +23,8 @@
             }
             $(".acr-left-button").click(function () {
                 if(current > 1){
+                    var sounds = document.getElementsByTagName('audio');
+                    for(i=0; i<sounds.length; i++) sounds[i].pause();
                     $("#acr_rate_" + current).hide();
                     $("#acr_rate_" + --current).show();
                 }
@@ -31,6 +33,8 @@
             });
             $(".acr-right-button").click(function () {
                 if(current < {{ to_rate|length }}){
+                    var sounds = document.getElementsByTagName('audio');
+                    for(i=0; i<sounds.length; i++) sounds[i].pause();
                     $("#acr_rate_" + current).hide();
                     $("#acr_rate_" + ++current).show();
                 }

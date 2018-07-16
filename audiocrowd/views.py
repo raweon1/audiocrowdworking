@@ -9,7 +9,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, \
     Campaign, SubCampaign, SubCampaignTracker
 from .language import get_context
-from .my_widgets import MySelectDateWidget
+from .my_widgets import MySelectDateWidget, YearOnlySelectDateWidget
 from .dbdatasheet import write_db_csv
 
 from audiocrowdworking.settings import STATIC_ROOT
@@ -22,7 +22,8 @@ from operator import itemgetter
 
 job_list = dict(register="register", qualification="qualification_job", training="training_job", acr="acr_job")
 
-qualification_job_tasks = dict(introduction="introduction", questions="general_questions", questionnaire="questionnaire")
+qualification_job_tasks = dict(introduction="introduction", questions="general_questions",
+                               questionnaire="questionnaire")
 training_job_tasks = dict(setup="setup", samples="samples", welcome_back="welcome_back")
 acr_job_tasks = dict(setup="setup", rate="rate", next="next", done="done", end="end", welcome_back="welcome_back")
 
@@ -128,6 +129,15 @@ def register(request, campaign_id):
             return HttpResponseBadRequest("Campaign " + campaign_id + " does not exist")
     # session wird beendet wenn der browser geschlossen wird
     request.session.set_expiry(0)
+
+    # falls bereits eine session läuft darf keine neue Session gestartet werden.
+    try:
+        if not request.session["finished"]:
+            return HttpResponseBadRequest(
+                "Another unfinished session is already running. Please finish that session before starting a new one")
+    except KeyError:
+        request.session["finished"] = False
+
     request.session["sub_campaign"] = sub_campaign_id
     request.session["campaign"] = sub_campaign.parent_campaign.campaign_id
     request.session["worker"] = worker_id
@@ -165,8 +175,8 @@ class GeneralQuestionsForm(ModelForm):
         fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected",
                   "listening_device")
         widgets = {
-            "birth_year": MySelectDateWidget(empty_label=("---------", "---------", "---------"),
-                                             years=[y for y in range(1950, 2007)])
+            "birth_year": YearOnlySelectDateWidget(empty_label=("---------", "---------", "---------"),
+                                                   years=[y for y in range(1950, 2007)])
         }
 
     def __init__(self, campaign, *args, **kwargs):
@@ -214,7 +224,8 @@ def qualification_job_view(request):
             if form.is_valid():
                 form.save()
                 worker.save()
-                return redirect_to(request, job_list['qualification'], task_list[job_list['qualification']]['questionnaire'])
+                return redirect_to(request, job_list['qualification'],
+                                   task_list[job_list['qualification']]['questionnaire'])
             else:
                 # Die Form ist sollte immer valid sein
                 return HttpResponse("Form is invalid")
@@ -307,7 +318,8 @@ def get_stimuli_to_rate(count, worker, campaign):
                                                        rating__rating_set__sub_campaign__parent_campaign=campaign)
     tmp = defaultdict(list)
     for stimulus in available_stimuli:
-        rating_count = Rating.objects.filter(rating_set__sub_campaign__parent_campaign=campaign, stimulus=stimulus).__len__()
+        rating_count = Rating.objects.filter(rating_set__sub_campaign__parent_campaign=campaign,
+                                             stimulus=stimulus).__len__()
         tmp[rating_count].append(stimulus)
 
     pflicht_stim = []
@@ -391,9 +403,9 @@ def parse_rating_form(form_dict):
         try:
             stimulus = Stimuli.objects.get(name=parse_name_from_key(key))
             stimuli[key] = {
-                    "object": stimulus,
-                    "rating": form_dict[key]
-                }
+                "object": stimulus,
+                "rating": form_dict[key]
+            }
             del form_dict[key]
         except ObjectDoesNotExist:
             try:
@@ -465,6 +477,8 @@ def acr_job_view(request):
             rating_set.finished = True
             rating_set.save()
             del request.session["set_to_rate"]
+            # session is finished, another one can be startet
+            request.session["finished"] = True
             return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['end'])
         else:
             set_to_rate = get_or_create_session_set_to_rate(request, worker, campaign)
@@ -505,8 +519,11 @@ def acr_job_view(request):
         worker.access_acr = now() + timedelta(minutes=Configuration.load().access_window)
         worker.save()
         # trackereintrag löschen
-        track = SubCampaignTracker.objects.get(worker=worker, sub_campaign=sub_campaign)
-        track.delete()
+        try:
+            track = SubCampaignTracker.objects.get(worker=worker, sub_campaign=sub_campaign)
+            track.delete()
+        except ObjectDoesNotExist:
+            pass
         context = get_context(campaign, "acr_job_end")
         context["vcode"] = get_mw_vcode(sub_campaign.sub_campaign_id, worker.name, campaign.vcode_key)
         return render(request, "audiocrowd/acr_job_end.html", context)
