@@ -41,6 +41,9 @@ link_list = {
 }
 
 
+#http://localhost:8000/audio/register/de_img_test/campaignid=de_img_test&workerid=Andre
+
+
 def index(request):
     return HttpResponse("Hello world")
 
@@ -172,7 +175,7 @@ def register(request, campaign_id):
 class GeneralQuestionsForm(ModelForm):
     class Meta:
         model = Worker
-        fields = ("gender", "birth_year", "hearing_loss", "subjective_test", "speech_test", "connected",
+        fields = ("gender", "birth_year", "hearing", "background_noise", "subjective_test", "speech_test", "connected",
                   "listening_device")
         widgets = {
             "birth_year": YearOnlySelectDateWidget(empty_label=("---------", "---------", "---------"),
@@ -184,24 +187,26 @@ class GeneralQuestionsForm(ModelForm):
         tmp = get_context(campaign, "qualification_job_questions")["qualification_job_questions"]
         self.fields["gender"].label = tmp[2]
         self.fields["birth_year"].label = tmp[3]
-        self.fields["hearing_loss"].label = tmp[4]
-        self.fields["subjective_test"].label = tmp[5]
-        self.fields["speech_test"].label = tmp[6]
-        self.fields["connected"].label = tmp[7]
-        self.fields["listening_device"].label = tmp[8]
+        self.fields["hearing"].label = tmp[4]
+        self.fields["background_noise"].label = tmp[5]
+        self.fields["subjective_test"].label = tmp[6]
+        self.fields["speech_test"].label = tmp[7]
+        self.fields["connected"].label = tmp[8]
+        self.fields["listening_device"].label = tmp[9]
         if campaign.language != "en":
+            # todo add choices for de for hearing & background_noise
             self.fields["gender"].choices = [("", "---------"),
                                              ("male", tmp[10][0]), ("female", tmp[10][1]), ("other", tmp[10][2])]
-            self.fields["birth_year"].widget.months = {1: tmp[11][0], 2: tmp[11][1], 3: tmp[11][2], 4: tmp[11][3],
-                                                       5: tmp[11][4], 6: tmp[11][5], 7: tmp[11][6], 8: tmp[11][7],
-                                                       9: tmp[11][8], 10: tmp[11][9], 11: tmp[11][10], 12: tmp[11][11]}
+            #self.fields["birth_year"].widget.months = {1: tmp[11][0], 2: tmp[11][1], 3: tmp[11][2], 4: tmp[11][3],
+            #                                           5: tmp[11][4], 6: tmp[11][5], 7: tmp[11][6], 8: tmp[11][7],
+            #                                           9: tmp[11][8], 10: tmp[11][9], 11: tmp[11][10], 12: tmp[11][11]}
             self.fields["subjective_test"].choices = [("", "---------"),
                                                       (0, tmp[12][0]), (1, tmp[12][1]), (2, tmp[12][2]),
                                                       (3, tmp[12][3]), (4, tmp[12][4]), (5, tmp[12][5])]
             self.fields["speech_test"].choices = [("", "---------"),
                                                   (0, tmp[12][0]), (1, tmp[12][1]), (2, tmp[12][2]),
                                                   (3, tmp[12][3]), (4, tmp[12][4]), (5, tmp[12][5])]
-            self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
+            #self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
             self.fields["connected"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
             self.fields["listening_device"].choices = [("", "---------"),
                                                        (0, tmp[14][0]), (1, tmp[14][1]), (2, tmp[14][2])]

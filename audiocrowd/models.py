@@ -3,7 +3,6 @@ from django.utils.timezone import now
 
 
 class SingletonModel(models.Model):
-
     class Meta:
         abstract = True
 
@@ -77,6 +76,15 @@ class Worker(models.Model):
                               null=True)
     birth_year = models.DateField(null=True)
     hearing_loss = models.IntegerField(choices=[(1, "Yes"), (0, "No")], null=True)
+    hearing = models.IntegerField(null=True, choices=[(0, "I have a normal hearing ability."),
+                                                      (1,"I have difficulties keeping up with conversations, especially in noisy surroundings."),
+                                                      (2,"I have difficulty keeping up with conversations when I am not using a hearing aid."),
+                                                      (3, "I rely on lip-reading even when I am using hearing aids.")])
+    background_noise = models.IntegerField(null=True, choices=[(5, "Not noticeable."),
+                                                               (4, "Slightly noticeable."),
+                                                               (3, "Noticeable but not intrusive."),
+                                                               (2, "Somewhat intrusive."),
+                                                               (1, "Very intrusive."), ])
     subjective_test = models.IntegerField(
         choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"),
                  (5, "1 year or more")], null=True)
