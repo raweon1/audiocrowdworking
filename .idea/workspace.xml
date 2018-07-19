@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0034_auto_20180717_1607.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/audiocrowdworking.iml" afterPath="$PROJECT_DIR$/.idea/audiocrowdworking.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/language.py" afterPath="$PROJECT_DIR$/audiocrowd/language.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/models.py" afterPath="$PROJECT_DIR$/audiocrowd/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/base.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,10 +15,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/audiocrowdworking$dbdatasheet.coverage" NAME="dbdatasheet Coverage Results" MODIFIED="1511868584703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audiocrowd" />
-    <SUITE FILE_PATH="coverage/audiocrowdworking$test_suit.coverage" NAME="test_suit Coverage Results" MODIFIED="1512476229533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/audiocrowdworking$vcodetest.coverage" NAME="vcodetest Coverage Results" MODIFIED="1511271946055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audiocrowd" />
     <SUITE FILE_PATH="coverage/audiocrowdworking$tests.coverage" NAME="tests Coverage Results" MODIFIED="1523440301610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audiocrowd" />
+    <SUITE FILE_PATH="coverage/audiocrowdworking$dbdatasheet.coverage" NAME="dbdatasheet Coverage Results" MODIFIED="1511868584703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audiocrowd" />
+    <SUITE FILE_PATH="coverage/audiocrowdworking$test_suit.coverage" NAME="test_suit Coverage Results" MODIFIED="1512476229533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/audiocrowdworking$language.coverage" NAME="language Coverage Results" MODIFIED="1523440257511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/audiocrowd" />
   </component>
   <component name="DatabaseView">
@@ -42,33 +37,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="191" column="53" lean-forward="true" selection-start-line="191" selection-start-column="53" selection-end-line="191" selection-end-column="53" />
+            <state relative-caret-position="-2329">
+              <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#1357#1498#0" expanded="false" />
                 <element signature="e#1512#1698#0" expanded="false" />
-                <element signature="e#1897#1901#0" expanded="false" />
-                <element signature="e#1944#1948#0" expanded="false" />
-                <element signature="e#1978#2079#0" expanded="false" />
-                <element signature="e#2108#2208#0" expanded="false" />
-                <element signature="e#2775#2858#0" expanded="false" />
-                <element signature="e#2907#3364#0" expanded="false" />
-                <element signature="e#3408#3519#0" expanded="false" />
-                <element signature="e#12042#12074#0" expanded="false" />
-                <element signature="e#12133#12579#0" expanded="false" />
-                <element signature="e#14809#14867#0" expanded="false" />
-                <element signature="e#16564#16599#0" expanded="false" />
-                <element signature="e#16915#17596#0" expanded="false" />
-                <element signature="e#17669#18407#0" expanded="false" />
-                <element signature="e#18410#18468#0" expanded="false" />
-                <element signature="e#18751#18851#0" expanded="false" />
-                <element signature="e#18995#19005#0" expanded="false" />
-                <element signature="e#19046#20380#0" expanded="false" />
+                <marker date="1532000059290" expanded="false" signature="12037:12074" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="12128:12579" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="14809:15216" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="16564:16864" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="16910:17596" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="17664:18407" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="18410:18560" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="18751:18960" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="18990:19005" ph="..." />
+                <marker date="1532000059290" expanded="false" signature="19041:20380" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_widgets.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiocrowd/my_widgets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4896">
+              <caret line="288" column="30" lean-forward="false" selection-start-line="288" selection-start-column="30" selection-end-line="288" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audiocrowdworking/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,18 +96,31 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="77" column="60" lean-forward="true" selection-start-line="77" selection-start-column="60" selection-end-line="77" selection-end-column="60" />
-              <folding />
+            <state relative-caret-position="1275">
+              <caret line="76" column="32" lean-forward="false" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+              <folding>
+                <marker date="1532000059280" expanded="true" signature="104:105" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="3770:4837" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="3832:3951" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="4021:4140" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="4794:4837" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="4872:5201" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="5124:5201" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="5243:5403" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="5436:5803" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="5739:5803" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="5833:6229" ph="..." />
+                <marker date="1532000059280" expanded="true" signature="6128:6229" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiocrowd/urls.py">
+      <file leaf-file-name="setup_django_server.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setup_django_server.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+            <state relative-caret-position="323">
+              <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -107,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
-              <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+              <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -117,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="83" lean-forward="true" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
+              <caret line="7" column="83" lean-forward="false" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -128,38 +161,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
               <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/audiocrowd/language.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="132" column="107" lean-forward="false" selection-start-line="132" selection-start-column="107" selection-end-line="132" selection-end-column="107" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qualification_job_questionaire.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_questionaire.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="107" lean-forward="false" selection-start-line="24" selection-start-column="107" selection-end-line="24" selection-end-column="107" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qualification_job_questions.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -253,7 +254,6 @@
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_scale.html" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questionaire.html" />
         <option value="$PROJECT_DIR$/audiocrowd/tests.py" />
-        <option value="$PROJECT_DIR$/templates/audiocrowd/base.html" />
         <option value="$PROJECT_DIR$/audiocrowd/dbdatasheet.py" />
         <option value="$PROJECT_DIR$/audiocrowdworking/settings.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/calibrate.html" />
@@ -263,6 +263,7 @@
         <option value="$PROJECT_DIR$/audiocrowd/language.py" />
         <option value="$PROJECT_DIR$/audiocrowd/views.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
+        <option value="$PROJECT_DIR$/templates/audiocrowd/base.html" />
       </list>
     </option>
   </component>
@@ -301,7 +302,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -353,7 +354,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,6 +373,124 @@
       <recent name="C:\Users\game\PycharmProjects\audiocrowdworking\audiocrowd" />
       <recent name="C:\Users\game\PycharmProjects\audiocrowdworking\audiocrowd\static\stimuli\audio" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/audiocrowdworking.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/audiocrowd/language.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/audiocrowd/models.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/audiocrowd/views.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/db.sqlite3</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/audiocrowd/migrations/0034_auto_20180717_1607.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -889,27 +1008,39 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25586355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4914712" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.60820895" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.39179105" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48081023" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.6066098" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48294243" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.4466951" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2531983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4914712" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@audiocrowdworking" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.39179105" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36847827" sideWeight="0.60820895" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48081023" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.4466951" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.48720682" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2531983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4936034" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1011,23 +1142,16 @@
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1357#1498#0" expanded="false" />
             <element signature="e#1512#1698#0" expanded="false" />
-            <element signature="e#1897#1901#0" expanded="false" />
-            <element signature="e#1944#1948#0" expanded="false" />
-            <element signature="e#1978#2079#0" expanded="false" />
-            <element signature="e#2108#2208#0" expanded="false" />
-            <element signature="e#2775#2858#0" expanded="false" />
-            <element signature="e#2907#3364#0" expanded="false" />
-            <element signature="e#3408#3519#0" expanded="false" />
-            <element signature="e#12042#12074#0" expanded="false" />
-            <element signature="e#12133#12579#0" expanded="false" />
-            <element signature="e#14809#14867#0" expanded="false" />
-            <element signature="e#16564#16599#0" expanded="false" />
-            <element signature="e#16915#17596#0" expanded="false" />
-            <element signature="e#17669#18407#0" expanded="false" />
-            <element signature="e#18410#18468#0" expanded="false" />
-            <element signature="e#18751#18851#0" expanded="false" />
-            <element signature="e#18995#19005#0" expanded="false" />
-            <element signature="e#19046#20380#0" expanded="false" />
+            <marker date="1532000059290" expanded="false" signature="12037:12074" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="12128:12579" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="14809:15216" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16564:16864" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16910:17596" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="17664:18407" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18410:18560" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18751:18960" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18990:19005" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="19041:20380" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1062,23 +1186,16 @@
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1357#1498#0" expanded="false" />
             <element signature="e#1512#1698#0" expanded="false" />
-            <element signature="e#1897#1901#0" expanded="false" />
-            <element signature="e#1944#1948#0" expanded="false" />
-            <element signature="e#1978#2079#0" expanded="false" />
-            <element signature="e#2108#2208#0" expanded="false" />
-            <element signature="e#2775#2858#0" expanded="false" />
-            <element signature="e#2907#3364#0" expanded="false" />
-            <element signature="e#3408#3519#0" expanded="false" />
-            <element signature="e#12042#12074#0" expanded="false" />
-            <element signature="e#12133#12579#0" expanded="false" />
-            <element signature="e#14809#14867#0" expanded="false" />
-            <element signature="e#16564#16599#0" expanded="false" />
-            <element signature="e#16915#17596#0" expanded="false" />
-            <element signature="e#17669#18407#0" expanded="false" />
-            <element signature="e#18410#18468#0" expanded="false" />
-            <element signature="e#18751#18851#0" expanded="false" />
-            <element signature="e#18995#19005#0" expanded="false" />
-            <element signature="e#19046#20380#0" expanded="false" />
+            <marker date="1532000059290" expanded="false" signature="12037:12074" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="12128:12579" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="14809:15216" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16564:16864" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16910:17596" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="17664:18407" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18410:18560" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18751:18960" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18990:19005" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="19041:20380" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1120,23 +1237,16 @@
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1357#1498#0" expanded="false" />
             <element signature="e#1512#1698#0" expanded="false" />
-            <element signature="e#1897#1901#0" expanded="false" />
-            <element signature="e#1944#1948#0" expanded="false" />
-            <element signature="e#1978#2079#0" expanded="false" />
-            <element signature="e#2108#2208#0" expanded="false" />
-            <element signature="e#2775#2858#0" expanded="false" />
-            <element signature="e#2907#3364#0" expanded="false" />
-            <element signature="e#3408#3519#0" expanded="false" />
-            <element signature="e#12042#12074#0" expanded="false" />
-            <element signature="e#12133#12579#0" expanded="false" />
-            <element signature="e#14809#14867#0" expanded="false" />
-            <element signature="e#16564#16599#0" expanded="false" />
-            <element signature="e#16915#17596#0" expanded="false" />
-            <element signature="e#17669#18407#0" expanded="false" />
-            <element signature="e#18410#18468#0" expanded="false" />
-            <element signature="e#18751#18851#0" expanded="false" />
-            <element signature="e#18995#19005#0" expanded="false" />
-            <element signature="e#19046#20380#0" expanded="false" />
+            <marker date="1532000059290" expanded="false" signature="12037:12074" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="12128:12579" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="14809:15216" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16564:16864" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16910:17596" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="17664:18407" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18410:18560" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18751:18960" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18990:19005" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="19041:20380" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1259,14 +1369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/dbdatasheet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1309,7 +1411,7 @@
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_scale.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="83" lean-forward="true" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
+          <caret line="7" column="83" lean-forward="false" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -1317,17 +1419,17 @@
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/acr_job_rate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+          <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/my_widgets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2048">
+        <state relative-caret-position="4896">
           <caret line="288" column="30" lean-forward="false" selection-start-line="288" selection-start-column="30" selection-end-line="288" selection-end-column="30" />
           <folding>
-            <element signature="e#0#39#0" expanded="false" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1350,9 +1452,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="77" column="60" lean-forward="true" selection-start-line="77" selection-start-column="60" selection-end-line="77" selection-end-column="60" />
-          <folding />
+        <state relative-caret-position="1275">
+          <caret line="76" column="32" lean-forward="false" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+          <folding>
+            <marker date="1532000059280" expanded="true" signature="104:105" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="3770:4837" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="3832:3951" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="4021:4140" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="4794:4837" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="4872:5201" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="5124:5201" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="5243:5403" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="5436:5803" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="5739:5803" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="5833:6229" ph="..." />
+            <marker date="1532000059280" expanded="true" signature="6128:6229" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1384,30 +1499,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="191" column="53" lean-forward="true" selection-start-line="191" selection-start-column="53" selection-end-line="191" selection-end-column="53" />
+        <state relative-caret-position="-2329">
+          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#1357#1498#0" expanded="false" />
             <element signature="e#1512#1698#0" expanded="false" />
-            <element signature="e#1897#1901#0" expanded="false" />
-            <element signature="e#1944#1948#0" expanded="false" />
-            <element signature="e#1978#2079#0" expanded="false" />
-            <element signature="e#2108#2208#0" expanded="false" />
-            <element signature="e#2775#2858#0" expanded="false" />
-            <element signature="e#2907#3364#0" expanded="false" />
-            <element signature="e#3408#3519#0" expanded="false" />
-            <element signature="e#12042#12074#0" expanded="false" />
-            <element signature="e#12133#12579#0" expanded="false" />
-            <element signature="e#14809#14867#0" expanded="false" />
-            <element signature="e#16564#16599#0" expanded="false" />
-            <element signature="e#16915#17596#0" expanded="false" />
-            <element signature="e#17669#18407#0" expanded="false" />
-            <element signature="e#18410#18468#0" expanded="false" />
-            <element signature="e#18751#18851#0" expanded="false" />
-            <element signature="e#18995#19005#0" expanded="false" />
-            <element signature="e#19046#20380#0" expanded="false" />
+            <marker date="1532000059290" expanded="false" signature="12037:12074" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="12128:12579" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="14809:15216" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16564:16864" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="16910:17596" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="17664:18407" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18410:18560" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18751:18960" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="18990:19005" ph="..." />
+            <marker date="1532000059290" expanded="false" signature="19041:20380" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/audiocrowd/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
