@@ -485,6 +485,7 @@ def acr_job_view(request):
             if headphone_check_questions.__len__() > 0:
                 rating_set.headphone_check_question = headphone_check_questions[
                     randint(0, headphone_check_questions.__len__() - 1)]
+                rating_set.save()
                 context["headphone_check_path"] = rating_set.headphone_check_question.path
             form = RatingSetForm(instance=rating_set)
             context["form"] = form
