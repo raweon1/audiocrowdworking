@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea82fcf0-33eb-4a1d-bba6-4826592ee62a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0035_ratingset_background_noise.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0036_remove_worker_background_noise.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/audiocrowd/migrations/0037_auto_20180724_1727.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/audiocrowdworking.iml" afterPath="$PROJECT_DIR$/.idea/audiocrowdworking.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/admin.py" afterPath="$PROJECT_DIR$/audiocrowd/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/language.py" afterPath="$PROJECT_DIR$/audiocrowd/language.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/models.py" afterPath="$PROJECT_DIR$/audiocrowd/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audiocrowd/views.py" afterPath="$PROJECT_DIR$/audiocrowd/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" afterPath="$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,8 +39,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="461" column="0" lean-forward="true" selection-start-line="461" selection-start-column="0" selection-end-line="461" selection-end-column="0" />
+            <state relative-caret-position="287">
+              <caret line="469" column="20" lean-forward="true" selection-start-line="469" selection-start-column="20" selection-end-line="469" selection-end-column="20" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -61,7 +51,7 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-918">
+            <state relative-caret-position="-1173">
               <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -74,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/audiocrowd/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -108,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+              <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -130,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="true" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -150,7 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>volume</find>
       <find>404</find>
       <find>access_acr</find>
       <find>delta</find>
@@ -180,6 +169,7 @@
       <find>DATA</find>
       <find>4</find>
       <find>next</find>
+      <find>randint</find>
     </findStrings>
     <replaceStrings>
       <replace>Sie</replace>
@@ -232,8 +222,8 @@
         <option value="$PROJECT_DIR$/audiocrowd/language.py" />
         <option value="$PROJECT_DIR$/audiocrowd/models.py" />
         <option value="$PROJECT_DIR$/templates/audiocrowd/acr_job_setup.html" />
-        <option value="$PROJECT_DIR$/audiocrowd/views.py" />
         <option value="$PROJECT_DIR$/audiocrowd/admin.py" />
+        <option value="$PROJECT_DIR$/audiocrowd/views.py" />
       </list>
     </option>
   </component>
@@ -500,13 +490,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1503578231002</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Register-Site angelegt&#10;Stimuli für die Bewertung werden zufällig ausgwählt und per Session gespeichert">
-      <created>1504193376150</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1504193376150</updated>
     </task>
     <task id="LOCAL-00004" summary="Bewertungen werden gespeichert, man kann mehrere sets bewerten">
       <created>1504538710659</created>
@@ -844,7 +827,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532000215882</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Updated RatingSet">
+      <created>1532447936193</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1532447936194</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView">
@@ -893,7 +883,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Bugfixes &amp; calibrated volume &amp; Sprache" />
     <MESSAGE value="Fixed a bug with invalid_set" />
     <MESSAGE value="Fixed a bug with volume &amp; session" />
     <MESSAGE value="Fixed a bug with invalid set" />
@@ -918,7 +907,8 @@
     <MESSAGE value="Datenbank update" />
     <MESSAGE value="Stimulus-Auswahl geändert" />
     <MESSAGE value="Kontakt wird in einem neuen Fenster geöffnet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kontakt wird in einem neuen Fenster geöffnet" />
+    <MESSAGE value="Updated RatingSet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated RatingSet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1236,7 +1226,7 @@
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/qualification_job_questions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1254,7 +1244,7 @@
     <entry file="file://$PROJECT_DIR$/templates/audiocrowd/display_stimulus.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="true" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1280,7 +1270,7 @@
     <entry file="file://$PROJECT_DIR$/audiocrowd/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -1289,7 +1279,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-918">
+        <state relative-caret-position="-1173">
           <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -1299,8 +1289,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/audiocrowd/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="461" column="0" lean-forward="true" selection-start-line="461" selection-start-column="0" selection-end-line="461" selection-end-column="0" />
+        <state relative-caret-position="287">
+          <caret line="469" column="20" lean-forward="true" selection-start-line="469" selection-start-column="20" selection-end-line="469" selection-end-column="20" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
