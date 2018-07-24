@@ -9,7 +9,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import Stimuli, GoldStandardQuestions, Worker, Rating, GoldStandardAnswers, Configuration, RatingSet, \
     Campaign, SubCampaign, SubCampaignTracker
 from .language import get_context
-from .my_widgets import MySelectDateWidget, YearOnlySelectDateWidget
+from .my_widgets import YearOnlySelectDateWidget
 from .dbdatasheet import write_db_csv
 
 from audiocrowdworking.settings import STATIC_ROOT
@@ -39,9 +39,6 @@ link_list = {
     job_list['training']: "/audio/training/",
     job_list['acr']: "/audio/acr/",
 }
-
-
-#http://localhost:8000/audio/register/de_img_test/campaignid=de_img_test&workerid=Andre
 
 
 def index(request):
@@ -175,8 +172,7 @@ def register(request, campaign_id):
 class GeneralQuestionsForm(ModelForm):
     class Meta:
         model = Worker
-        fields = ("gender", "birth_year", "hearing", "background_noise", "subjective_test", "speech_test", "connected",
-                  "listening_device")
+        fields = ("gender", "birth_year", "hearing", "subjective_test", "speech_test", "connected", "listening_device")
         widgets = {
             "birth_year": YearOnlySelectDateWidget(empty_label=("---------", "---------", "---------"),
                                                    years=[y for y in range(1950, 2007)])
@@ -188,16 +184,15 @@ class GeneralQuestionsForm(ModelForm):
         self.fields["gender"].label = tmp[2]
         self.fields["birth_year"].label = tmp[3]
         self.fields["hearing"].label = tmp[4]
-        self.fields["background_noise"].label = tmp[5]
-        self.fields["subjective_test"].label = tmp[6]
-        self.fields["speech_test"].label = tmp[7]
-        self.fields["connected"].label = tmp[8]
-        self.fields["listening_device"].label = tmp[9]
+        self.fields["subjective_test"].label = tmp[5]
+        self.fields["speech_test"].label = tmp[6]
+        self.fields["connected"].label = tmp[7]
+        self.fields["listening_device"].label = tmp[8]
         if campaign.language != "en":
             # todo add choices for de for hearing & background_noise
             self.fields["gender"].choices = [("", "---------"),
                                              ("male", tmp[10][0]), ("female", tmp[10][1]), ("other", tmp[10][2])]
-            #self.fields["birth_year"].widget.months = {1: tmp[11][0], 2: tmp[11][1], 3: tmp[11][2], 4: tmp[11][3],
+            # self.fields["birth_year"].widget.months = {1: tmp[11][0], 2: tmp[11][1], 3: tmp[11][2], 4: tmp[11][3],
             #                                           5: tmp[11][4], 6: tmp[11][5], 7: tmp[11][6], 8: tmp[11][7],
             #                                           9: tmp[11][8], 10: tmp[11][9], 11: tmp[11][10], 12: tmp[11][11]}
             self.fields["subjective_test"].choices = [("", "---------"),
@@ -206,7 +201,7 @@ class GeneralQuestionsForm(ModelForm):
             self.fields["speech_test"].choices = [("", "---------"),
                                                   (0, tmp[12][0]), (1, tmp[12][1]), (2, tmp[12][2]),
                                                   (3, tmp[12][3]), (4, tmp[12][4]), (5, tmp[12][5])]
-            #self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
+            # self.fields["hearing_loss"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
             self.fields["connected"].choices = [("", "---------"), (1, tmp[13][0]), (0, tmp[13][1])]
             self.fields["listening_device"].choices = [("", "---------"),
                                                        (0, tmp[14][0]), (1, tmp[14][1]), (2, tmp[14][2])]
@@ -441,6 +436,25 @@ def get_mw_vcode(sub_campaign_id, worker_id, vcode_key):
     return "mw-" + sha256(tmp.encode("utf-8")).hexdigest()
 
 
+class RatingSetForm(ModelForm):
+    class Meta:
+        model = RatingSet
+        fields = ("background_noise",)
+
+
+def get_rating_set(worker, sub_campaign):
+    set_nr = RatingSet.objects.filter(worker=worker, finished=True,
+                                      sub_campaign__parent_campaign=sub_campaign.parent_campaign).__len__() + 1
+    try:
+        rating_set = RatingSet.objects.get(worker=worker, finished=False)
+        rating_set.set_nr = set_nr
+        rating_set.sub_campaign = sub_campaign
+    except ObjectDoesNotExist:
+        rating_set = RatingSet(worker=worker, sub_campaign=sub_campaign, set_nr=set_nr)
+    rating_set.save()
+    return rating_set
+
+
 def acr_job_view(request):
     error, http, worker, campaign, sub_campaign, task = get_environment(request, job_list['acr'])
     if error:
@@ -448,26 +462,38 @@ def acr_job_view(request):
 
     if task == task_list[job_list['acr']]['setup']:
         if request.method == "POST":
-            # nach dem Setup wird ein RatingSet erstellt, in dem die Kalibrierung abgespeichert wird
             request.session["calibrate"] = request.POST.dict()["calibrate"]
+            rating_set = get_rating_set(worker, sub_campaign)
             try:
-                rating_set = RatingSet.objects.get(worker=worker, finished=False)
-                rating_set.sub_campaign = sub_campaign
-            except ObjectDoesNotExist:
-                set_nr = RatingSet.objects.filter(worker=worker, finished=True).__len__() + 1
-                rating_set = RatingSet(worker=worker, sub_campaign=sub_campaign,
-                                       set_nr=set_nr)
-            rating_set.save()
-            return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['rate'])
-        context = get_context(campaign, "acr_job_setup", "calibrate")
-        context["calibrate_stimulus"] = campaign.calibrate_stimulus
-        context["volume"] = request.session["calibrate"]
-        return render(request, "audiocrowd/acr_job_setup.html", context)
+                rating_set.headphone_check_answer = request.POST.dict()["headphone_check"]
+            except KeyError:
+                pass
+            form = RatingSetForm(data=request.POST, instance=rating_set)
+            if form.is_valid():
+                form.save()
+                rating_set.save()
+                return redirect_to(request, job_list['acr'], task_list[job_list['acr']]['rate'])
+            else:
+                # Die Form ist sollte immer valid sein
+                return HttpResponse("Form is invalid")
+        else:
+            context = get_context(campaign, "acr_job_setup", "calibrate")
+            context["calibrate_stimulus"] = campaign.calibrate_stimulus
+            context["volume"] = request.session["calibrate"]
+            rating_set = get_rating_set(worker, sub_campaign)
+            headphone_check_questions = campaign.headphone_check.all()
+            if headphone_check_questions.__len__() > 0:
+                rating_set.headphone_check_question = headphone_check_questions[
+                    randint(0, headphone_check_questions.__len__())]
+                context["headphone_check_path"] = rating_set.headphone_check_question.path
+            form = RatingSetForm(instance=rating_set)
+            context["form"] = form
+            return render(request, "audiocrowd/acr_job_setup.html", context)
 
     elif task == task_list[job_list['acr']]['rate']:
         if request.method == "POST":
             other, stimuli, gold_standard = parse_rating_form(request.POST.dict())
-            rating_set = RatingSet.objects.get(worker=worker, finished=False)
+            rating_set = get_rating_set(worker, sub_campaign)
             for stimulus in stimuli:
                 stim_dict = stimuli[stimulus]
                 rating = Rating(rating_set=rating_set, stimulus=stim_dict["object"], rating=stim_dict["rating"])

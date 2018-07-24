@@ -41,6 +41,15 @@ class GoldStandardQuestions(models.Model):
         return "gold_standard : " + str(self.name)
 
 
+class HeadphoneCheckStimulus(models.Model):
+    name = models.CharField(max_length=64)
+    expected_answer = models.CharField(max_length=64)
+    path = models.CharField(max_length=64)
+
+    def __str__(self):
+        return "headphone_check : %s" % str(self.name)
+
+
 class Campaign(models.Model):
     campaign_id = models.CharField(max_length=50)
 
@@ -53,6 +62,7 @@ class Campaign(models.Model):
     stimuli = models.ManyToManyField(Stimuli, related_name="stimuli")
     gold_standard_questions = models.ManyToManyField(GoldStandardQuestions)
     training_stimuli = models.ManyToManyField(Stimuli, related_name="training_stimuli")
+    headphone_check = models.ManyToManyField(HeadphoneCheckStimulus)
     calibrate_stimulus = models.ForeignKey(Stimuli)
 
     contact_link = models.CharField(max_length=100, default="http://crowd-square.com/viewtopic.php?f=30&t=18835")
@@ -80,11 +90,7 @@ class Worker(models.Model):
                                                       (1,"I have difficulties keeping up with conversations, especially in noisy surroundings."),
                                                       (2,"I have difficulty keeping up with conversations when I am not using a hearing aid."),
                                                       (3, "I rely on lip-reading even when I am using hearing aids.")])
-    background_noise = models.IntegerField(null=True, choices=[(5, "Not noticeable."),
-                                                               (4, "Slightly noticeable."),
-                                                               (3, "Noticeable but not intrusive."),
-                                                               (2, "Somewhat intrusive."),
-                                                               (1, "Very intrusive."), ])
+
     subjective_test = models.IntegerField(
         choices=[(0, "Never"), (1, "1 Month"), (2, "3 Months"), (3, "6 Months"), (4, "9 Months"),
                  (5, "1 year or more")], null=True)
@@ -129,6 +135,13 @@ class RatingSet(models.Model):
     set_nr = models.IntegerField()
     finished = models.BooleanField(default=False)
     invalid_set = models.BooleanField(default=False)
+    background_noise = models.IntegerField(null=True, choices=[(5, "Not noticeable."),
+                                                               (4, "Slightly noticeable."),
+                                                               (3, "Noticeable but not intrusive."),
+                                                               (2, "Somewhat intrusive."),
+                                                               (1, "Very intrusive."), ])
+    headphone_check_question = models.ForeignKey(HeadphoneCheckStimulus, null=True, on_delete=models.CASCADE)
+    headphone_check_answer = models.CharField(max_length=64, null=True)
 
     def __str__(self):
         return str(self.worker) + " / set: " + str(self.set_nr)

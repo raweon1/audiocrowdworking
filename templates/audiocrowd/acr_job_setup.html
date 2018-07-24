@@ -1,5 +1,6 @@
 {% extends "audiocrowd/base.html" %}
 {% load custom_tags %}
+{% load static %}
 
 {% block task %}
     <div class="panel-heading">{{ acr_job_setup.0 }}</div>
@@ -9,8 +10,37 @@
         <form method="post">
             {% csrf_token %}
             {% calibrate_volume calibrate_stimulus volume %}
+            <p>{{ acr_job_setup.3 }}</p>
+            {{ form.as_p }}
+
+            {% if headphone_check_path %}
+                <p>Please listen to the following audio file and enter the result in the text field.</p>
+                <div class="align-center">
+                    <audio id="headphone_check" class="stimulus-aud">
+                        <source src="{% static headphone_check_path %}" type="audio/wav">
+                        Your browser does not support the audio tag
+                    </audio>
+                    <button type="button" id="headphone_check_button" class="acr-button">Play/Pause</button>
+                    <input name="headphone_check" style="width: 130px" required>
+                    <script>
+                        $(document).ready(function () {
+                            $("#headphone_check_button").click(function () {
+                                var audio = document.getElementById("headphone_check");
+                                $("#headphone_check").prop("volume", $("#calibrate_audio_range").prop("value"));
+                                if(audio.paused){
+                                    // audio.currentTime = 0;
+                                    audio.play();
+                                } else {
+                                    audio.pause();
+                                }
+                                return false;
+                            });
+                        });
+                    </script>
+                </div>
+            {% endif %}
             <div class="align-right">
-                <input type="submit" value="{{ acr_job_setup.3 }}">
+                <input type="submit" value="{{ acr_job_setup.4 }}">
             </div>
         </form>
     </div>
